@@ -30,5 +30,5 @@
 action: submit
 gpus: 0
 test: true
-milestone: method_runs
-notes: "CPU rerun with sliding-window, same-budget 1D sparse baseline, and Light Forcing scored through the evaluator."
+milestone: core_claim
+notes: "CPU run of the expanded reproduction: core setting plus longer-context setting for possible core_claim_plus."

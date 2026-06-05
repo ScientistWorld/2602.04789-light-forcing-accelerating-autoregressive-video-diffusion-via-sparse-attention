@@ -21,6 +21,28 @@
           "mean_relative_l2_error": 0.24087613740412614
         }
       }
+    },
+    "scaled_attention_long_context": {
+      "results": {
+        "light_forcing": {
+          "active_block_fraction": 0.12037037037037036,
+          "dense_equivalent_fraction": 1.0,
+          "mean_cosine_similarity": 0.8752470082706876,
+          "mean_relative_l2_error": 0.4860897226949618
+        },
+        "one_d_sparse": {
+          "active_block_fraction": 0.12037037037037036,
+          "dense_equivalent_fraction": 1.0,
+          "mean_cosine_similarity": 0.873947540918986,
+          "mean_relative_l2_error": 0.4891214298927246
+        },
+        "sliding_window": {
+          "active_block_fraction": 0.37777777777777777,
+          "dense_equivalent_fraction": 1.0,
+          "mean_cosine_similarity": 0.7187635079026222,
+          "mean_relative_l2_error": 0.6424905562374733
+        }
+      }
     }
   }
 }
