@@ -29,6 +29,7 @@ class LightForcingConfig:
     topk_frames: int = 6
     s_target: float = 0.90
     s_base: float = 0.98
+    allocation: str = "cag"
     seed: int = 260204789
 
 
@@ -65,6 +66,12 @@ def allocate_chunk_sparsities(
     for i in adjustable:
         sparsities.append(max(0.0, min(0.99, s_base - alphas[i] * beta)))
     return sparsities
+
+
+def allocate_uniform_sparsities(*, chunks: int, s_target: float) -> list[float]:
+    """Ablation for CAG: keep the paper's dense first chunk, then use one sparsity."""
+
+    return [0.0] + [s_target for _ in range(1, chunks)]
 
 
 def _block_mean(x: torch.Tensor, block_size: int) -> torch.Tensor:
@@ -148,14 +155,19 @@ def run_light_forcing(config: LightForcingConfig) -> dict:
         dim=config.dim,
         seed=config.seed,
     )
-    sparsities = allocate_chunk_sparsities(
-        chunks=config.chunks,
-        frames_per_chunk=config.frames_per_chunk,
-        tokens_per_frame=config.tokens_per_frame,
-        block_size=config.block_size,
-        s_target=config.s_target,
-        s_base=config.s_base,
-    )
+    if config.allocation == "cag":
+        sparsities = allocate_chunk_sparsities(
+            chunks=config.chunks,
+            frames_per_chunk=config.frames_per_chunk,
+            tokens_per_frame=config.tokens_per_frame,
+            block_size=config.block_size,
+            s_target=config.s_target,
+            s_base=config.s_base,
+        )
+    elif config.allocation == "uniform":
+        sparsities = allocate_uniform_sparsities(chunks=config.chunks, s_target=config.s_target)
+    else:
+        raise ValueError(f"unknown allocation: {config.allocation}")
     outputs = []
     masks = []
     active_blocks = 0
@@ -206,6 +218,7 @@ def main() -> None:
     parser.add_argument("--topk-frames", type=int, default=6)
     parser.add_argument("--s-target", type=float, default=0.90)
     parser.add_argument("--s-base", type=float, default=0.98)
+    parser.add_argument("--allocation", choices=["cag", "uniform"], default="cag")
     parser.add_argument("--seed", type=int, default=260204789)
     args = parser.parse_args()
 
@@ -218,6 +231,7 @@ def main() -> None:
         topk_frames=args.topk_frames,
         s_target=args.s_target,
         s_base=args.s_base,
+        allocation=args.allocation,
         seed=args.seed,
     )
     artifact = run_light_forcing(config)

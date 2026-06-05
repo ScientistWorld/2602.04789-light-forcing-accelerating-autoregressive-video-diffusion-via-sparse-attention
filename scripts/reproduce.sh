@@ -22,6 +22,13 @@ rm -f scoring/scores.json
 bash scripts/baseline.sh sliding_window
 bash scripts/baseline.sh one_d_sparse
 bash scripts/method.sh
+python -m method.light_forcing_attention \
+  --allocation uniform \
+  --output outputs/light_forcing_uniform.pt
+bash scripts/evaluate.sh \
+  light_forcing_uniform \
+  outputs/light_forcing_uniform.pt \
+  scaled_attention_core
 
 LONG_CONTEXT_ARGS=(
   --chunks 9
@@ -57,6 +64,16 @@ python -m method.light_forcing_attention \
 bash scripts/evaluate.sh \
   light_forcing \
   outputs/light_forcing_long_context.pt \
+  scaled_attention_long_context \
+  "${LONG_CONTEXT_ARGS[@]}"
+
+python -m method.light_forcing_attention \
+  --allocation uniform \
+  --output outputs/light_forcing_uniform_long_context.pt \
+  "${LONG_CONTEXT_ARGS[@]}"
+bash scripts/evaluate.sh \
+  light_forcing_uniform \
+  outputs/light_forcing_uniform_long_context.pt \
   scaled_attention_long_context \
   "${LONG_CONTEXT_ARGS[@]}"
 

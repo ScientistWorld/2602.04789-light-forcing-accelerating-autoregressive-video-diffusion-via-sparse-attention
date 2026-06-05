@@ -32,3 +32,12 @@ Checks the same output-preservation and active-tile constraints when autoregress
 - **Metric**: `mean_cosine_similarity` (higher is better)
 - **Metric**: `active_block_fraction` (lower is better)
 - **Run**: `bash scripts/reproduce.sh`
+
+## Ablation: light_forcing_uniform
+
+Tests whether sparse methods benefit from adapting sparsity across autoregressive chunks instead of using one fixed sparsity level after the initial dense chunk.
+
+- **Metric**: `mean_relative_l2_error` (lower is better)
+- **Metric**: `mean_cosine_similarity` (higher is better)
+- **Metric**: `active_block_fraction` (lower is better)
+- **Run**: `bash scripts/reproduce.sh`

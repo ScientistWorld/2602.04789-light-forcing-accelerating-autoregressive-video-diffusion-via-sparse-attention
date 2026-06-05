@@ -37,6 +37,13 @@
           "active_block_fraction": 0.1,
           "dense_equivalent_fraction": 1.0
         },
+        "light_forcing_uniform": {
+          "type": "proposed",
+          "mean_relative_l2_error": 0.0,
+          "mean_cosine_similarity": 1.0,
+          "active_block_fraction": 0.1,
+          "dense_equivalent_fraction": 1.0
+        },
         "sliding_window": {
           "type": "baseline",
           "mean_relative_l2_error": 0.0,
@@ -84,6 +91,13 @@
           "dense_equivalent_fraction": 1.0
         },
         "light_forcing": {
+          "type": "proposed",
+          "mean_relative_l2_error": 0.0,
+          "mean_cosine_similarity": 1.0,
+          "active_block_fraction": 0.1,
+          "dense_equivalent_fraction": 1.0
+        },
+        "light_forcing_uniform": {
           "type": "proposed",
           "mean_relative_l2_error": 0.0,
           "mean_cosine_similarity": 1.0,

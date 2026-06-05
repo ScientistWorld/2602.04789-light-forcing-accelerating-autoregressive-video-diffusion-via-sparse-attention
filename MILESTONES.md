@@ -1,6 +1,6 @@
 # Reproduction Milestones
 
-**Current: core_claim**
+**Current: core_claim_plus**
 
 <!-- Milestone levels (update "Current" above as you progress):
   none             — just started, no meaningful progress yet
@@ -34,6 +34,11 @@
 - CPU job `e2d100d1-446` completed successfully with the same-budget chunk-agnostic sparse baseline.
 - At the same 13.1% active block fraction, Light Forcing scored lower mean relative L2 error than the one-dimensional sparse baseline: 0.367 vs. 0.374.
 - Added a longer-context scaled benchmark setting for the next run to test whether this advantage persists beyond the minimum setting.
+
+### [2026-06-05 03:43] - core_claim_plus
+- CPU job `12c2e3d9-a7f` completed successfully with core and longer-context settings.
+- In the longer-context setting, Light Forcing scored lower mean relative L2 error than the same-budget one-dimensional sparse baseline: 0.486 vs. 0.489 at the same 12.0% active block fraction.
+- Added a uniform-sparsity ablation for the next run to test the chunk-aware allocation contribution.
 
 ## Stop Justification
 - Not stopped.

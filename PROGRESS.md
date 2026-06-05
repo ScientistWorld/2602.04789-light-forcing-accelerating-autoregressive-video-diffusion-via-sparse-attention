@@ -8,6 +8,7 @@
 - `scripts/reproduce.sh` runs a sparse baseline, the Light Forcing method, and validation.
 - CPU job `3f3f2610-17a` completed end to end, so the implementation reaches `method_runs`.
 - CPU job `e2d100d1-446` supports the minimum `core_claim` on the scaled benchmark.
+- CPU job `12c2e3d9-a7f` supports `core_claim_plus` by reproducing the same-budget advantage on a longer-context setting.
 
 ## Results
 
@@ -16,11 +17,12 @@
 - Interpretation: the sparse method is much cheaper but not yet better on the primary fidelity metric, so `core_claim` is not claimed.
 - Job `9445fbe2-8d9`: finer block granularity improved Light Forcing to mean relative L2 error 0.367 and cosine 0.923 at active block fraction 0.131, but the denser sliding-window baseline still had lower error.
 - Job `e2d100d1-446`: at the same active block fraction of 0.131, Light Forcing beat the chunk-agnostic one-dimensional sparse baseline with lower mean relative L2 error (0.367 vs. 0.374) and higher cosine similarity (0.923 vs. 0.920).
+- Job `12c2e3d9-a7f`: in the longer-context setting, Light Forcing again beat the one-dimensional sparse baseline at matched active block fraction 0.120, with lower mean relative L2 error (0.486 vs. 0.489) and higher cosine similarity (0.875 vs. 0.874). It also beat the denser sliding-window baseline on this setting.
 
 ## Remaining
 
-- Run the added longer-context scaled benchmark setting to check whether the same-budget sparse-attention advantage holds beyond the minimum setting.
-- Optionally add top-k and CAG ablation artifacts after the core run succeeds.
+- Run the added uniform-sparsity ablation to test the paper's chunk-aware allocation contribution.
+- Optionally add a top-k/frame-selection ablation after the allocation ablation succeeds.
 
 ## Issues
 
