@@ -2,4 +2,4 @@ action: submit
 gpus: 0
 test: true
 milestone: secondary_claims
-notes: "CPU test-node verification of updated scripts/run.sh: regenerate artifacts via reproduce.sh, then run train/test split evaluation and validate.py --compare inside the container."
+notes: "CPU test-node verification after final scoring fix: regenerate scores with the full weighted metric set, run train/test split evaluation, and validate.py --compare inside the container."

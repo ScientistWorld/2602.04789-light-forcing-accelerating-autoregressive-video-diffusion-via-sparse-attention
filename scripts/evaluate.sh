@@ -25,7 +25,7 @@ cd /home/user
 
 mkdir -p scoring
 
-METHOD_NAME="${1:-light_forcing}"
+METHOD_NAME="${1:-candidate}"
 ARTIFACT="${2:-outputs/${METHOD_NAME}.pt}"
 EXPERIMENT="${3:-scaled_attention_core}"
 if [ "$#" -ge 3 ]; then

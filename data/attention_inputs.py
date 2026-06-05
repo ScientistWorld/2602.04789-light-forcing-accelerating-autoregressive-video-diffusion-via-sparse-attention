@@ -1,4 +1,4 @@
-"""Deterministic inputs for the Light Forcing attention benchmark."""
+"""Deterministic inputs for sparse autoregressive attention benchmarks."""
 
 from __future__ import annotations
 

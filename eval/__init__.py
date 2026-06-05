@@ -1,1 +1,1 @@
-"""Evaluation utilities for the Light Forcing reproduction."""
+"""Evaluation utilities for sparse autoregressive attention artifacts."""

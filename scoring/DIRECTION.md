@@ -10,7 +10,7 @@ Work should improve sparse long-context attention for chunked autoregressive gen
 
 ## Approach Scope
 
-In-scope work may change sparsity allocation, frame or block retrieval, mask construction, block scoring, or sparse attention accounting. The method must remain a sparse attention method for chunked autoregressive context.
+In-scope work may change how candidate methods assign attention budgets, select historical context, construct masks, score candidate tiles, or account for sparse attention cost. The method must remain a sparse attention method for chunked autoregressive context.
 
 ## Out of Bounds
 

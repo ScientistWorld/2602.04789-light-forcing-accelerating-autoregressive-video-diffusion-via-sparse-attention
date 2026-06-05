@@ -76,6 +76,9 @@ def score_artifact(path: Path, args: argparse.Namespace) -> dict[str, float]:
     return {
         "mean_relative_l2_error": float(sum(rel_errors) / len(rel_errors)),
         "mean_cosine_similarity": float(sum(cosine) / len(cosine)),
+        "max_relative_l2_error": float(max(rel_errors)),
+        "min_cosine_similarity": float(min(cosine)),
+        "last_chunk_relative_l2_error": float(rel_errors[-1]),
         "active_block_fraction": active_fraction,
         "dense_equivalent_fraction": 1.0,
     }
@@ -84,7 +87,7 @@ def score_artifact(path: Path, args: argparse.Namespace) -> dict[str, float]:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--artifact", type=Path, required=True)
-    parser.add_argument("--method-name", default="light_forcing")
+    parser.add_argument("--method-name", default="candidate")
     parser.add_argument("--experiment", default="scaled_attention_core")
     parser.add_argument("--scores", type=Path, default=Path("scoring/scores.json"))
     parser.add_argument("--chunks", type=int, default=7)

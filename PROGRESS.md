@@ -37,7 +37,7 @@
 
 ## Issues
 
-- Local login-node Python does not have `torch`, so the updated `scripts/run.sh` is being verified through a CPU test-node submission inside the prepared container.
+- Final verification found that the main evaluator did not emit the full metric set weighted in `scoring/reference.json`; `eval/attention_benchmark.py` now reports worst-chunk and last-chunk metrics, and the updated path is being verified through a CPU test-node submission inside the prepared container because local login-node Python does not have `torch`.
 - Full 1.3B video generation and VBench evaluation are not feasible as a first pass in this workspace because the paper's upstream code and model weights are not released in a directly runnable form here.
 
 ## Deviations from Paper

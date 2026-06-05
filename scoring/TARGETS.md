@@ -2,7 +2,7 @@
 
 ## Paper-Reported Reference Targets
 
-`scoring/reference.json` includes paper-reported VBench results from Table 1 for Self-Forcing and LongLive, component ablations from Table 2, and HSA top-k ablations from Table 3. These document the original target claims: preserve or improve video-generation quality while reducing attention cost, and show that CAG and HSA each matter.
+`scoring/reference.json` includes paper-reported VBench results from Table 1 for Self-Forcing and LongLive, plus paper ablation tables for context. These document the original target claims: preserve or improve video-generation quality while reducing attention cost.
 
 The packaged runnable reproduction does not regenerate 1.3B videos or run VBench. It evaluates the same sparse-attention computation on deterministic scaled attention artifacts through the targets below.
 
@@ -39,9 +39,9 @@ Checks the same output-preservation and active-tile constraints when autoregress
 - **Metric**: `active_block_fraction` (lower is better)
 - **Run**: `bash scripts/reproduce.sh`
 
-## Ablation: light_forcing_uniform
+## Ablation: fixed-budget variants
 
-Tests whether sparse methods benefit from adapting sparsity across autoregressive chunks instead of using one fixed sparsity level after the initial dense chunk.
+Tests whether sparse methods benefit from changing their attention budget across autoregressive chunks instead of using one fixed budget after the initial chunk.
 
 - **Metric**: `mean_relative_l2_error` (lower is better)
 - **Metric**: `mean_cosine_similarity` (higher is better)
