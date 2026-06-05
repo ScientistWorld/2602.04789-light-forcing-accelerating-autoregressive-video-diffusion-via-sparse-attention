@@ -5,4 +5,4 @@ action: done
 gpus: 0
 test: false
 milestone: secondary_claims
-notes: "Packaged scaled Light Forcing reproduction passes validation and includes core, long-context, and CAG ablation results."
+notes: "Continuation audit restored secondary_claims: CAG+HSA implementation is real, validation passes, and scaled core/long-context/CAG ablation scores are job-generated."

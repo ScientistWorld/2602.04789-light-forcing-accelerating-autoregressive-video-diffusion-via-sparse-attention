@@ -2,6 +2,7 @@
 
 ## What Works
 
+- Continuation audit on 2026-06-05 confirmed the existing reproduction remains trustworthy after the milestone reset from `secondary_claims` to `core_claim_plus`; the milestone is restored to `secondary_claims`.
 - Paper analysis is complete for the core method, main VBench results, ablations, and implementation hyperparameters.
 - The final milestone metadata is aligned with the completed `secondary_claims` reproduction state.
 - Continuation audit confirmed the method code implements the paper's CAG and HSA sparse-attention computations rather than a learned surrogate.
@@ -17,6 +18,7 @@
 
 ## Results
 
+- Continuation audit: `python validate.py --compare` passes with `scoring/reference.json` and `scoring/scores.json`; `eval/` remains independent from `method/`, and prior job logs show the packaged scripts generated the reported scaled scores.
 - Job `3f3f2610-17a`: Light Forcing mean relative L2 error 0.497, cosine 0.855, active block fraction 0.137.
 - Same job: sliding-window baseline mean relative L2 error 0.444, cosine 0.859, active block fraction 0.464.
 - Interpretation: the sparse method is much cheaper but not yet better on the primary fidelity metric, so `core_claim` is not claimed.
