@@ -89,7 +89,7 @@ def main() -> None:
     parser.add_argument("--scores", type=Path, default=Path("scoring/scores.json"))
     parser.add_argument("--chunks", type=int, default=7)
     parser.add_argument("--frames-per-chunk", type=int, default=3)
-    parser.add_argument("--tokens-per-frame", type=int, default=128)
+    parser.add_argument("--tokens-per-frame", type=int, default=256)
     parser.add_argument("--dim", type=int, default=64)
     parser.add_argument("--seed", type=int, default=260204789)
     args = parser.parse_args()

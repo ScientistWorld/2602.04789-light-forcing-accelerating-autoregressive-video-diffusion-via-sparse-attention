@@ -23,7 +23,7 @@ from data.attention_inputs import make_structured_qkv
 class LightForcingConfig:
     chunks: int = 7
     frames_per_chunk: int = 3
-    tokens_per_frame: int = 128
+    tokens_per_frame: int = 256
     dim: int = 64
     block_size: int = 64
     topk_frames: int = 6
@@ -200,7 +200,7 @@ def main() -> None:
     parser.add_argument("--output", type=Path, default=Path("outputs/light_forcing.pt"))
     parser.add_argument("--chunks", type=int, default=7)
     parser.add_argument("--frames-per-chunk", type=int, default=3)
-    parser.add_argument("--tokens-per-frame", type=int, default=128)
+    parser.add_argument("--tokens-per-frame", type=int, default=256)
     parser.add_argument("--dim", type=int, default=64)
     parser.add_argument("--block-size", type=int, default=64)
     parser.add_argument("--topk-frames", type=int, default=6)

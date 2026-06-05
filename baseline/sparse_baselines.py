@@ -68,7 +68,7 @@ def main() -> None:
     parser.add_argument("--output", type=Path, default=Path("outputs/sliding_window.pt"))
     parser.add_argument("--chunks", type=int, default=7)
     parser.add_argument("--frames-per-chunk", type=int, default=3)
-    parser.add_argument("--tokens-per-frame", type=int, default=128)
+    parser.add_argument("--tokens-per-frame", type=int, default=256)
     parser.add_argument("--dim", type=int, default=64)
     parser.add_argument("--block-size", type=int, default=64)
     parser.add_argument("--window-frames", type=int, default=6)
