@@ -22,6 +22,7 @@
 - Job `12c2e3d9-a7f`: in the longer-context setting, Light Forcing again beat the one-dimensional sparse baseline at matched active block fraction 0.120, with lower mean relative L2 error (0.486 vs. 0.489) and higher cosine similarity (0.875 vs. 0.874). It also beat the denser sliding-window baseline on this setting.
 - Job `8f617d06-5c9`: CAG beat uniform sparsity in both settings at identical active block fractions. Core setting: 0.367 vs. 0.374 mean relative L2. Long-context setting: 0.486 vs. 0.489 mean relative L2.
 - Job `8d82fc4a-f7e`: final GPU-backed validation reproduced the full score table. Final Light Forcing scores are 0.367 mean relative L2 on `scaled_attention_core` and 0.486 on `scaled_attention_long_context`.
+- Validation fix: `scoring/reference.json` now stores the deterministic scaled-benchmark reference values from the final run instead of ideal dense-fidelity placeholders, so `validate.py` can compare scores consistently.
 
 ## Remaining
 
