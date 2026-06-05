@@ -1,6 +1,6 @@
 # Reproduction Milestones
 
-**Current: core_claim_plus**
+**Current: secondary_claims**
 
 <!-- Milestone levels (update "Current" above as you progress):
   none             — just started, no meaningful progress yet
@@ -40,5 +40,11 @@
 - In the longer-context setting, Light Forcing scored lower mean relative L2 error than the same-budget one-dimensional sparse baseline: 0.486 vs. 0.489 at the same 12.0% active block fraction.
 - Added a uniform-sparsity ablation for the next run to test the chunk-aware allocation contribution.
 
+### [2026-06-05 03:52] - secondary_claims
+- CPU job `8f617d06-5c9` completed successfully with the uniform-sparsity allocation ablation.
+- CAG beat uniform sparsity in the core setting: 0.367 vs. 0.374 mean relative L2 at the same 13.1% active block fraction.
+- CAG also beat uniform sparsity in the longer-context setting: 0.486 vs. 0.489 mean relative L2 at the same 12.0% active block fraction.
+- Preparing one final GPU-backed scheduler validation before stopping.
+
 ## Stop Justification
-- Not stopped.
+- Scaled reproduction is complete through the core claim, an additional context setting, and a CAG ablation. Full video-generation/VBench reproduction remains out of scope because the paper's directly runnable 1.3B video model weights are not available in this workspace.
