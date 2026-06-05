@@ -13,10 +13,11 @@
 - Job `3f3f2610-17a`: Light Forcing mean relative L2 error 0.497, cosine 0.855, active block fraction 0.137.
 - Same job: sliding-window baseline mean relative L2 error 0.444, cosine 0.859, active block fraction 0.464.
 - Interpretation: the sparse method is much cheaper but not yet better on the primary fidelity metric, so `core_claim` is not claimed.
+- Job `9445fbe2-8d9`: finer block granularity improved Light Forcing to mean relative L2 error 0.367 and cosine 0.923 at active block fraction 0.131, but the denser sliding-window baseline still had lower error.
 
 ## Remaining
 
-- Rerun after increasing scaled benchmark block granularity to better match the paper's many-block-per-frame regime.
+- Score the added same-budget 1D sparse-attention baseline, matching the paper's direct sparse-attention ablation family more closely than the much denser sliding-window baseline.
 - If the Light Forcing artifact scores better than the baseline under active-block constraints, update milestone to `core_claim`; otherwise diagnose and resubmit.
 - Optionally add top-k and CAG ablation artifacts after the core run succeeds.
 

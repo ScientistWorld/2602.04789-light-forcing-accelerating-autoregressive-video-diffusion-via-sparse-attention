@@ -25,5 +25,10 @@
 - Ran sliding-window baseline, Light Forcing CAG+HSA, evaluator, and `validate.py --compare` end to end.
 - Light Forcing activated 13.7% of blocks, but its output error was slightly worse than the sliding-window baseline, so this is not yet `core_claim`.
 
+### [2026-06-05 03:28] - method_runs
+- CPU job `9445fbe2-8d9` completed successfully with finer block granularity.
+- Light Forcing improved to 0.367 mean relative L2 error and 0.923 cosine at 13.1% active blocks.
+- Added a same-budget chunk-agnostic sparse baseline for the next run to test the paper's direct sparse-attention ablation more faithfully.
+
 ## Stop Justification
 - Not stopped.

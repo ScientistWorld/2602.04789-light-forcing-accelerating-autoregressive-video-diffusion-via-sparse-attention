@@ -20,5 +20,6 @@ cd /home/user
 
 rm -f scoring/scores.json
 bash scripts/baseline.sh sliding_window
+bash scripts/baseline.sh one_d_sparse
 bash scripts/method.sh
 python validate.py --compare

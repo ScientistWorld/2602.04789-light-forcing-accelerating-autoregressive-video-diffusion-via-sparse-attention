@@ -15,3 +15,11 @@ Tests whether output preservation is achieved with fewer active blockwise attent
 - **Metric**: `active_block_fraction` (lower is better)
 - **Metric**: `dense_equivalent_fraction` (lower is better)
 - **Run**: `bash scripts/evaluate.sh <method_name> <artifact.pt>`
+
+## Baseline: scaled_attention_core
+
+Compares against a high-cost local-context baseline and a chunk-agnostic sparse-attention baseline so improvements cannot come only from using more tiles.
+
+- **Metric**: `mean_relative_l2_error` (lower is better)
+- **Metric**: `active_block_fraction` (lower is better)
+- **Run**: `bash scripts/reproduce.sh`

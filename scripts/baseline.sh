@@ -24,8 +24,12 @@ mkdir -p outputs
 
 case "$NAME" in
   sliding_window)
-    python -m baseline.sparse_baselines --output "$ARTIFACT"
+    python -m baseline.sparse_baselines --baseline sliding_window --output "$ARTIFACT"
     bash scripts/evaluate.sh sliding_window "$ARTIFACT"
+    ;;
+  one_d_sparse)
+    python -m baseline.sparse_baselines --baseline one_d_sparse --output "$ARTIFACT"
+    bash scripts/evaluate.sh one_d_sparse "$ARTIFACT"
     ;;
   *)
     echo "unknown baseline: $NAME" >&2
