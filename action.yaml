@@ -31,4 +31,4 @@ action: submit
 gpus: 0
 test: true
 milestone: method_runs
-notes: "CPU rerun after increasing per-frame block granularity; checks whether Light Forcing now supports the core sparse-attention quality/cost claim."
+notes: "CPU rerun with sliding-window, same-budget 1D sparse baseline, and Light Forcing scored through the evaluator."

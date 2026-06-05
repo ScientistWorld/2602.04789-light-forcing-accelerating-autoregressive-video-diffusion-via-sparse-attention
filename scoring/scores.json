@@ -8,6 +8,12 @@
           "mean_cosine_similarity": 0.9229614053453717,
           "mean_relative_l2_error": 0.36683652990593807
         },
+        "one_d_sparse": {
+          "active_block_fraction": 0.13095238095238096,
+          "dense_equivalent_fraction": 1.0,
+          "mean_cosine_similarity": 0.9200008511543274,
+          "mean_relative_l2_error": 0.3742475549327572
+        },
         "sliding_window": {
           "active_block_fraction": 0.4642857142857143,
           "dense_equivalent_fraction": 1.0,
