@@ -4,6 +4,11 @@
 
 ## Progress Log
 
+### [2026-06-05 04:18] - secondary_claims
+- Completed final verification of folder structure, method-agnostic documentation, reusable scoring, train/test split artifacts, and download portability.
+- Removed generated Python cache directories from source folders.
+- Kept the milestone at `secondary_claims`; the workspace is ready as a scaled attention-computation gym with the documented limitation that it does not run the full video/VBench stack.
+
 ### [2026-06-05 04:15] - secondary_claims
 - Re-audited the existing reproduction after a fresh paper read and sidecar extraction.
 - Confirmed the method code implements Chunk-Aware Growth plus Hierarchical Sparse Attention with dense first chunk, blockwise/framewise mean-pooling, top-k historical frame retrieval, and block-level sparse attention.

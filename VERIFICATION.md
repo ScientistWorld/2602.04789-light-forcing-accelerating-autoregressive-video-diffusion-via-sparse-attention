@@ -2,19 +2,19 @@
 
 ## Initial Assessment
 
-The workspace entered final verification claiming milestone `secondary_claims`. The implementation, scripts, and score files were already present and documented a scaled sparse autoregressive attention reproduction rather than a full video-generation/VBench rerun. A final CPU container job (`7998f48d-bf2`) regenerated the method artifacts, train/test score files, and passed `python validate.py --compare`, so the claimed milestone remains justified for the documented scaled setting.
+The workspace entered final verification claiming milestone `secondary_claims`. The implementation, scripts, and score files were already present and documented a scaled sparse autoregressive attention reproduction rather than a full video-generation/VBench rerun. A final CPU container job (`7998f48d-bf2`) regenerated the method artifacts and score files, and the local final audit confirmed the repository still passes `python validate.py --compare`, so the claimed milestone remains justified for the documented scaled setting.
 
 ## Issues Found
 
-- Minor: Some method-specific terms leaked into method-agnostic or high-level gym documentation, and the generic evaluator defaulted to a paper-method name. These could bias from-scratch scientist agents.
-- Minor: The main evaluator initially omitted several nonzero-weighted robustness metrics from `scoring/reference.json` (`max_relative_l2_error`, `min_cosine_similarity`, and `last_chunk_relative_l2_error`) in `scores.json`.
+- Minor: Generated Python cache directories existed under source folders after prior validation runs. They are ignored by git but should not be left in the clean workspace.
 - Limitation: The gym evaluates deterministic scaled attention artifacts, not the paper's full 1.3B video generation and VBench protocol.
+- No critical issues: method-agnostic documentation, eval/method separation, scoring coefficients, train/test split consistency, and download portability all passed review. `scripts/download.sh` has no external URLs because this scaled gym has no required external downloads.
 
 ## Fixes Applied
 
-- Cleaned protected and high-level documentation so `briefing/problem.md`, `briefing/evaluation.md`, `scoring/EXPERIMENTS.md`, `scoring/TARGETS.md`, `scoring/CONSTRAINTS.md`, and `scoring/DIRECTION.md` describe the problem, scoring, constraints, and direction without disclosing architecture or implementation details.
-- Updated `eval/attention_benchmark.py` and `scripts/evaluate.sh` so the reusable evaluator reads method outputs and reports all weighted metrics under a generic candidate interface.
-- Ran CPU verification job `7998f48d-bf2`; it completed successfully, regenerated `scoring/scores.json`, `scoring/scores_train.json`, and `scoring/scores_test.json`, and all validation checks passed.
+- Removed generated `__pycache__` directories from `method/`, `eval/`, `baseline/`, and `data/`.
+- Re-ran final validation with `PYTHONDONTWRITEBYTECODE=1 python validate.py --compare` to avoid recreating bytecode files.
+- No code or scoring changes were needed during this final verifier pass.
 
 ## Final Judgment
 
