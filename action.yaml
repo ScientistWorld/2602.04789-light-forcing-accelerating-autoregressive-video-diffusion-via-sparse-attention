@@ -1,5 +1,5 @@
-action: done
+action: submit
 gpus: 0
-test: false
+test: true
 milestone: secondary_claims
-notes: "Packaging audit complete: no external datasets or weights are required; download.sh, paths, .gitignore, and validator checks pass."
+notes: "CPU test-node verification of updated scripts/run.sh: regenerate artifacts via reproduce.sh, then run train/test split evaluation and validate.py --compare inside the container."

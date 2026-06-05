@@ -2,6 +2,7 @@
 
 ## What Works
 
+- 2026-06-05 continuation audit updated `scripts/run.sh` so a submitted job regenerates reproduction artifacts with `scripts/reproduce.sh` before running train/test split evaluation and `validate.py --compare`.
 - Continuation audit on 2026-06-05 confirmed the existing reproduction remains trustworthy after the milestone reset from `secondary_claims` to `core_claim_plus`; the milestone is restored to `secondary_claims`.
 - Paper analysis is complete for the core method, main VBench results, ablations, and implementation hyperparameters.
 - The final milestone metadata is aligned with the completed `secondary_claims` reproduction state.
@@ -36,6 +37,7 @@
 
 ## Issues
 
+- Local login-node Python does not have `torch`, so the updated `scripts/run.sh` is being verified through a CPU test-node submission inside the prepared container.
 - Full 1.3B video generation and VBench evaluation are not feasible as a first pass in this workspace because the paper's upstream code and model weights are not released in a directly runnable form here.
 
 ## Deviations from Paper
