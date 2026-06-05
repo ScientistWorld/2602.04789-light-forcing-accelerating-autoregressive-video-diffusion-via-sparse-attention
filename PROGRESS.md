@@ -3,6 +3,8 @@
 ## What Works
 
 - Paper analysis is complete for the core method, main VBench results, ablations, and implementation hyperparameters.
+- Continuation audit confirmed the method code implements the paper's CAG and HSA sparse-attention computations rather than a learned surrogate.
+- Continuation audit fixed `scoring/reference.json` so paper-reported VBench and ablation tables are recorded separately from the runnable scaled benchmark references.
 - `method/light_forcing_attention.py` implements Chunk-Aware Growth sparsity allocation and Hierarchical Sparse Attention mask selection/attention.
 - `eval/attention_benchmark.py` evaluates method artifacts without importing `method/`.
 - `scripts/reproduce.sh` runs a sparse baseline, the Light Forcing method, and validation.
@@ -22,7 +24,7 @@
 - Job `12c2e3d9-a7f`: in the longer-context setting, Light Forcing again beat the one-dimensional sparse baseline at matched active block fraction 0.120, with lower mean relative L2 error (0.486 vs. 0.489) and higher cosine similarity (0.875 vs. 0.874). It also beat the denser sliding-window baseline on this setting.
 - Job `8f617d06-5c9`: CAG beat uniform sparsity in both settings at identical active block fractions. Core setting: 0.367 vs. 0.374 mean relative L2. Long-context setting: 0.486 vs. 0.489 mean relative L2.
 - Job `8d82fc4a-f7e`: final GPU-backed validation reproduced the full score table. Final Light Forcing scores are 0.367 mean relative L2 on `scaled_attention_core` and 0.486 on `scaled_attention_long_context`.
-- Validation fix: `scoring/reference.json` now stores the deterministic scaled-benchmark reference values from the final run instead of ideal dense-fidelity placeholders, so `validate.py` can compare scores consistently.
+- Continuation validation: `python validate.py --compare` passes after adding paper Table 1, Table 2, and Table 3 values to `scoring/reference.json`.
 
 ## Remaining
 

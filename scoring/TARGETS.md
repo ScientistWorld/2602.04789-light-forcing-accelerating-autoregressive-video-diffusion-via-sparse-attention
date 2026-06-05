@@ -1,5 +1,11 @@
 # Evaluation Targets
 
+## Paper-Reported Reference Targets
+
+`scoring/reference.json` includes paper-reported VBench results from Table 1 for Self-Forcing and LongLive, component ablations from Table 2, and HSA top-k ablations from Table 3. These document the original target claims: preserve or improve video-generation quality while reducing attention cost, and show that CAG and HSA each matter.
+
+The packaged runnable reproduction does not regenerate 1.3B videos or run VBench. It evaluates the same sparse-attention computation on deterministic scaled attention artifacts through the targets below.
+
 ## Primary: scaled_attention_core
 
 Tests whether a sparse autoregressive attention method preserves the dense-attention output on a deterministic chunked sequence benchmark.

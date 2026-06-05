@@ -5,4 +5,4 @@ action: done
 gpus: 1
 test: false
 milestone: secondary_claims
-notes: "Packaged scaled Light Forcing reproduction is validated through secondary_claims: core CAG+HSA sparse attention claim on default and long-context settings plus CAG-vs-uniform ablation."
+notes: "Continuation audit fixed reference.json to include paper-reported VBench/ablation values and revalidated the packaged scaled CAG+HSA reproduction through secondary_claims."

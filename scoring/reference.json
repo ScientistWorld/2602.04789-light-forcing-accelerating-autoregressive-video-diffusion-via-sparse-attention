@@ -1,8 +1,278 @@
 {
   "experiments": {
+    "paper_self_forcing_vbench_main": {
+      "description": "Paper Table 1: Self-Forcing 1.3B VBench quality/efficiency comparison.",
+      "weight": 0.2,
+      "primary_metric": "total_score",
+      "metrics": {
+        "latency_s": {
+          "higher_is_better": false,
+          "coefficient": -0.4
+        },
+        "speedup": {
+          "higher_is_better": true,
+          "coefficient": 0.4
+        },
+        "quality_score": {
+          "higher_is_better": true,
+          "coefficient": 0.6
+        },
+        "semantic_score": {
+          "higher_is_better": true,
+          "coefficient": 0.3
+        },
+        "total_score": {
+          "higher_is_better": true,
+          "coefficient": 1.0
+        }
+      },
+      "results": {
+        "flashattention2": {
+          "type": "baseline",
+          "latency_s": 9.61,
+          "speedup": 1.0,
+          "quality_score": 84.8,
+          "semantic_score": 81.2,
+          "total_score": 84.1
+        },
+        "sta": {
+          "type": "baseline",
+          "latency_s": 8.27,
+          "speedup": 1.16,
+          "quality_score": 84.0,
+          "semantic_score": 82.1,
+          "total_score": 83.6
+        },
+        "radial": {
+          "type": "baseline",
+          "latency_s": 7.39,
+          "speedup": 1.3,
+          "quality_score": 78.7,
+          "semantic_score": 53.7,
+          "total_score": 73.7
+        },
+        "svg2": {
+          "type": "baseline",
+          "latency_s": 21.38,
+          "speedup": 0.45,
+          "quality_score": 83.9,
+          "semantic_score": 78.5,
+          "total_score": 82.8
+        },
+        "vmoba": {
+          "type": "baseline",
+          "latency_s": 7.42,
+          "speedup": 1.29,
+          "quality_score": 84.5,
+          "semantic_score": 80.3,
+          "total_score": 83.6
+        },
+        "sla": {
+          "type": "baseline",
+          "latency_s": 7.71,
+          "speedup": 1.25,
+          "quality_score": 83.4,
+          "semantic_score": 82.5,
+          "total_score": 83.2
+        },
+        "light_forcing": {
+          "type": "proposed",
+          "latency_s": 7.39,
+          "speedup": 1.3,
+          "quality_score": 85.4,
+          "semantic_score": 80.9,
+          "total_score": 84.5
+        }
+      }
+    },
+    "paper_longlive_vbench_main": {
+      "description": "Paper Table 1: LongLive 1.3B VBench quality/efficiency comparison.",
+      "weight": 0.15,
+      "primary_metric": "total_score",
+      "metrics": {
+        "latency_s": {
+          "higher_is_better": false,
+          "coefficient": -0.4
+        },
+        "speedup": {
+          "higher_is_better": true,
+          "coefficient": 0.4
+        },
+        "quality_score": {
+          "higher_is_better": true,
+          "coefficient": 0.6
+        },
+        "semantic_score": {
+          "higher_is_better": true,
+          "coefficient": 0.3
+        },
+        "total_score": {
+          "higher_is_better": true,
+          "coefficient": 1.0
+        }
+      },
+      "results": {
+        "flashattention2": {
+          "type": "baseline",
+          "latency_s": 10.47,
+          "speedup": 1.0,
+          "quality_score": 83.8,
+          "semantic_score": 80.7,
+          "total_score": 83.2
+        },
+        "sta": {
+          "type": "baseline",
+          "latency_s": 9.56,
+          "speedup": 1.1,
+          "quality_score": 82.8,
+          "semantic_score": 81.6,
+          "total_score": 82.6
+        },
+        "radial": {
+          "type": "baseline",
+          "latency_s": 8.89,
+          "speedup": 1.18,
+          "quality_score": 75.0,
+          "semantic_score": 66.6,
+          "total_score": 73.3
+        },
+        "svg2": {
+          "type": "baseline",
+          "latency_s": 22.12,
+          "speedup": 0.47,
+          "quality_score": 82.7,
+          "semantic_score": 78.7,
+          "total_score": 81.9
+        },
+        "vmoba": {
+          "type": "baseline",
+          "latency_s": 8.88,
+          "speedup": 1.18,
+          "quality_score": 71.5,
+          "semantic_score": 70.7,
+          "total_score": 71.3
+        },
+        "light_forcing": {
+          "type": "proposed",
+          "latency_s": 8.81,
+          "speedup": 1.19,
+          "quality_score": 84.8,
+          "semantic_score": 80.2,
+          "total_score": 83.9
+        }
+      }
+    },
+    "paper_component_ablation": {
+      "description": "Paper Table 2: Self-Forcing component ablation for 1D sparse attention, fine-tuning, CAG, and HSA.",
+      "weight": 0.15,
+      "primary_metric": "total_score",
+      "metrics": {
+        "subject_consistency": {
+          "higher_is_better": true,
+          "coefficient": 0.3
+        },
+        "aesthetic_quality": {
+          "higher_is_better": true,
+          "coefficient": 0.3
+        },
+        "imaging_quality": {
+          "higher_is_better": true,
+          "coefficient": 0.3
+        },
+        "dynamic_degree": {
+          "higher_is_better": true,
+          "coefficient": 0.3
+        },
+        "total_score": {
+          "higher_is_better": true,
+          "coefficient": 1.0
+        }
+      },
+      "results": {
+        "flash_attention": {
+          "type": "baseline",
+          "subject_consistency": 95.3,
+          "aesthetic_quality": 67.4,
+          "imaging_quality": 70.0,
+          "dynamic_degree": 63.1,
+          "total_score": 84.1
+        },
+        "one_d_sparse_attention": {
+          "type": "baseline",
+          "subject_consistency": 86.9,
+          "aesthetic_quality": 51.4,
+          "imaging_quality": 66.0,
+          "dynamic_degree": 52.8,
+          "total_score": 73.0
+        },
+        "finetune": {
+          "type": "baseline",
+          "subject_consistency": 94.9,
+          "aesthetic_quality": 65.1,
+          "imaging_quality": 69.8,
+          "dynamic_degree": 46.4,
+          "total_score": 82.8
+        },
+        "cag": {
+          "type": "proposed",
+          "subject_consistency": 96.1,
+          "aesthetic_quality": 67.7,
+          "imaging_quality": 71.0,
+          "dynamic_degree": 37.5,
+          "total_score": 83.2
+        },
+        "cag_hsa": {
+          "type": "proposed",
+          "subject_consistency": 96.2,
+          "aesthetic_quality": 67.2,
+          "imaging_quality": 71.0,
+          "dynamic_degree": 66.7,
+          "total_score": 84.5
+        }
+      }
+    },
+    "paper_hsa_topk_ablation": {
+      "description": "Paper Table 3: HSA retrieved-frame top-k ablation.",
+      "weight": 0.1,
+      "primary_metric": "total_score",
+      "metrics": {
+        "quality_score": {
+          "higher_is_better": true,
+          "coefficient": 0.6
+        },
+        "semantic_score": {
+          "higher_is_better": true,
+          "coefficient": 0.3
+        },
+        "total_score": {
+          "higher_is_better": true,
+          "coefficient": 1.0
+        }
+      },
+      "results": {
+        "topk_6": {
+          "type": "proposed",
+          "quality_score": 85.4,
+          "semantic_score": 80.9,
+          "total_score": 84.5
+        },
+        "topk_9": {
+          "type": "proposed",
+          "quality_score": 85.2,
+          "semantic_score": 80.8,
+          "total_score": 84.4
+        },
+        "topk_12": {
+          "type": "proposed",
+          "quality_score": 85.1,
+          "semantic_score": 80.9,
+          "total_score": 84.3
+        }
+      }
+    },
     "scaled_attention_core": {
-      "description": "Scaled tensor benchmark for the paper's sparse autoregressive attention claim. Reference values are the validated deterministic scaled-benchmark scores from the packaged reproduction, with dense_reference retained as the ideal anchor.",
-      "weight": 0.7,
+      "description": "Runnable scaled tensor reproduction benchmark for CAG+HSA artifact evaluation. These deterministic reference values are generated by the packaged scaled environment, not reported VBench paper values.",
+      "weight": 0.25,
       "primary_metric": "mean_relative_l2_error",
       "metrics": {
         "mean_relative_l2_error": {
@@ -61,8 +331,8 @@
       }
     },
     "scaled_attention_long_context": {
-      "description": "Longer-context variant of the scaled tensor benchmark. This checks whether the sparse attention quality/cost trade-off persists as autoregressive history grows. Reference values are the validated deterministic scaled-benchmark scores from the packaged reproduction.",
-      "weight": 0.3,
+      "description": "Runnable longer-context scaled tensor reproduction benchmark for CAG+HSA artifact evaluation. These deterministic reference values are generated by the packaged scaled environment, not reported VBench paper values.",
+      "weight": 0.15,
       "primary_metric": "mean_relative_l2_error",
       "metrics": {
         "mean_relative_l2_error": {
