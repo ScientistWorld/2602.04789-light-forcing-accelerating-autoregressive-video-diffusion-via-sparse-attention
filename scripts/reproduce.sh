@@ -22,4 +22,42 @@ rm -f scoring/scores.json
 bash scripts/baseline.sh sliding_window
 bash scripts/baseline.sh one_d_sparse
 bash scripts/method.sh
+
+LONG_CONTEXT_ARGS=(
+  --chunks 9
+  --frames-per-chunk 3
+  --tokens-per-frame 256
+  --dim 64
+  --seed 260204790
+)
+
+python -m baseline.sparse_baselines \
+  --baseline sliding_window \
+  --output outputs/sliding_window_long_context.pt \
+  "${LONG_CONTEXT_ARGS[@]}"
+bash scripts/evaluate.sh \
+  sliding_window \
+  outputs/sliding_window_long_context.pt \
+  scaled_attention_long_context \
+  "${LONG_CONTEXT_ARGS[@]}"
+
+python -m baseline.sparse_baselines \
+  --baseline one_d_sparse \
+  --output outputs/one_d_sparse_long_context.pt \
+  "${LONG_CONTEXT_ARGS[@]}"
+bash scripts/evaluate.sh \
+  one_d_sparse \
+  outputs/one_d_sparse_long_context.pt \
+  scaled_attention_long_context \
+  "${LONG_CONTEXT_ARGS[@]}"
+
+python -m method.light_forcing_attention \
+  --output outputs/light_forcing_long_context.pt \
+  "${LONG_CONTEXT_ARGS[@]}"
+bash scripts/evaluate.sh \
+  light_forcing \
+  outputs/light_forcing_long_context.pt \
+  scaled_attention_long_context \
+  "${LONG_CONTEXT_ARGS[@]}"
+
 python validate.py --compare

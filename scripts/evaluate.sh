@@ -15,8 +15,7 @@
 # This file is read by the system for automated comparison.
 #
 # Example usage:
-#   ./evaluate.sh <method_and_run_name>                             # evaluate with defaults
-#   ./evaluate.sh <method_and_run_name> checkpoints/epoch_10.pt     # evaluate a specific checkpoint
+#   ./evaluate.sh <method_and_run_name> <artifact.pt> <experiment> [benchmark args]
 #
 # Called from run.sh after training, or independently.
 
@@ -28,8 +27,18 @@ mkdir -p scoring
 
 METHOD_NAME="${1:-light_forcing}"
 ARTIFACT="${2:-outputs/${METHOD_NAME}.pt}"
+EXPERIMENT="${3:-scaled_attention_core}"
+if [ "$#" -ge 3 ]; then
+  shift 3
+elif [ "$#" -ge 2 ]; then
+  shift 2
+elif [ "$#" -ge 1 ]; then
+  shift 1
+fi
 
 python -m eval.attention_benchmark \
   --method-name "$METHOD_NAME" \
   --artifact "$ARTIFACT" \
-  --scores scoring/scores.json
+  --experiment "$EXPERIMENT" \
+  --scores scoring/scores.json \
+  "$@"

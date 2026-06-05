@@ -7,6 +7,7 @@
 - `eval/attention_benchmark.py` evaluates method artifacts without importing `method/`.
 - `scripts/reproduce.sh` runs a sparse baseline, the Light Forcing method, and validation.
 - CPU job `3f3f2610-17a` completed end to end, so the implementation reaches `method_runs`.
+- CPU job `e2d100d1-446` supports the minimum `core_claim` on the scaled benchmark.
 
 ## Results
 
@@ -14,11 +15,11 @@
 - Same job: sliding-window baseline mean relative L2 error 0.444, cosine 0.859, active block fraction 0.464.
 - Interpretation: the sparse method is much cheaper but not yet better on the primary fidelity metric, so `core_claim` is not claimed.
 - Job `9445fbe2-8d9`: finer block granularity improved Light Forcing to mean relative L2 error 0.367 and cosine 0.923 at active block fraction 0.131, but the denser sliding-window baseline still had lower error.
+- Job `e2d100d1-446`: at the same active block fraction of 0.131, Light Forcing beat the chunk-agnostic one-dimensional sparse baseline with lower mean relative L2 error (0.367 vs. 0.374) and higher cosine similarity (0.923 vs. 0.920).
 
 ## Remaining
 
-- Score the added same-budget 1D sparse-attention baseline, matching the paper's direct sparse-attention ablation family more closely than the much denser sliding-window baseline.
-- If the Light Forcing artifact scores better than the baseline under active-block constraints, update milestone to `core_claim`; otherwise diagnose and resubmit.
+- Run the added longer-context scaled benchmark setting to check whether the same-budget sparse-attention advantage holds beyond the minimum setting.
 - Optionally add top-k and CAG ablation artifacts after the core run succeeds.
 
 ## Issues

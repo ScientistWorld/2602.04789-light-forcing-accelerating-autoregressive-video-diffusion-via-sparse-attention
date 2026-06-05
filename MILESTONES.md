@@ -1,6 +1,6 @@
 # Reproduction Milestones
 
-**Current: method_runs**
+**Current: core_claim**
 
 <!-- Milestone levels (update "Current" above as you progress):
   none             — just started, no meaningful progress yet
@@ -29,6 +29,11 @@
 - CPU job `9445fbe2-8d9` completed successfully with finer block granularity.
 - Light Forcing improved to 0.367 mean relative L2 error and 0.923 cosine at 13.1% active blocks.
 - Added a same-budget chunk-agnostic sparse baseline for the next run to test the paper's direct sparse-attention ablation more faithfully.
+
+### [2026-06-05 03:35] - core_claim
+- CPU job `e2d100d1-446` completed successfully with the same-budget chunk-agnostic sparse baseline.
+- At the same 13.1% active block fraction, Light Forcing scored lower mean relative L2 error than the one-dimensional sparse baseline: 0.367 vs. 0.374.
+- Added a longer-context scaled benchmark setting for the next run to test whether this advantage persists beyond the minimum setting.
 
 ## Stop Justification
 - Not stopped.

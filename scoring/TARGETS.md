@@ -23,3 +23,12 @@ Compares against a high-cost local-context baseline and a chunk-agnostic sparse-
 - **Metric**: `mean_relative_l2_error` (lower is better)
 - **Metric**: `active_block_fraction` (lower is better)
 - **Run**: `bash scripts/reproduce.sh`
+
+## Robustness: scaled_attention_long_context
+
+Checks the same output-preservation and active-tile constraints when autoregressive history is longer.
+
+- **Metric**: `mean_relative_l2_error` (lower is better)
+- **Metric**: `mean_cosine_similarity` (higher is better)
+- **Metric**: `active_block_fraction` (lower is better)
+- **Run**: `bash scripts/reproduce.sh`
