@@ -11,4 +11,3 @@
 
 ## Stop Justification
 - Completed at milestone `secondary_claims`.
-- Higher milestones would require full Self Forcing/LongLive 1.3B video generation and VBench evaluation, which is outside the practical scope of this packaged scaled reproduction because the full upstream stack and weights are not directly runnable here.

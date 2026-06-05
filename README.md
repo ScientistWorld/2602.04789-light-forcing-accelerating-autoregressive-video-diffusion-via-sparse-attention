@@ -53,7 +53,9 @@ The primary claim is that this sparse attention design preserves or improves aut
 
 ## Metrics
 
-The reusable benchmark scores generated attention artifacts against an independently computed dense-attention reference. `mean_relative_l2_error` is lower-is-better output error, `mean_cosine_similarity` is higher-is-better output agreement, and `active_block_fraction` is the lower-is-better fraction of active blockwise attention tiles.
+The paper evaluates generated 5-second videos with VBench. The main reported metrics are quality score, semantic score, total score, latency, and speedup. Component ablations report subject consistency, aesthetic quality, imaging quality, dynamic degree, and total score.
+
+The packaged reusable benchmark scores generated attention artifacts against an independently computed dense-attention reference. `mean_relative_l2_error` is lower-is-better output error, `mean_cosine_similarity` is higher-is-better output agreement, and `active_block_fraction` is the lower-is-better fraction of active blockwise attention tiles.
 
 ## Baselines and Targets
 
@@ -62,6 +64,8 @@ The dense reference has zero output error and uses all attention blocks. The pap
 ## Evaluation Protocol
 
 Methods must write an artifact containing per-chunk attention outputs and active-block statistics. `scripts/evaluate.sh` reads that artifact and writes `scoring/scores.json`; it does not call or import the submitted method.
+
+`scoring/reference.json` contains both the paper-reported VBench tables and the deterministic scaled-reference values required for automated comparison with `scoring/scores.json`.
 
 ---
 
@@ -113,12 +117,27 @@ Methods must write an artifact containing per-chunk attention outputs and active
 
 </details>
 
+### Iteration 2: gpt-5.5
+- **Milestone**: `secondary_claims` | **Status**: done
+- **Working time**: 4m | **GPU**: 0.0h
+- **Jobs**: 6 total (6 completed, 0 failed)
+
+<details>
+<summary>Progress Log</summary>
+
+### [2026-06-05 03:36] - secondary_claims
+- Implemented and validated Light Forcing CAG + HSA on deterministic scaled autoregressive attention tensors.
+- Reproduced the core sparse-attention quality/cost claim on default and longer-context settings.
+- Reproduced the CAG secondary claim by showing chunk-aware allocation improves over fixed post-first-chunk sparsity at matched active block fraction.
+
+</details>
+
 
 ---
 
 # Reproduction Milestones
 
-**Current: core_claim_plus**
+**Current: secondary_claims**
 
 ## Stop Justification
-- Completed at milestone `core_claim_plus`.
+- Completed at milestone `secondary_claims`.
