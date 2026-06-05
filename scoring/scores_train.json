@@ -1,0 +1,102 @@
+{
+  "_meta": {
+    "slice": "train"
+  },
+  "experiments": {
+    "scaled_attention_core": {
+      "chunk_indices": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "results": {
+        "light_forcing": {
+          "active_block_fraction": 0.15104166666666666,
+          "dense_equivalent_fraction": 1.0,
+          "last_chunk_relative_l2_error": 0.251159243366072,
+          "max_relative_l2_error": 0.5745668184835738,
+          "mean_cosine_similarity": 0.9475369304418564,
+          "mean_relative_l2_error": 0.28818042050985915,
+          "min_cosine_similarity": 0.8656823039054871
+        },
+        "light_forcing_uniform": {
+          "active_block_fraction": 0.15625,
+          "dense_equivalent_fraction": 1.0,
+          "last_chunk_relative_l2_error": 0.23801982375414832,
+          "max_relative_l2_error": 0.5745668184835738,
+          "mean_cosine_similarity": 0.9483283460140228,
+          "mean_relative_l2_error": 0.28489556560687823,
+          "min_cosine_similarity": 0.8656823039054871
+        },
+        "one_d_sparse": {
+          "active_block_fraction": 0.13095238095238096,
+          "dense_equivalent_fraction": 1.0,
+          "last_chunk_relative_l2_error": 0.23801982375414832,
+          "max_relative_l2_error": 0.5745668184835738,
+          "mean_cosine_similarity": 0.9483283460140228,
+          "mean_relative_l2_error": 0.28489556560687823,
+          "min_cosine_similarity": 0.8656823039054871
+        },
+        "sliding_window": {
+          "active_block_fraction": 0.4642857142857143,
+          "dense_equivalent_fraction": 1.0,
+          "last_chunk_relative_l2_error": 0.18094169517421463,
+          "max_relative_l2_error": 0.36065327612175124,
+          "mean_cosine_similarity": 0.9792724698781967,
+          "mean_relative_l2_error": 0.15959659415690364,
+          "min_cosine_similarity": 0.9366323947906494
+        }
+      },
+      "slice": "train"
+    },
+    "scaled_attention_long_context": {
+      "chunk_indices": [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "results": {
+        "light_forcing": {
+          "active_block_fraction": 0.13333333333333333,
+          "dense_equivalent_fraction": 1.0,
+          "last_chunk_relative_l2_error": 0.7893145485151202,
+          "max_relative_l2_error": 0.7893145485151202,
+          "mean_cosine_similarity": 0.8645803093910217,
+          "mean_relative_l2_error": 0.4866616971360219,
+          "min_cosine_similarity": 0.7214241623878479
+        },
+        "light_forcing_uniform": {
+          "active_block_fraction": 0.13666666666666666,
+          "dense_equivalent_fraction": 1.0,
+          "last_chunk_relative_l2_error": 0.7780827531405298,
+          "max_relative_l2_error": 0.7780827531405298,
+          "mean_cosine_similarity": 0.8637749910354614,
+          "mean_relative_l2_error": 0.4884471240761795,
+          "min_cosine_similarity": 0.7276046276092529
+        },
+        "one_d_sparse": {
+          "active_block_fraction": 0.12037037037037036,
+          "dense_equivalent_fraction": 1.0,
+          "last_chunk_relative_l2_error": 0.7783950668646059,
+          "max_relative_l2_error": 0.7783950668646059,
+          "mean_cosine_similarity": 0.863818359375,
+          "mean_relative_l2_error": 0.4885095868209947,
+          "min_cosine_similarity": 0.7278214693069458
+        },
+        "sliding_window": {
+          "active_block_fraction": 0.37777777777777777,
+          "dense_equivalent_fraction": 1.0,
+          "last_chunk_relative_l2_error": 1.5456798546842667,
+          "max_relative_l2_error": 1.5456798546842667,
+          "mean_cosine_similarity": 0.6556146144866943,
+          "mean_relative_l2_error": 0.7212175431577662,
+          "min_cosine_similarity": 0.05941742658615112
+        }
+      },
+      "slice": "train"
+    }
+  }
+}
