@@ -46,5 +46,10 @@
 - CAG also beat uniform sparsity in the longer-context setting: 0.486 vs. 0.489 mean relative L2 at the same 12.0% active block fraction.
 - Preparing one final GPU-backed scheduler validation before stopping.
 
+### [2026-06-05 03:59] - secondary_claims
+- GPU-backed job `8d82fc4a-f7e` completed successfully.
+- The packaged `scripts/reproduce.sh` path reran all baselines, Light Forcing, the uniform allocation ablation, and `validate.py --compare` without errors.
+- Final scores preserve the core, longer-context, and CAG-ablation findings.
+
 ## Stop Justification
 - Scaled reproduction is complete through the core claim, an additional context setting, and a CAG ablation. Full video-generation/VBench reproduction remains out of scope because the paper's directly runnable 1.3B video model weights are not available in this workspace.
