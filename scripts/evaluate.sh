@@ -26,5 +26,10 @@ cd /home/user
 
 mkdir -p scoring
 
-# TODO: implement evaluation using code in eval/
-# Must write scoring/scores.json at the end
+METHOD_NAME="${1:-light_forcing}"
+ARTIFACT="${2:-outputs/${METHOD_NAME}.pt}"
+
+python -m eval.attention_benchmark \
+  --method-name "$METHOD_NAME" \
+  --artifact "$ARTIFACT" \
+  --scores scoring/scores.json

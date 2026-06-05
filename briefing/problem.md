@@ -1,17 +1,13 @@
 # Problem Definition
 
-What problem does this paper address? Write this so that someone with no knowledge of the paper can understand what needs to be solved and how success is measured.
-
-Do NOT describe the paper's method or solution here — only the problem itself. Think about if a future scientist agent try to solve this problem from scratch without knowing what approach the paper took. If you leak the solution, you compromise the benchmark.
-
 ## Research Question
 
-<!-- What problem or challenge does this paper tackle? What gap in existing work does it address? -->
+How can autoregressive video generators reduce the quadratic cost of growing historical attention without losing the visual consistency and motion quality that come from using long context?
 
 ## Why It Matters
 
-<!-- Why is this problem important? What would a good solution enable? Make it short -->
+Autoregressive video models generate chunks sequentially, so their key-value history grows with video length. Attention can dominate latency in later chunks, limiting interactive or real-time deployment.
 
 ## Success Criteria
 
-<!-- What would a successful solution look like? What properties should it have? This is about the goal, not the paper's specific approach. Make it short -->
+A successful solution should preserve dense-attention outputs or video-quality metrics while using substantially fewer active attention blocks as the autoregressive context grows. It should also avoid early-chunk degradation and long-context forgetting.

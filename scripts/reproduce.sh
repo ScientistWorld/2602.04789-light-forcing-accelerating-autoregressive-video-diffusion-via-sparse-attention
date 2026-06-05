@@ -18,7 +18,7 @@ set -e
 
 cd /home/user
 
-# TODO: implement full reproduction pipeline
-# e.g.:
-#   bash scripts/baseline.sh
-#   bash scripts/method.sh
+rm -f scoring/scores.json
+bash scripts/baseline.sh sliding_window
+bash scripts/method.sh
+python validate.py --compare

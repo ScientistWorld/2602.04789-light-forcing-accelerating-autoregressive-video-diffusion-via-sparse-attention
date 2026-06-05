@@ -17,4 +17,18 @@ set -e
 
 cd /home/user
 
-# TODO: run baseline
+NAME="${1:-sliding_window}"
+ARTIFACT="outputs/${NAME}.pt"
+
+mkdir -p outputs
+
+case "$NAME" in
+  sliding_window)
+    python -m baseline.sparse_baselines --output "$ARTIFACT"
+    bash scripts/evaluate.sh sliding_window "$ARTIFACT"
+    ;;
+  *)
+    echo "unknown baseline: $NAME" >&2
+    exit 2
+    ;;
+esac

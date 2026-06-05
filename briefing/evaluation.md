@@ -1,15 +1,13 @@
 # Evaluation
 
-How success is measured. Describe only the metrics, targets, and evaluation procedure — do NOT describe the paper's method or how they achieved these results. Think of this as a general evaluation protocal for other scientists trying to solve the same problem, where they should not see this paper's solution.
-
 ## Metrics
 
-<!-- What metrics are used? How are they computed? What does higher/lower mean? -->
+The reusable benchmark scores generated attention artifacts against an independently computed dense-attention reference. `mean_relative_l2_error` is lower-is-better output error, `mean_cosine_similarity` is higher-is-better output agreement, and `active_block_fraction` is the lower-is-better fraction of active blockwise attention tiles.
 
 ## Baselines and Targets
 
-<!-- What performance levels exist as reference points? Include the paper's reported numbers as targets, and any standard baselines. A scientist agent should know what "good" looks like. -->
+The dense reference has zero output error and uses all attention blocks. The paper's full video benchmark reports that its proposed sparse method preserves or improves VBench total score while reaching about 90% attention sparsity and 1.2-1.3x end-to-end speedup on 1.3B autoregressive video models.
 
 ## Evaluation Protocol
 
-<!-- How should evaluation be run? What data split, what conditions? Any important details about how to compare fairly (e.g., fixed seeds, specific test sets, averaging over runs). -->
+Methods must write an artifact containing per-chunk attention outputs and active-block statistics. `scripts/evaluate.sh` reads that artifact and writes `scoring/scores.json`; it does not call or import the submitted method.

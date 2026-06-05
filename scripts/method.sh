@@ -10,5 +10,7 @@ set -e
 
 cd /home/user
 
-# TODO: run the paper's method
-# TODO: call scripts/evaluate.sh to score
+mkdir -p outputs
+
+python -m method.light_forcing_attention --output outputs/light_forcing.pt
+bash scripts/evaluate.sh light_forcing outputs/light_forcing.pt

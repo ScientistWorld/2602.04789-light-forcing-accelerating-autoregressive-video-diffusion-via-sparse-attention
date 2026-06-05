@@ -15,7 +15,10 @@
 
 ## Progress Log
 
-<!-- Write your progress here -->
+### [2026-06-05 03:10] - none
+- Read the paper and appendix details for Light Forcing.
+- Implemented a scaled tensor benchmark for the actual CAG and HSA sparse attention computation.
+- Prepared scripts and validation; submitted first CPU smoke job to run the method and evaluator end to end.
 
 ## Stop Justification
-- Completed at milestone `none`.
+- Not stopped.

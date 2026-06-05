@@ -2,36 +2,27 @@
 
 ## What Works
 
-<!-- What has been successfully reproduced so far. -->
+- Paper analysis is complete for the core method, main VBench results, ablations, and implementation hyperparameters.
+- `method/light_forcing_attention.py` implements Chunk-Aware Growth sparsity allocation and Hierarchical Sparse Attention mask selection/attention.
+- `eval/attention_benchmark.py` evaluates method artifacts without importing `method/`.
+- `scripts/reproduce.sh` runs a sparse baseline, the Light Forcing method, and validation.
 
 ## Results
 
-<!-- Reproduced numbers compared to the paper's reported numbers. -->
+- No compute-job results yet. The first submitted job will write `scoring/scores.json`.
 
 ## Remaining
 
-<!-- What still needs to be done to reach higher milestones. -->
+- Inspect the smoke-job results.
+- If the Light Forcing artifact scores better than the baseline under active-block constraints, update milestone to `core_claim`; otherwise diagnose and resubmit.
+- Optionally add top-k and CAG ablation artifacts after the core run succeeds.
 
 ## Issues
 
-<!-- Blockers, bugs, or difficulties encountered. -->
+- Full 1.3B video generation and VBench evaluation are not feasible as a first pass in this workspace because the paper's upstream code and model weights are not released in a directly runnable form here.
 
 ## Deviations from Paper
 
-<!-- Do not edit this section unless you deviated from the paper's original setup.
-     For each deviation, document: what the paper used, what you substituted, and why.
-
-     ACCEPTABLE deviations (data/resource/scale substitutions — milestones still valid):
-       - Replaced a proprietary dataset with a public one
-       - Used a smaller model of the same architecture
-       - Scaled down training (fewer epochs, smaller batch)
-       - Used a different library for the same algorithm
-
-     UNACCEPTABLE deviations (algorithm substitutions — milestones above 'none' are void):
-       - Replaced the paper's algorithm with a fundamentally different one
-       - Wrote a generic model trained to approximate the method's outputs
-         instead of implementing the method's computational steps
-
-     The test: could someone reading your code identify which algorithm from
-     the paper you implemented? If not, you replaced the method. -->
-
+- Paper setup: Self Forcing and LongLive 1.3B autoregressive video diffusion models evaluated with VBench on generated videos.
+- Reproduction setup: deterministic scaled AR-style attention tensors evaluated against dense attention outputs.
+- Reason: this preserves the paper's actual CAG + HSA sparse attention computation while avoiding unavailable full video-model weights and expensive VBench generation in the initial reproduction.

@@ -1,14 +1,16 @@
 # Overview
 
-- **Paper ID:** <!-- e.g. 1706.03762 -->
-- **Title:** <!-- e.g. Attention Is All You Need -->
-- **Domain:** <!-- e.g. Computer Vision / Object Detection -->
-- **TL;DR:** <!-- One sentence: what this paper does and why it matters -->
+- **Paper ID:** 2602.04789
+- **Title:** Light Forcing: Accelerating Autoregressive Video Diffusion via Sparse Attention
+- **Domain:** Video generation / efficient attention
+- **TL;DR:** The paper makes sparse attention practical for autoregressive video diffusion by allocating sparsity across chunks and selecting historical context hierarchically.
 
 ## Short Summary
 
-<!-- 3-5 sentences covering the problem, approach, and main findings -->
+Autoregressive video diffusion can stream long videos, but attention over the growing history becomes the main runtime bottleneck. Light Forcing addresses this with chunk-aware sparsity allocation and coarse-to-fine sparse context retrieval. The paper reports VBench quality comparable to or better than dense attention with lower latency.
 
 ## Key Results
 
-<!-- 2-3 bullet points: main findings or numbers in bullet points -->
+- Self Forcing 1.3B: VBench total score 84.5 with 1.30x end-to-end speedup.
+- LongLive 1.3B: VBench total score 83.9 with 1.19x end-to-end speedup.
+- Efficient deployment with FP8 and LightVAE reports 19.7 FPS on RTX 5090.
