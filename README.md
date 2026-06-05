@@ -137,7 +137,7 @@ Methods must write an artifact containing per-chunk attention outputs and active
 
 # Reproduction Milestones
 
-**Current: secondary_claims**
+**Current: core_claim_plus**
 
 ## Stop Justification
-- Completed at milestone `secondary_claims`.
+- Completed at milestone `core_claim_plus`.

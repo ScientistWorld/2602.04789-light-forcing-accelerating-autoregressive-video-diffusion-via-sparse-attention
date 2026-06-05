@@ -1,8 +1,8 @@
 # IMPORTANT: Once you set action to 'submit' or 'done', STOP immediately.
 # Do NOT sleep, poll, or wait for jobs. The system reads this file
 # only after your turn ends. Sleeping blocks the entire pipeline.
-action: done
+action: pending
 gpus: 1
 test: false
-milestone: secondary_claims
-notes: "Continuation audit fixed reference.json to include paper-reported VBench/ablation values and revalidated the packaged scaled CAG+HSA reproduction through secondary_claims."
+milestone: core_claim_plus
+notes: ""
