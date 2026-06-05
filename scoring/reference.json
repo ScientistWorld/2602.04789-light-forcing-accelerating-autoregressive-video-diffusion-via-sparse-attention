@@ -2,28 +2,33 @@
   "experiments": {
     "paper_self_forcing_vbench_main": {
       "description": "Paper Table 1: Self-Forcing 1.3B VBench quality/efficiency comparison.",
-      "weight": 0.2,
+      "weight": 0.05,
       "primary_metric": "total_score",
       "metrics": {
         "latency_s": {
           "higher_is_better": false,
-          "coefficient": -0.4
+          "coefficient": 0.0,
+          "description": "Paper-reported wall-clock latency retained for context only; it is not used for ResearchGym ranking because hardware varies."
         },
         "speedup": {
           "higher_is_better": true,
-          "coefficient": 0.4
+          "coefficient": 0.0,
+          "description": "Paper-reported wall-clock speedup retained for context only; runnable scoring uses active tile fraction instead."
         },
         "quality_score": {
           "higher_is_better": true,
-          "coefficient": 0.6
+          "coefficient": 0.6,
+          "description": "VBench quality aggregate reported by the paper."
         },
         "semantic_score": {
           "higher_is_better": true,
-          "coefficient": 0.3
+          "coefficient": 0.3,
+          "description": "VBench semantic aggregate reported by the paper."
         },
         "total_score": {
           "higher_is_better": true,
-          "coefficient": 1.0
+          "coefficient": 1.0,
+          "description": "VBench total score reported by the paper."
         }
       },
       "results": {
@@ -87,28 +92,33 @@
     },
     "paper_longlive_vbench_main": {
       "description": "Paper Table 1: LongLive 1.3B VBench quality/efficiency comparison.",
-      "weight": 0.15,
+      "weight": 0.05,
       "primary_metric": "total_score",
       "metrics": {
         "latency_s": {
           "higher_is_better": false,
-          "coefficient": -0.4
+          "coefficient": 0.0,
+          "description": "Paper-reported wall-clock latency retained for context only; it is not used for ResearchGym ranking because hardware varies."
         },
         "speedup": {
           "higher_is_better": true,
-          "coefficient": 0.4
+          "coefficient": 0.0,
+          "description": "Paper-reported wall-clock speedup retained for context only; runnable scoring uses active tile fraction instead."
         },
         "quality_score": {
           "higher_is_better": true,
-          "coefficient": 0.6
+          "coefficient": 0.6,
+          "description": "VBench quality aggregate reported by the paper."
         },
         "semantic_score": {
           "higher_is_better": true,
-          "coefficient": 0.3
+          "coefficient": 0.3,
+          "description": "VBench semantic aggregate reported by the paper."
         },
         "total_score": {
           "higher_is_better": true,
-          "coefficient": 1.0
+          "coefficient": 1.0,
+          "description": "VBench total score reported by the paper."
         }
       },
       "results": {
@@ -164,28 +174,33 @@
     },
     "paper_component_ablation": {
       "description": "Paper Table 2: Self-Forcing component ablation for 1D sparse attention, fine-tuning, CAG, and HSA.",
-      "weight": 0.15,
+      "weight": 0.05,
       "primary_metric": "total_score",
       "metrics": {
         "subject_consistency": {
           "higher_is_better": true,
-          "coefficient": 0.3
+          "coefficient": 0.3,
+          "description": "VBench subject-consistency score reported by the paper."
         },
         "aesthetic_quality": {
           "higher_is_better": true,
-          "coefficient": 0.3
+          "coefficient": 0.3,
+          "description": "VBench aesthetic-quality score reported by the paper."
         },
         "imaging_quality": {
           "higher_is_better": true,
-          "coefficient": 0.3
+          "coefficient": 0.3,
+          "description": "VBench imaging-quality score reported by the paper."
         },
         "dynamic_degree": {
           "higher_is_better": true,
-          "coefficient": 0.3
+          "coefficient": 0.3,
+          "description": "VBench dynamic-degree score reported by the paper."
         },
         "total_score": {
           "higher_is_better": true,
-          "coefficient": 1.0
+          "coefficient": 1.0,
+          "description": "VBench total score reported by the paper."
         }
       },
       "results": {
@@ -233,20 +248,23 @@
     },
     "paper_hsa_topk_ablation": {
       "description": "Paper Table 3: HSA retrieved-frame top-k ablation.",
-      "weight": 0.1,
+      "weight": 0.05,
       "primary_metric": "total_score",
       "metrics": {
         "quality_score": {
           "higher_is_better": true,
-          "coefficient": 0.6
+          "coefficient": 0.6,
+          "description": "VBench quality aggregate reported by the paper."
         },
         "semantic_score": {
           "higher_is_better": true,
-          "coefficient": 0.3
+          "coefficient": 0.3,
+          "description": "VBench semantic aggregate reported by the paper."
         },
         "total_score": {
           "higher_is_better": true,
-          "coefficient": 1.0
+          "coefficient": 1.0,
+          "description": "VBench total score reported by the paper."
         }
       },
       "results": {
@@ -272,24 +290,43 @@
     },
     "scaled_attention_core": {
       "description": "Runnable scaled tensor reproduction benchmark for CAG+HSA artifact evaluation. These deterministic reference values are generated by the packaged scaled environment, not reported VBench paper values.",
-      "weight": 0.25,
+      "weight": 0.45,
       "primary_metric": "mean_relative_l2_error",
       "metrics": {
         "mean_relative_l2_error": {
           "higher_is_better": false,
-          "coefficient": 1.0
+          "coefficient": -1.0,
+          "description": "Mean output error versus dense autoregressive attention on the evaluated chunk slice."
         },
         "mean_cosine_similarity": {
           "higher_is_better": true,
-          "coefficient": 0.5
+          "coefficient": 0.5,
+          "description": "Mean output-direction similarity versus dense autoregressive attention on the evaluated chunk slice."
         },
         "active_block_fraction": {
           "higher_is_better": false,
-          "coefficient": -0.5
+          "coefficient": -0.5,
+          "description": "Fraction of blockwise attention tiles activated by the submitted artifact on the evaluated chunk slice."
         },
         "dense_equivalent_fraction": {
           "higher_is_better": false,
-          "coefficient": -0.1
+          "coefficient": 0.0,
+          "description": "Dense-attention reference fraction retained for context only; active_block_fraction is the ranking efficiency constraint."
+        },
+        "max_relative_l2_error": {
+          "higher_is_better": false,
+          "coefficient": -0.7,
+          "description": "Worst evaluated chunk error, which catches methods that hide a bad autoregressive chunk behind a good average."
+        },
+        "min_cosine_similarity": {
+          "higher_is_better": true,
+          "coefficient": 0.35,
+          "description": "Worst evaluated chunk cosine similarity, which catches localized chunk collapse."
+        },
+        "last_chunk_relative_l2_error": {
+          "higher_is_better": false,
+          "coefficient": -0.5,
+          "description": "Relative error on the latest evaluated chunk, targeting autoregressive error accumulation."
         }
       },
       "results": {
@@ -332,24 +369,43 @@
     },
     "scaled_attention_long_context": {
       "description": "Runnable longer-context scaled tensor reproduction benchmark for CAG+HSA artifact evaluation. These deterministic reference values are generated by the packaged scaled environment, not reported VBench paper values.",
-      "weight": 0.15,
+      "weight": 0.35,
       "primary_metric": "mean_relative_l2_error",
       "metrics": {
         "mean_relative_l2_error": {
           "higher_is_better": false,
-          "coefficient": 1.0
+          "coefficient": -1.0,
+          "description": "Mean output error versus dense autoregressive attention on the evaluated chunk slice."
         },
         "mean_cosine_similarity": {
           "higher_is_better": true,
-          "coefficient": 0.5
+          "coefficient": 0.5,
+          "description": "Mean output-direction similarity versus dense autoregressive attention on the evaluated chunk slice."
         },
         "active_block_fraction": {
           "higher_is_better": false,
-          "coefficient": -0.5
+          "coefficient": -0.5,
+          "description": "Fraction of blockwise attention tiles activated by the submitted artifact on the evaluated chunk slice."
         },
         "dense_equivalent_fraction": {
           "higher_is_better": false,
-          "coefficient": -0.1
+          "coefficient": 0.0,
+          "description": "Dense-attention reference fraction retained for context only; active_block_fraction is the ranking efficiency constraint."
+        },
+        "max_relative_l2_error": {
+          "higher_is_better": false,
+          "coefficient": -0.7,
+          "description": "Worst evaluated chunk error, which catches methods that hide a bad autoregressive chunk behind a good average."
+        },
+        "min_cosine_similarity": {
+          "higher_is_better": true,
+          "coefficient": 0.35,
+          "description": "Worst evaluated chunk cosine similarity, which catches localized chunk collapse."
+        },
+        "last_chunk_relative_l2_error": {
+          "higher_is_better": false,
+          "coefficient": -0.5,
+          "description": "Relative error on the latest evaluated chunk, targeting autoregressive error accumulation."
         }
       },
       "results": {

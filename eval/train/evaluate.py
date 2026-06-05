@@ -107,11 +107,15 @@ def score_artifact(path: Path, experiment: str, args: argparse.Namespace) -> dic
     selected = train_chunk_indices(len(dense_outputs))
     rel_errors: list[float] = []
     cosine: list[float] = []
+    chunk_errors: dict[int, float] = {}
     for idx in selected:
         got = outputs[idx].detach().cpu().float()
         ref = dense_outputs[idx].detach().cpu().float()
-        rel_errors.append((got - ref).norm().item() / max(ref.norm().item(), 1e-12))
-        cosine.append(F.cosine_similarity(got.flatten(), ref.flatten(), dim=0).item())
+        rel_error = (got - ref).norm().item() / max(ref.norm().item(), 1e-12)
+        cos = F.cosine_similarity(got.flatten(), ref.flatten(), dim=0).item()
+        rel_errors.append(rel_error)
+        cosine.append(cos)
+        chunk_errors[idx] = rel_error
 
     stats = artifact["stats"]
     if isinstance(artifact.get("masks"), list) and len(artifact["masks"]) == len(outputs):
@@ -124,6 +128,9 @@ def score_artifact(path: Path, experiment: str, args: argparse.Namespace) -> dic
     return {
         "mean_relative_l2_error": float(sum(rel_errors) / len(rel_errors)),
         "mean_cosine_similarity": float(sum(cosine) / len(cosine)),
+        "max_relative_l2_error": float(max(rel_errors)),
+        "min_cosine_similarity": float(min(cosine)),
+        "last_chunk_relative_l2_error": float(chunk_errors[max(selected)]),
         "active_block_fraction": active / max(total, 1.0),
         "dense_equivalent_fraction": 1.0,
     }
