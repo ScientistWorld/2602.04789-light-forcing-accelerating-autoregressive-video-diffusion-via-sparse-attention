@@ -1,5 +1,5 @@
-action: submit
+action: done
 gpus: 0
 test: false
 milestone: secondary_claims
-notes: "Run evaluate_train.sh and evaluate_test.sh on existing sparse attention artifacts; populate scores_train/test."
+notes: "Deterministic even/odd chunk split; 56 train metrics, 56 test metrics across 2 experiments and 4 methods; light_forcing mean relative L2 train/test is 0.288/0.472 on core and 0.487/0.485 on long-context; no nulls, method sets match, validator passes."
