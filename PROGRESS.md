@@ -3,6 +3,7 @@
 ## What Works
 
 - Paper analysis is complete for the core method, main VBench results, ablations, and implementation hyperparameters.
+- The final milestone metadata is aligned with the completed `secondary_claims` reproduction state.
 - Continuation audit confirmed the method code implements the paper's CAG and HSA sparse-attention computations rather than a learned surrogate.
 - Continuation audit fixed `scoring/reference.json` so paper-reported VBench and ablation tables are recorded separately from the runnable scaled benchmark references.
 - `method/light_forcing_attention.py` implements Chunk-Aware Growth sparsity allocation and Hierarchical Sparse Attention mask selection/attention.
