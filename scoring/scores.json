@@ -1,0 +1,20 @@
+{
+  "experiments": {
+    "scaled_attention_core": {
+      "results": {
+        "light_forcing": {
+          "active_block_fraction": 0.13690476190476192,
+          "dense_equivalent_fraction": 1.0,
+          "mean_cosine_similarity": 0.8546203119414193,
+          "mean_relative_l2_error": 0.49654665543545107
+        },
+        "sliding_window": {
+          "active_block_fraction": 0.4642857142857143,
+          "dense_equivalent_fraction": 1.0,
+          "mean_cosine_similarity": 0.8593207682882037,
+          "mean_relative_l2_error": 0.4443350563788519
+        }
+      }
+    }
+  }
+}
