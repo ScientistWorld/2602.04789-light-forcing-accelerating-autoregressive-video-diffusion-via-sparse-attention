@@ -216,6 +216,27 @@ Methods must write an artifact containing per-chunk attention outputs and active
 
 </details>
 
+### Iteration 7: gpt-5.5 (packager)
+- **Milestone**: `secondary_claims` | **Status**: done
+- **Working time**: 1m | **GPU**: 0.0h
+- **Jobs**: 7 total (7 completed, 0 failed)
+
+<details>
+<summary>Progress Log</summary>
+
+### [2026-06-05 03:46] - secondary_claims
+- Audited the continuation workspace after the milestone reset to `core_claim_plus`.
+- Confirmed the method implements the paper's CAG sparsity allocation and HSA frame/block mask selection, not a surrogate model.
+- Re-ran `python validate.py --compare`; scoring structure, eval/method separation, and reproduced scaled scores all pass.
+- Restored the milestone to `secondary_claims`.
+
+### [2026-06-05 03:42] - secondary_claims
+- Verified the packaged scaled reproduction with `python validate.py --compare`.
+- Confirmed existing completed jobs cover method execution, core claim, longer-context core claim plus, and the CAG allocation ablation.
+- Aligned the machine-readable milestone with the documented achieved `secondary_claims` state.
+
+</details>
+
 
 ---
 
