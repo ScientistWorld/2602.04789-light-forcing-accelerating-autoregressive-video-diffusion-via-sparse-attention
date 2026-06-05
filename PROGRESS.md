@@ -26,7 +26,7 @@
 
 ## Remaining
 
-- Stop at `secondary_claims`.
+- Completed and stopping at `secondary_claims`.
 - Higher milestones would require reproducing more of the unavailable full video generation/VBench stack.
 
 ## Issues

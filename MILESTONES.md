@@ -1,8 +1,14 @@
 # Reproduction Milestones
 
-**Current: core_claim_plus**
+**Current: secondary_claims**
 
 ## Progress Log
 
+### [2026-06-05 03:36] - secondary_claims
+- Implemented and validated Light Forcing CAG + HSA on deterministic scaled autoregressive attention tensors.
+- Reproduced the core sparse-attention quality/cost claim on default and longer-context settings.
+- Reproduced the CAG secondary claim by showing chunk-aware allocation improves over fixed post-first-chunk sparsity at matched active block fraction.
+
 ## Stop Justification
-- Completed at milestone `core_claim_plus`.
+- Completed at milestone `secondary_claims`.
+- Higher milestones would require full Self Forcing/LongLive 1.3B video generation and VBench evaluation, which is outside the practical scope of this packaged scaled reproduction because the full upstream stack and weights are not directly runnable here.
