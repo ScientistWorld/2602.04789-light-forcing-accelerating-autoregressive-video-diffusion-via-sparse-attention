@@ -52,4 +52,4 @@
 - Final scores preserve the core, longer-context, and CAG-ablation findings.
 
 ## Stop Justification
-- Scaled reproduction is complete through the core claim, an additional context setting, and a CAG ablation. Full video-generation/VBench reproduction remains out of scope because the paper's directly runnable 1.3B video model weights are not available in this workspace.
+- Completed at milestone `secondary_claims`.

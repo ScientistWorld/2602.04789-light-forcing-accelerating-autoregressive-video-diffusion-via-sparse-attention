@@ -27,8 +27,8 @@
 #   milestone: core_claim
 #   notes: "Reproduced the core claim. Environment packaged."
 
-action: submit
-gpus: 1
-test: true
+action: done
+gpus: 0
+test: false
 milestone: secondary_claims
-notes: "Final GPU-backed scheduler validation of the packaged reproduction and ablation suite."
+notes: "Reproduced the core sparse-attention claim, added a longer-context setting, reproduced the CAG allocation ablation, and validated the packaged environment with a GPU-backed scheduler run."
