@@ -29,6 +29,7 @@
 - Job `8f617d06-5c9`: CAG beat uniform sparsity in both settings at identical active block fractions. Core setting: 0.367 vs. 0.374 mean relative L2. Long-context setting: 0.486 vs. 0.489 mean relative L2.
 - Job `8d82fc4a-f7e`: final GPU-backed validation reproduced the full score table. Final Light Forcing scores are 0.367 mean relative L2 on `scaled_attention_core` and 0.486 on `scaled_attention_long_context`.
 - Continuation validation: `python validate.py --compare` passes after adding paper Table 1, Table 2, and Table 3 values to `scoring/reference.json`.
+- Final verification job `7998f48d-bf2`: CPU container run regenerated the reproduction artifacts, train/test split scores, and passed `python validate.py --compare` after the evaluator was updated to emit the full weighted metric set.
 
 ## Remaining
 
@@ -37,7 +38,7 @@
 
 ## Issues
 
-- Final verification found that the main evaluator did not emit the full metric set weighted in `scoring/reference.json`; `eval/attention_benchmark.py` now reports worst-chunk and last-chunk metrics, and the updated path is being verified through a CPU test-node submission inside the prepared container because local login-node Python does not have `torch`.
+- Final verification found that the main evaluator did not emit the full metric set weighted in `scoring/reference.json`; `eval/attention_benchmark.py` now reports worst-chunk and last-chunk metrics, and CPU job `7998f48d-bf2` verified the corrected path inside the prepared container.
 - Full 1.3B video generation and VBench evaluation are not feasible as a first pass in this workspace because the paper's upstream code and model weights are not released in a directly runnable form here.
 
 ## Deviations from Paper

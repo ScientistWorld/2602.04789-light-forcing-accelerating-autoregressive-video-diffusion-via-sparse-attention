@@ -1,5 +1,5 @@
-action: submit
+action: done
 gpus: 0
-test: true
+test: false
 milestone: secondary_claims
-notes: "CPU test-node verification after final scoring fix: regenerate scores with the full weighted metric set, run train/test split evaluation, and validate.py --compare inside the container."
+notes: "Final verification passed: method/eval separation, scoring metrics, train/test split, and packaged CPU reproduction validate successfully; key limitation is scaled attention benchmark rather than full video/VBench."
