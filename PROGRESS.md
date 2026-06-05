@@ -2,6 +2,7 @@
 
 ## What Works
 
+- 2026-06-05 04:15 audit re-read the paper essentials, checked the method/eval/baseline scaffold, and confirmed the current packaged reproduction remains at `secondary_claims`.
 - 2026-06-05 continuation audit updated `scripts/run.sh` so a submitted job regenerates reproduction artifacts with `scripts/reproduce.sh` before running train/test split evaluation and `validate.py --compare`.
 - Continuation audit on 2026-06-05 confirmed the existing reproduction remains trustworthy after the milestone reset from `secondary_claims` to `core_claim_plus`; the milestone is restored to `secondary_claims`.
 - Paper analysis is complete for the core method, main VBench results, ablations, and implementation hyperparameters.
@@ -19,6 +20,7 @@
 
 ## Results
 
+- 2026-06-05 04:15 audit: `python validate.py --compare` passes locally; job logs confirm `7998f48d-bf2` ran `scripts/reproduce.sh`, train/test evaluation, and validation successfully inside the compute container.
 - Continuation audit: `python validate.py --compare` passes with `scoring/reference.json` and `scoring/scores.json`; `eval/` remains independent from `method/`, and prior job logs show the packaged scripts generated the reported scaled scores.
 - Job `3f3f2610-17a`: Light Forcing mean relative L2 error 0.497, cosine 0.855, active block fraction 0.137.
 - Same job: sliding-window baseline mean relative L2 error 0.444, cosine 0.859, active block fraction 0.464.

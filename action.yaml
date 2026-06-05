@@ -2,4 +2,4 @@ action: done
 gpus: 0
 test: false
 milestone: secondary_claims
-notes: "Final verification passed: method/eval separation, scoring metrics, train/test split, and packaged CPU reproduction validate successfully; key limitation is scaled attention benchmark rather than full video/VBench."
+notes: "Final audit passed: CAG+HSA method implementation, eval/method separation, scoring metrics, train/test split, and packaged CPU reproduction validate successfully; key limitation is scaled attention benchmark rather than full video/VBench."
