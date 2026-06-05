@@ -30,5 +30,5 @@
 action: submit
 gpus: 0
 test: true
-milestone: none
-notes: "CPU smoke job: run the scaled Light Forcing attention reproduction, baseline, evaluator, and validate scores."
+milestone: method_runs
+notes: "CPU rerun after increasing per-frame block granularity; checks whether Light Forcing now supports the core sparse-attention quality/cost claim."
