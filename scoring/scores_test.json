@@ -15,7 +15,7 @@
           "dense_equivalent_fraction": 1.0,
           "last_chunk_relative_l2_error": 0.6683509563144385,
           "max_relative_l2_error": 0.6683509563144385,
-          "mean_cosine_similarity": 0.8901940584182739,
+          "mean_cosine_similarity": 0.8901940186818441,
           "mean_relative_l2_error": 0.4717114111477558,
           "min_cosine_similarity": 0.7986962199211121
         },
@@ -24,7 +24,7 @@
           "dense_equivalent_fraction": 1.0,
           "last_chunk_relative_l2_error": 0.6683509563144385,
           "max_relative_l2_error": 0.6683509563144385,
-          "mean_cosine_similarity": 0.8822308977444967,
+          "mean_cosine_similarity": 0.8822308580080668,
           "mean_relative_l2_error": 0.4933836183279308,
           "min_cosine_similarity": 0.7986962199211121
         },
@@ -33,18 +33,18 @@
           "dense_equivalent_fraction": 1.0,
           "last_chunk_relative_l2_error": 0.6683509563144385,
           "max_relative_l2_error": 0.6683509563144385,
-          "mean_cosine_similarity": 0.8822308977444967,
+          "mean_cosine_similarity": 0.8822308580080668,
           "mean_relative_l2_error": 0.4933836183279308,
           "min_cosine_similarity": 0.7986962199211121
         },
         "sliding_window": {
           "active_block_fraction": 0.4642857142857143,
           "dense_equivalent_fraction": 1.0,
-          "last_chunk_relative_l2_error": 0.5129810076414224,
+          "last_chunk_relative_l2_error": 0.5129810663827347,
           "max_relative_l2_error": 0.5347657699717397,
-          "mean_cosine_similarity": 0.9100102782249451,
-          "mean_relative_l2_error": 0.3492489905832478,
-          "min_cosine_similarity": 0.8644624352455139
+          "mean_cosine_similarity": 0.91001029809316,
+          "mean_relative_l2_error": 0.3492489454514915,
+          "min_cosine_similarity": 0.8644624948501587
         }
       },
       "slice": "test"
@@ -62,35 +62,35 @@
           "dense_equivalent_fraction": 1.0,
           "last_chunk_relative_l2_error": 0.6337951450510436,
           "max_relative_l2_error": 0.6337951450510436,
-          "mean_cosine_similarity": 0.8885804563760757,
+          "mean_cosine_similarity": 0.8885804116725922,
           "mean_relative_l2_error": 0.4853748212259752,
-          "min_cosine_similarity": 0.8362899422645569
+          "min_cosine_similarity": 0.8362898826599121
         },
         "light_forcing_uniform": {
           "active_block_fraction": 0.1,
           "dense_equivalent_fraction": 1.0,
-          "last_chunk_relative_l2_error": 0.6106113957151696,
-          "max_relative_l2_error": 0.6106113957151696,
-          "mean_cosine_similarity": 0.8866090923547745,
-          "mean_relative_l2_error": 0.4898862739433354,
-          "min_cosine_similarity": 0.8393522500991821
+          "last_chunk_relative_l2_error": 0.6106114506356551,
+          "max_relative_l2_error": 0.6106114506356551,
+          "mean_cosine_similarity": 0.8866090476512909,
+          "mean_relative_l2_error": 0.48988628767345677,
+          "min_cosine_similarity": 0.8393521308898926
         },
         "one_d_sparse": {
           "active_block_fraction": 0.12037037037037036,
           "dense_equivalent_fraction": 1.0,
-          "last_chunk_relative_l2_error": 0.6106113957151696,
-          "max_relative_l2_error": 0.6106113957151696,
-          "mean_cosine_similarity": 0.8866090923547745,
-          "mean_relative_l2_error": 0.4898862739433354,
-          "min_cosine_similarity": 0.8393522500991821
+          "last_chunk_relative_l2_error": 0.6106114506356551,
+          "max_relative_l2_error": 0.6106114506356551,
+          "mean_cosine_similarity": 0.8866090476512909,
+          "mean_relative_l2_error": 0.48988628767345677,
+          "min_cosine_similarity": 0.8393521308898926
         },
         "sliding_window": {
           "active_block_fraction": 0.37777777777777777,
           "dense_equivalent_fraction": 1.0,
           "last_chunk_relative_l2_error": 0.7414025549668933,
           "max_relative_l2_error": 0.9098559810667046,
-          "mean_cosine_similarity": 0.7976996451616287,
-          "mean_relative_l2_error": 0.5440819192976241,
+          "mean_cosine_similarity": 0.7976996302604675,
+          "mean_relative_l2_error": 0.5440818602782597,
           "min_cosine_similarity": 0.5492866039276123
         }
       },
