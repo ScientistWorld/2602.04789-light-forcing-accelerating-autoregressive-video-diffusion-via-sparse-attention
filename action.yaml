@@ -30,5 +30,5 @@
 action: submit
 gpus: 0
 test: true
-milestone: core_claim
-notes: "CPU run of the expanded reproduction: core setting plus longer-context setting for possible core_claim_plus."
+milestone: core_claim_plus
+notes: "CPU run adding the uniform-sparsity allocation ablation for both scaled attention settings."
