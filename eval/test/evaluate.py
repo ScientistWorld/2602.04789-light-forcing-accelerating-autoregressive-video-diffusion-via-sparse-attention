@@ -1,0 +1,232 @@
+#!/usr/bin/env python3
+"""Held-out test-slice evaluator for sparse autoregressive attention artifacts.
+
+The default mode reads `scoring/scores_train.json` and scores the same
+experiment/method entries on held-out chunks, preventing a hardcoded method
+default from hiding future variants.
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+import math
+from pathlib import Path
+from typing import Any
+
+import torch
+import torch.nn.functional as F
+
+from data.attention_inputs import make_structured_qkv
+
+
+SLICE_NAME = "test"
+EXPERIMENT_SPECS: dict[str, dict[str, int | str]] = {
+    "scaled_attention_core": {
+        "artifact_suffix": "",
+        "chunks": 7,
+        "frames_per_chunk": 3,
+        "tokens_per_frame": 256,
+        "dim": 64,
+        "seed": 260204789,
+    },
+    "scaled_attention_long_context": {
+        "artifact_suffix": "_long_context",
+        "chunks": 9,
+        "frames_per_chunk": 3,
+        "tokens_per_frame": 256,
+        "dim": 64,
+        "seed": 260204790,
+    },
+}
+
+
+def dense_chunk_outputs(
+    q_chunks: list[torch.Tensor],
+    k_chunks: list[torch.Tensor],
+    v_chunks: list[torch.Tensor],
+) -> list[torch.Tensor]:
+    outputs: list[torch.Tensor] = []
+    past_k: list[torch.Tensor] = []
+    past_v: list[torch.Tensor] = []
+    for q, k, v in zip(q_chunks, k_chunks, v_chunks):
+        past_k.append(k)
+        past_v.append(v)
+        keys = torch.cat(past_k, dim=0)
+        values = torch.cat(past_v, dim=0)
+        scores = q @ keys.T / math.sqrt(q.shape[-1])
+        outputs.append(torch.softmax(scores, dim=-1) @ values)
+    return outputs
+
+
+def load_outputs(path: Path) -> dict[str, Any]:
+    obj = torch.load(path, map_location="cpu")
+    if not isinstance(obj, dict):
+        raise TypeError(f"{path} must contain a dict artifact")
+    if "outputs" not in obj or "stats" not in obj:
+        raise KeyError(f"{path} must contain 'outputs' and 'stats'")
+    return obj
+
+
+def test_chunk_indices(chunks: int) -> list[int]:
+    """Held-out companion to the visible slice: the odd-indexed chunks."""
+
+    return list(range(1, chunks, 2))
+
+
+def benchmark_config(experiment: str, args: argparse.Namespace) -> dict[str, int]:
+    if experiment not in EXPERIMENT_SPECS:
+        raise KeyError(f"unknown experiment: {experiment}")
+    spec = EXPERIMENT_SPECS[experiment]
+    return {
+        "chunks": args.chunks if args.chunks is not None else int(spec["chunks"]),
+        "frames_per_chunk": (
+            args.frames_per_chunk
+            if args.frames_per_chunk is not None
+            else int(spec["frames_per_chunk"])
+        ),
+        "tokens_per_frame": (
+            args.tokens_per_frame
+            if args.tokens_per_frame is not None
+            else int(spec["tokens_per_frame"])
+        ),
+        "dim": args.dim if args.dim is not None else int(spec["dim"]),
+        "seed": args.seed if args.seed is not None else int(spec["seed"]),
+    }
+
+
+def score_artifact(path: Path, experiment: str, args: argparse.Namespace) -> dict[str, float]:
+    config = benchmark_config(experiment, args)
+    q_chunks, k_chunks, v_chunks = make_structured_qkv(**config)
+    dense_outputs = dense_chunk_outputs(q_chunks, k_chunks, v_chunks)
+    artifact = load_outputs(path)
+    outputs = artifact["outputs"]
+    if len(outputs) != len(dense_outputs):
+        raise ValueError(f"expected {len(dense_outputs)} chunk outputs, got {len(outputs)}")
+
+    selected = test_chunk_indices(len(dense_outputs))
+    if not selected:
+        raise ValueError("test slice is empty; benchmark needs at least two chunks")
+
+    rel_errors: list[float] = []
+    cosine: list[float] = []
+    for idx in selected:
+        got = outputs[idx].detach().cpu().float()
+        ref = dense_outputs[idx].detach().cpu().float()
+        rel_errors.append((got - ref).norm().item() / max(ref.norm().item(), 1e-12))
+        cosine.append(F.cosine_similarity(got.flatten(), ref.flatten(), dim=0).item())
+
+    stats = artifact["stats"]
+    if isinstance(artifact.get("masks"), list) and len(artifact["masks"]) == len(outputs):
+        active = sum(float(artifact["masks"][idx].sum().item()) for idx in selected)
+        total = sum(float(artifact["masks"][idx].numel()) for idx in selected)
+    else:
+        active = float(stats.get("active_blocks", 0.0))
+        total = float(stats.get("total_blocks", 1.0))
+
+    return {
+        "mean_relative_l2_error": float(sum(rel_errors) / len(rel_errors)),
+        "mean_cosine_similarity": float(sum(cosine) / len(cosine)),
+        "active_block_fraction": active / max(total, 1.0),
+        "dense_equivalent_fraction": 1.0,
+    }
+
+
+def artifact_for_method(outputs_dir: Path, experiment: str, method_name: str) -> Path:
+    suffix = str(EXPERIMENT_SPECS[experiment]["artifact_suffix"])
+    path = outputs_dir / f"{method_name}{suffix}.pt"
+    if path.exists():
+        return path
+    raise FileNotFoundError(
+        f"missing artifact for {experiment}.{method_name}: expected {path}"
+    )
+
+
+def train_score_entries(train_scores_path: Path) -> dict[str, list[str]]:
+    if not train_scores_path.exists():
+        raise FileNotFoundError(
+            f"{train_scores_path} does not exist; run scripts/evaluate_train.sh first"
+        )
+    train_scores = json.loads(train_scores_path.read_text())
+    experiments = train_scores.get("experiments")
+    if not isinstance(experiments, dict):
+        raise ValueError(f"{train_scores_path} must contain an experiments object")
+
+    entries: dict[str, list[str]] = {}
+    for experiment, exp_data in experiments.items():
+        if experiment not in EXPERIMENT_SPECS or not isinstance(exp_data, dict):
+            continue
+        results = exp_data.get("results")
+        if not isinstance(results, dict):
+            continue
+        entries[experiment] = sorted(
+            method_name for method_name in results if not method_name.startswith("_")
+        )
+    if not entries:
+        raise ValueError(f"{train_scores_path} contains no scoreable train entries")
+    return entries
+
+
+def write_scores(scores_path: Path, data: dict[str, Any]) -> None:
+    scores_path.parent.mkdir(parents=True, exist_ok=True)
+    scores_path.write_text(json.dumps(data, indent=2, sort_keys=True) + "\n")
+
+
+def score_single(args: argparse.Namespace) -> dict[str, Any]:
+    if not args.method_name or not args.artifact or not args.experiment:
+        raise ValueError("--method-name, --artifact, and --experiment are required together")
+    if args.scores.exists():
+        data = json.loads(args.scores.read_text())
+    else:
+        data = {"_meta": {"slice": SLICE_NAME}, "experiments": {}}
+    data.setdefault("_meta", {})["slice"] = SLICE_NAME
+    data.setdefault("experiments", {}).setdefault(args.experiment, {}).setdefault("results", {})
+    exp_data = data["experiments"][args.experiment]
+    exp_data["slice"] = SLICE_NAME
+    exp_data["chunk_indices"] = test_chunk_indices(benchmark_config(args.experiment, args)["chunks"])
+    exp_data["results"][args.method_name] = score_artifact(args.artifact, args.experiment, args)
+    return data
+
+
+def score_from_train_entries(args: argparse.Namespace) -> dict[str, Any]:
+    data: dict[str, Any] = {"_meta": {"slice": SLICE_NAME}, "experiments": {}}
+    for experiment, method_names in train_score_entries(args.train_scores).items():
+        config = benchmark_config(experiment, args)
+        exp_data = {
+            "slice": SLICE_NAME,
+            "chunk_indices": test_chunk_indices(config["chunks"]),
+            "results": {},
+        }
+        for method_name in method_names:
+            artifact = artifact_for_method(args.outputs_dir, experiment, method_name)
+            exp_data["results"][method_name] = score_artifact(artifact, experiment, args)
+        data["experiments"][experiment] = exp_data
+    return data
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--artifact", type=Path)
+    parser.add_argument("--method-name")
+    parser.add_argument("--experiment")
+    parser.add_argument("--scores", type=Path, default=Path("scoring/scores_test.json"))
+    parser.add_argument("--train-scores", type=Path, default=Path("scoring/scores_train.json"))
+    parser.add_argument("--outputs-dir", type=Path, default=Path("outputs"))
+    parser.add_argument("--chunks", type=int)
+    parser.add_argument("--frames-per-chunk", type=int)
+    parser.add_argument("--tokens-per-frame", type=int)
+    parser.add_argument("--dim", type=int)
+    parser.add_argument("--seed", type=int)
+    args = parser.parse_args()
+
+    data = (
+        score_single(args)
+        if args.method_name or args.artifact or args.experiment
+        else score_from_train_entries(args)
+    )
+    write_scores(args.scores, data)
+    print(json.dumps(data, indent=2, sort_keys=True))
+
+
+if __name__ == "__main__":
+    main()
