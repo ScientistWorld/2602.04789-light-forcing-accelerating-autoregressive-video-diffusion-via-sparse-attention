@@ -28,7 +28,7 @@
 #   notes: "Reproduced the core claim. Environment packaged."
 
 action: submit
-gpus: 0
+gpus: 1
 test: true
-milestone: core_claim_plus
-notes: "CPU run adding the uniform-sparsity allocation ablation for both scaled attention settings."
+milestone: secondary_claims
+notes: "Final GPU-backed scheduler validation of the packaged reproduction and ablation suite."
