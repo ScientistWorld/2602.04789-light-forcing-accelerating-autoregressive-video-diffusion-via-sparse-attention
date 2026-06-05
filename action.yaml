@@ -1,9 +1,5 @@
-# This iteration writes files only — do NOT submit compute jobs.
-# Once you set action to 'done', STOP immediately.
-# Do NOT sleep, poll, or wait. The system reads this file
-# only after your turn ends.
-action: done
+action: submit
 gpus: 0
 test: false
 milestone: secondary_claims
-notes: "Improvements: added worst/last-chunk held-out metrics, fixed metric descriptions and coefficient signs, zero-weighted hardware-timed paper speed metrics, documented runtime concerns. Notes: no experiments run."
+notes: "Run evaluate_train.sh and evaluate_test.sh on existing sparse attention artifacts; populate scores_train/test."
