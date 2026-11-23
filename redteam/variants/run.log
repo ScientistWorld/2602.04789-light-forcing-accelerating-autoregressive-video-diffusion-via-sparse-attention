@@ -8,6 +8,14 @@ wrote /home/user/outputs/lf_better_sampled_rows.pt
 wrote /home/user/outputs/lf_better_sampled_rows_long_context.pt
 wrote /home/user/outputs/lf_weaker_random_blocks.pt
 wrote /home/user/outputs/lf_weaker_random_blocks_long_context.pt
+wrote /home/user/outputs/lf_weaker_random_blocks_s1.pt
+wrote /home/user/outputs/lf_weaker_random_blocks_s1_long_context.pt
+wrote /home/user/outputs/lf_weaker_random_blocks_s2.pt
+wrote /home/user/outputs/lf_weaker_random_blocks_s2_long_context.pt
+wrote /home/user/outputs/lf_weaker_local_window.pt
+wrote /home/user/outputs/lf_weaker_local_window_long_context.pt
+wrote /home/user/outputs/lf_no_frame_retrieval.pt
+wrote /home/user/outputs/lf_no_frame_retrieval_long_context.pt
 wrote /home/user/outputs/lf_weaker_budget95.pt
 wrote /home/user/outputs/lf_weaker_budget95_long_context.pt
 wrote /home/user/outputs/lf_ablation_uniform.pt

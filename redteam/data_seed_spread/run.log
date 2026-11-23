@@ -4,10 +4,34 @@ offset 101 scaled_attention_core done
 offset 101 scaled_attention_long_context done
 offset 202 scaled_attention_core done
 offset 202 scaled_attention_long_context done
-Traceback (most recent call last):
-  File "/home/user/redteam/data_seed_spread/analyze.py", line 150, in <module>
-    main()
-  File "/home/user/redteam/data_seed_spread/analyze.py", line 108, in main
-    for name in results[str(off)][EXPERIMENTS[0]][slice_name]:
-                                  ~~~~~~~~~~~^^^
-KeyError: 0
+| method | test delta seed+0 | test delta seed+101 | test delta seed+202 | train delta seed+0 | train delta seed+101 | train delta seed+202 |
+|---|---|---|---|---|---|---|
+| light_forcing | +0.0000 | +0.0000 | +0.0000 | +0.0000 | +0.0000 | +0.0000 |
+| lf_ablation_uniform | -0.0011 | -0.0179 | +0.0196 | +0.0076 | +0.0225 | +0.0212 |
+| lf_better_lse_scoring | +0.0200 | +0.0580 | +0.2003 | +0.0960 | +0.0776 | +0.0573 |
+| lf_better_sampled_rows | +0.2986 | +0.1742 | +0.2907 | +0.2108 | +0.1912 | +0.1721 |
+| lf_weaker_random_blocks | +0.2113 | +0.4644 | +0.5190 | +0.1030 | +0.5191 | +0.3835 |
+| lf_weaker_random_blocks_s1 | +0.2041 | +0.4558 | +0.5757 | +0.0219 | +0.4720 | +0.3618 |
+| lf_weaker_random_blocks_s2 | +0.1755 | +0.4692 | +0.5496 | +0.1586 | +0.5609 | +0.4239 |
+| lf_weaker_local_window | -0.9867 | -1.0354 | -0.6047 | -0.7107 | -1.0897 | -0.8885 |
+| lf_no_frame_retrieval | +0.0000 | -0.0009 | +0.0000 | +0.0000 | +0.0000 | +0.0000 |
+| lf_weaker_budget95 | -0.2209 | -0.1380 | -0.1432 | -0.0986 | -0.1279 | -0.2745 |
+| oracle_blocks | +0.3672 | +0.2256 | +0.3359 | +0.2447 | +0.2486 | +0.1678 |
+| sliding_window | -0.1400 | -0.2635 | -0.0797 | -0.4713 | -0.5063 | -0.5253 |
+
+Reference test metrics across draws (mean +- std, max-min):
+- scaled_attention_core mean_relative_l2_error: 0.5972 +- 0.0891 (range 0.1972)
+- scaled_attention_core mean_cosine_similarity: 0.8341 +- 0.0400 (range 0.0907)
+- scaled_attention_core max_relative_l2_error: 0.7269 +- 0.0414 (range 0.0889)
+- scaled_attention_core min_cosine_similarity: 0.7702 +- 0.0206 (range 0.0480)
+- scaled_attention_core last_chunk_relative_l2_error: 0.7269 +- 0.0414 (range 0.0889)
+- scaled_attention_core active_block_fraction: 0.1042 +- 0.0000 (range 0.0000)
+- scaled_attention_core dense_equivalent_fraction: 1.0000 +- 0.0000 (range 0.0000)
+- scaled_attention_long_context mean_relative_l2_error: 0.5315 +- 0.0355 (range 0.0865)
+- scaled_attention_long_context mean_cosine_similarity: 0.8560 +- 0.0231 (range 0.0513)
+- scaled_attention_long_context max_relative_l2_error: 0.7804 +- 0.1045 (range 0.2362)
+- scaled_attention_long_context min_cosine_similarity: 0.7350 +- 0.0716 (range 0.1549)
+- scaled_attention_long_context last_chunk_relative_l2_error: 0.6698 +- 0.1509 (range 0.3643)
+- scaled_attention_long_context active_block_fraction: 0.1042 +- 0.0000 (range 0.0000)
+- scaled_attention_long_context dense_equivalent_fraction: 1.0000 +- 0.0000 (range 0.0000)
+- reference rank total vs default draw: {'0': 0.0, '101': -0.22541404050559577, '202': -0.31962320631465047}

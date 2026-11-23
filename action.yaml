@@ -5,4 +5,4 @@ action: submit
 gpus: 0
 test: true
 milestone: secondary_claims
-notes: "Red-team audit: run all redteam/*/run.sh (variants, reference reruns, shortcuts, data-seed spread) through the hidden test, CPU only"
+notes: "Red-team follow-up: rerun redteam/variants (adds random-seed, local-window, no-frame-retrieval variants) and redteam/data_seed_spread (fixed summary bug), CPU only"
