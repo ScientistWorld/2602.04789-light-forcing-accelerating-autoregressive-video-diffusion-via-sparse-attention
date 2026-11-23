@@ -36,12 +36,17 @@ from redteam.common.rtlib import (  # noqa: E402
 from redteam.variants.make_artifacts import build as build_variant  # noqa: E402
 
 OFFSETS = (0, 101, 202)
+EXP_NAMES = list(EXPERIMENTS)
 VARIANTS = (
     "light_forcing",
     "lf_ablation_uniform",
     "lf_better_lse_scoring",
     "lf_better_sampled_rows",
     "lf_weaker_random_blocks",
+    "lf_weaker_random_blocks_s1",
+    "lf_weaker_random_blocks_s2",
+    "lf_weaker_local_window",
+    "lf_no_frame_retrieval",
     "lf_weaker_budget95",
 )
 WORK = Path("/home/user/tmp/redteam_work/seed_artifacts")
@@ -105,7 +110,7 @@ def main() -> None:
         for slice_name in ("test", "train"):
             ref = {e: results[str(off)][e][slice_name]["light_forcing"] for e in EXPERIMENTS}
             deltas[str(off)][slice_name] = {}
-            for name in results[str(off)][EXPERIMENTS[0]][slice_name]:
+            for name in results[str(off)][EXP_NAMES[0]][slice_name]:
                 cand = {e: results[str(off)][e][slice_name][name] for e in EXPERIMENTS}
                 total, per_exp = rank_delta(cand, ref, spec)
                 deltas[str(off)][slice_name][name] = {
@@ -132,7 +137,7 @@ def main() -> None:
     lines = ["| method | " + " | ".join(f"test delta seed+{o}" for o in OFFSETS) + " | " +
              " | ".join(f"train delta seed+{o}" for o in OFFSETS) + " |",
              "|---|" + "---|" * (2 * len(OFFSETS))]
-    for name in results["0"][EXPERIMENTS[0]]["test"]:
+    for name in results["0"][EXP_NAMES[0]]["test"]:
         cells = [f"{deltas[str(o)]['test'][name]['total']:+.4f}" for o in OFFSETS]
         cells += [f"{deltas[str(o)]['train'][name]['total']:+.4f}" for o in OFFSETS]
         lines.append(f"| {name} | " + " | ".join(cells) + " |")

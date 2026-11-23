@@ -13,7 +13,11 @@ the tiles in its reported mask, so the artifact is truthful.
   lf_better_sampled_rows    same allocation, frame retrieval and budget; block score =
                             softmax mass of every 8th query row (1/8 of dense QK^T cost)
   lf_weaker_random_blocks   same allocation and budget, tiles picked at random
-                            (retrieval removed)
+                            (retrieval removed); _s1/_s2 = other random seeds
+  lf_weaker_local_window    same allocation and budget, most recent tiles only
+                            (retrieval removed, sliding-window style)
+  lf_no_frame_retrieval     reference block logits, but without the frame-level
+                            retrieval stage (tests whether that stage changes anything)
   lf_weaker_budget95        reference with target sparsity 0.95 instead of 0.90
   lf_ablation_uniform       reference with the chunk-aware allocation replaced by one
                             fixed sparsity after the dense first chunk
@@ -36,11 +40,15 @@ from redteam.common.rtlib import (  # noqa: E402
     selection_attention,
 )
 
-SELECT = {
-    "lf_reimpl_mean": ("mean", True),
-    "lf_better_lse_scoring": ("lse", True),
-    "lf_better_sampled_rows": ("sampled", True),
-    "lf_weaker_random_blocks": ("random", False),
+SELECT = {  # name: (scorer, use frame retrieval, selection seed)
+    "lf_reimpl_mean": ("mean", True, 0),
+    "lf_better_lse_scoring": ("lse", True, 0),
+    "lf_better_sampled_rows": ("sampled", True, 0),
+    "lf_weaker_random_blocks": ("random", False, 0),
+    "lf_weaker_random_blocks_s1": ("random", False, 1),
+    "lf_weaker_random_blocks_s2": ("random", False, 2),
+    "lf_weaker_local_window": ("recency", False, 0),
+    "lf_no_frame_retrieval": ("mean", False, 0),
 }
 REFERENCE = {
     "light_forcing": {},
@@ -54,10 +62,10 @@ def build(name: str, experiment: str, seed: int | None = None):
     if name in REFERENCE:
         art = run_reference(spec, seed=seed, **REFERENCE[name])
         return art["outputs"], art["masks"], art["stats"]
-    scorer, use_frames = SELECT[name]
+    scorer, use_frames, sel_seed = SELECT[name]
     q, k, v = inputs(spec, seed)
     outs, masks = selection_attention(
-        q, k, v, spec, cag_sparsities(spec), SCORERS[scorer], use_frames=use_frames
+        q, k, v, spec, cag_sparsities(spec), SCORERS[scorer], use_frames=use_frames, seed=sel_seed
     )
     return outs, masks, {"variant": name}
 

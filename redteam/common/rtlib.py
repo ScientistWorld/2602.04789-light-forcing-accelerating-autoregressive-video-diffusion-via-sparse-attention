@@ -179,6 +179,12 @@ def score_random(q, k, qb, kb, gen=None):
     return torch.rand(qb.shape[0], kb.shape[0], generator=gen)
 
 
+def score_recency(q, k, qb, kb, gen=None):
+    """Key idea removed: most recent tiles only (local window, no retrieval)."""
+
+    return torch.arange(kb.shape[0], dtype=torch.float32).expand(qb.shape[0], kb.shape[0]).clone()
+
+
 def selection_attention(q_chunks, k_chunks, v_chunks, spec, sparsities, scorer,
                         topk_frames: int = 6, use_frames: bool = True, seed: int = 0):
     """Dense first chunk, then per-query-block top-N tiles.
@@ -231,4 +237,5 @@ SCORERS = {
     "sampled": score_sampled_rows,
     "oracle": score_oracle,
     "random": score_random,
+    "recency": score_recency,
 }

@@ -8,7 +8,9 @@ trap rt_end EXIT
 python redteam/variants/make_artifacts.py \
   light_forcing lf_reimpl_mean \
   lf_better_lse_scoring lf_better_sampled_rows \
-  lf_weaker_random_blocks lf_weaker_budget95 lf_ablation_uniform
+  lf_weaker_random_blocks lf_weaker_random_blocks_s1 lf_weaker_random_blocks_s2 \
+  lf_weaker_local_window lf_no_frame_retrieval \
+  lf_weaker_budget95 lf_ablation_uniform
 
 bash scripts/evaluate_train.sh > "$RT_DIR/evaluate_train.log" 2>&1
 rt_hidden_test

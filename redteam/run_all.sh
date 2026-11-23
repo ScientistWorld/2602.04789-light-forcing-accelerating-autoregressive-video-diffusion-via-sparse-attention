@@ -32,6 +32,7 @@ FOLDERS=(
   shortcut_oracle_block_selection
   data_seed_spread
 )
+if [ "$#" -gt 0 ]; then FOLDERS=("$@"); fi
 for d in "${FOLDERS[@]}"; do
   echo "=== $d start $(date +%T)"
   bash "redteam/$d/run.sh" > "redteam/$d/run.log" 2>&1
