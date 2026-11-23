@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/user/eval/test/evaluate.py", line 239, in <module>
+    main()
+  File "/home/user/eval/test/evaluate.py", line 232, in main
+    else score_from_train_entries(args)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/eval/test/evaluate.py", line 208, in score_from_train_entries
+    artifact = artifact_for_method(args.outputs_dir, experiment, method_name)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/eval/test/evaluate.py", line 147, in artifact_for_method
+    raise FileNotFoundError(
+FileNotFoundError: missing artifact for scaled_attention_core.zz_pending_variant: expected outputs/zz_pending_variant.pt

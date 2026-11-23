@@ -1,0 +1,8 @@
+wrote /home/user/outputs/degenerate_mean_value.pt
+wrote /home/user/outputs/degenerate_zero.pt
+wrote /home/user/outputs/degenerate_copy_value.pt
+wrote /home/user/outputs/degenerate_mean_value_long_context.pt
+wrote /home/user/outputs/degenerate_zero_long_context.pt
+wrote /home/user/outputs/degenerate_copy_value_long_context.pt
+[rt] hidden test exit code: 0
+[rt] restored workspace after shortcut_degenerate_outputs

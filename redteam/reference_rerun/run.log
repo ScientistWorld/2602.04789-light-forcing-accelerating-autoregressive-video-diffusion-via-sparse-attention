@@ -1,0 +1,152 @@
+[rt] hidden test_run1 exit code: 0
+[rt] restored workspace after reference_rerun
+[rt] hidden test_run2 exit code: 0
+[rt] restored workspace after reference_rerun
+[rt] hidden test_run3 exit code: 0
+[rt] restored workspace after reference_rerun
+{
+  "scaled_attention_core": {
+    "active_block_fraction": {
+      "runs": [
+        0.10416666666666667,
+        0.10416666666666667,
+        0.10416666666666667
+      ],
+      "spread_max_minus_min": 0.0,
+      "gym_reference": 0.10416666666666667,
+      "max_abs_diff_vs_gym": 0.0
+    },
+    "dense_equivalent_fraction": {
+      "runs": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "spread_max_minus_min": 0.0,
+      "gym_reference": 1.0,
+      "max_abs_diff_vs_gym": 0.0
+    },
+    "last_chunk_relative_l2_error": {
+      "runs": [
+        0.6683509563144385,
+        0.6683509563144385,
+        0.6683509563144385
+      ],
+      "spread_max_minus_min": 0.0,
+      "gym_reference": 0.6683509563144385,
+      "max_abs_diff_vs_gym": 0.0
+    },
+    "max_relative_l2_error": {
+      "runs": [
+        0.6683509563144385,
+        0.6683509563144385,
+        0.6683509563144385
+      ],
+      "spread_max_minus_min": 0.0,
+      "gym_reference": 0.6683509563144385,
+      "max_abs_diff_vs_gym": 0.0
+    },
+    "mean_cosine_similarity": {
+      "runs": [
+        0.8901940186818441,
+        0.8901940186818441,
+        0.8901940186818441
+      ],
+      "spread_max_minus_min": 0.0,
+      "gym_reference": 0.8901940186818441,
+      "max_abs_diff_vs_gym": 0.0
+    },
+    "mean_relative_l2_error": {
+      "runs": [
+        0.4717114111477558,
+        0.4717114111477558,
+        0.4717114111477558
+      ],
+      "spread_max_minus_min": 0.0,
+      "gym_reference": 0.4717114111477558,
+      "max_abs_diff_vs_gym": 0.0
+    },
+    "min_cosine_similarity": {
+      "runs": [
+        0.7986962199211121,
+        0.7986962199211121,
+        0.7986962199211121
+      ],
+      "spread_max_minus_min": 0.0,
+      "gym_reference": 0.7986962199211121,
+      "max_abs_diff_vs_gym": 0.0
+    }
+  },
+  "scaled_attention_long_context": {
+    "active_block_fraction": {
+      "runs": [
+        0.10416666666666667,
+        0.10416666666666667,
+        0.10416666666666667
+      ],
+      "spread_max_minus_min": 0.0,
+      "gym_reference": 0.10416666666666667,
+      "max_abs_diff_vs_gym": 0.0
+    },
+    "dense_equivalent_fraction": {
+      "runs": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "spread_max_minus_min": 0.0,
+      "gym_reference": 1.0,
+      "max_abs_diff_vs_gym": 0.0
+    },
+    "last_chunk_relative_l2_error": {
+      "runs": [
+        0.6337951450510436,
+        0.6337951450510436,
+        0.6337951450510436
+      ],
+      "spread_max_minus_min": 0.0,
+      "gym_reference": 0.6337951450510436,
+      "max_abs_diff_vs_gym": 0.0
+    },
+    "max_relative_l2_error": {
+      "runs": [
+        0.6337951450510436,
+        0.6337951450510436,
+        0.6337951450510436
+      ],
+      "spread_max_minus_min": 0.0,
+      "gym_reference": 0.6337951450510436,
+      "max_abs_diff_vs_gym": 0.0
+    },
+    "mean_cosine_similarity": {
+      "runs": [
+        0.8885804116725922,
+        0.8885804116725922,
+        0.8885804116725922
+      ],
+      "spread_max_minus_min": 0.0,
+      "gym_reference": 0.8885804116725922,
+      "max_abs_diff_vs_gym": 0.0
+    },
+    "mean_relative_l2_error": {
+      "runs": [
+        0.4853748212259752,
+        0.4853748212259752,
+        0.4853748212259752
+      ],
+      "spread_max_minus_min": 0.0,
+      "gym_reference": 0.4853748212259752,
+      "max_abs_diff_vs_gym": 0.0
+    },
+    "min_cosine_similarity": {
+      "runs": [
+        0.8362898826599121,
+        0.8362898826599121,
+        0.8362898826599121
+      ],
+      "spread_max_minus_min": 0.0,
+      "gym_reference": 0.8362898826599121,
+      "max_abs_diff_vs_gym": 0.0
+    }
+  }
+}

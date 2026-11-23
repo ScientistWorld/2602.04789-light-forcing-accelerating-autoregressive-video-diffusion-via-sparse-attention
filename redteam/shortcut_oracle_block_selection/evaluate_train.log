@@ -1,0 +1,48 @@
+{
+  "_meta": {
+    "slice": "train"
+  },
+  "experiments": {
+    "scaled_attention_core": {
+      "chunk_indices": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "results": {
+        "oracle_blocks": {
+          "active_block_fraction": 0.15104166666666666,
+          "dense_equivalent_fraction": 1.0,
+          "last_chunk_relative_l2_error": 0.2377671225521142,
+          "max_relative_l2_error": 0.4838245596986151,
+          "mean_cosine_similarity": 0.9551806151866913,
+          "mean_relative_l2_error": 0.2690371573745502,
+          "min_cosine_similarity": 0.9020004272460938
+        }
+      },
+      "slice": "train"
+    },
+    "scaled_attention_long_context": {
+      "chunk_indices": [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "results": {
+        "oracle_blocks": {
+          "active_block_fraction": 0.13333333333333333,
+          "dense_equivalent_fraction": 1.0,
+          "last_chunk_relative_l2_error": 0.5323654092528993,
+          "max_relative_l2_error": 0.5323654092528993,
+          "mean_cosine_similarity": 0.9414056301116943,
+          "mean_relative_l2_error": 0.32830735025276375,
+          "min_cosine_similarity": 0.8871056437492371
+        }
+      },
+      "slice": "train"
+    }
+  }
+}

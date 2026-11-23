@@ -1,0 +1,4 @@
+wrote /home/user/outputs/dense_attention.pt
+wrote /home/user/outputs/dense_attention_long_context.pt
+[rt] hidden test exit code: 0
+[rt] restored workspace after shortcut_dense_attention

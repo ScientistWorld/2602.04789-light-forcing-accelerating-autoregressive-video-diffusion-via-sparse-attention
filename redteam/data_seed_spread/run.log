@@ -1,0 +1,13 @@
+offset 0 scaled_attention_core done
+offset 0 scaled_attention_long_context done
+offset 101 scaled_attention_core done
+offset 101 scaled_attention_long_context done
+offset 202 scaled_attention_core done
+offset 202 scaled_attention_long_context done
+Traceback (most recent call last):
+  File "/home/user/redteam/data_seed_spread/analyze.py", line 150, in <module>
+    main()
+  File "/home/user/redteam/data_seed_spread/analyze.py", line 108, in main
+    for name in results[str(off)][EXPERIMENTS[0]][slice_name]:
+                                  ~~~~~~~~~~~^^^
+KeyError: 0

@@ -1,0 +1,48 @@
+{
+  "_meta": {
+    "slice": "train"
+  },
+  "experiments": {
+    "scaled_attention_core": {
+      "chunk_indices": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "results": {
+        "self_reported_stats": {
+          "active_block_fraction": 0.0,
+          "dense_equivalent_fraction": 1.0,
+          "last_chunk_relative_l2_error": 0.0,
+          "max_relative_l2_error": 0.0,
+          "mean_cosine_similarity": 1.000000685453415,
+          "mean_relative_l2_error": 0.0,
+          "min_cosine_similarity": 1.0000005960464478
+        }
+      },
+      "slice": "train"
+    },
+    "scaled_attention_long_context": {
+      "chunk_indices": [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "results": {
+        "self_reported_stats": {
+          "active_block_fraction": 0.0,
+          "dense_equivalent_fraction": 1.0,
+          "last_chunk_relative_l2_error": 0.0,
+          "max_relative_l2_error": 0.0,
+          "mean_cosine_similarity": 1.0000004529953004,
+          "mean_relative_l2_error": 0.0,
+          "min_cosine_similarity": 1.0
+        }
+      },
+      "slice": "train"
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "_meta": {
+    "slice": "train"
+  },
+  "experiments": {
+    "scaled_attention_core": {
+      "chunk_indices": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "results": {
+        "lf_budget50": {
+          "active_block_fraction": 0.5104166666666666,
+          "dense_equivalent_fraction": 1.0,
+          "last_chunk_relative_l2_error": 0.1421040608040273,
+          "max_relative_l2_error": 0.2911884972683535,
+          "mean_cosine_similarity": 0.9866990447044373,
+          "mean_relative_l2_error": 0.13402412386657317,
+          "min_cosine_similarity": 0.9612382650375366
+        },
+        "lf_budget80": {
+          "active_block_fraction": 0.24479166666666666,
+          "dense_equivalent_fraction": 1.0,
+          "last_chunk_relative_l2_error": 0.19697715078405295,
+          "max_relative_l2_error": 0.4982521158796083,
+          "mean_cosine_similarity": 0.9632159769535065,
+          "mean_relative_l2_error": 0.2366492488286803,
+          "min_cosine_similarity": 0.8985476493835449
+        }
+      },
+      "slice": "train"
+    },
+    "scaled_attention_long_context": {
+      "chunk_indices": [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "results": {
+        "lf_budget50": {
+          "active_block_fraction": 0.47,
+          "dense_equivalent_fraction": 1.0,
+          "last_chunk_relative_l2_error": 0.5690743194565498,
+          "max_relative_l2_error": 0.5690743194565498,
+          "mean_cosine_similarity": 0.9610970735549926,
+          "mean_relative_l2_error": 0.21370967146482084,
+          "min_cosine_similarity": 0.8514662981033325
+        },
+        "lf_budget80": {
+          "active_block_fraction": 0.22666666666666666,
+          "dense_equivalent_fraction": 1.0,
+          "last_chunk_relative_l2_error": 0.6814735152183746,
+          "max_relative_l2_error": 0.6814735152183746,
+          "mean_cosine_similarity": 0.8963762640953064,
+          "mean_relative_l2_error": 0.4194972875985988,
+          "min_cosine_similarity": 0.7881684303283691
+        }
+      },
+      "slice": "train"
+    }
+  }
+}

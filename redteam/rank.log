@@ -1,0 +1,33 @@
+| folder | file | method | core err / active | long err / active | raw core | raw long | raw total | z total | verdict (raw / z) |
+|---|---|---|---|---|---|---|---|---|---|
+| (gym scores_test.json) | - | light_forcing | 0.472 / 0.104 | 0.485 / 0.104 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | ties / ties |
+| (gym scores_test.json) | - | light_forcing_uniform | 0.493 / 0.097 | 0.490 / 0.100 | -0.0222 | 0.0255 | -0.0011 | -0.0614 | below ref / below ref |
+| (gym scores_test.json) | - | one_d_sparse | 0.493 / 0.131 | 0.490 / 0.120 | -0.0390 | 0.0153 | -0.0122 | -0.1103 | below ref / below ref |
+| (gym scores_test.json) | - | sliding_window | 0.349 / 0.464 | 0.544 / 0.378 | 0.1465 | -0.5885 | -0.1400 | -1.0703 | below ref / below ref |
+| reference_rerun | scores_test_run1.json | light_forcing | 0.472 / 0.104 | 0.485 / 0.104 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | ties / ties |
+| reference_rerun | scores_test_run2.json | light_forcing | 0.472 / 0.104 | 0.485 / 0.104 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | ties / ties |
+| reference_rerun | scores_test_run3.json | light_forcing | 0.472 / 0.104 | 0.485 / 0.104 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | ties / ties |
+| shortcut_degenerate_outputs | scores_test.json | degenerate_copy_value | 1.451 / 0.000 | 1.347 / 0.000 | -2.7480 | -2.5294 | -2.1219 | -19.8046 | below ref / below ref |
+| shortcut_degenerate_outputs | scores_test.json | degenerate_mean_value | 0.843 / 0.000 | 0.833 / 0.000 | -1.1369 | -1.2687 | -0.9557 | -10.3007 | below ref / below ref |
+| shortcut_degenerate_outputs | scores_test.json | degenerate_zero | 1.000 / 0.000 | 1.000 / 0.000 | -1.5988 | -1.6390 | -1.2931 | -16.3504 | below ref / below ref |
+| shortcut_dense_attention | scores_test.json | dense_attention | 0.000 / 1.000 | 0.000 / 1.000 | 0.9512 | 0.9110 | 0.7469 | 6.3807 | beats ref / beats ref |
+| shortcut_dense_outputs_fake_masks | scores_test.json | dense_outputs_fake_masks | 0.000 / 0.104 | 0.000 / 0.104 | 1.3991 | 1.3589 | 1.1052 | 7.9562 | beats ref / beats ref |
+| shortcut_drop_long_context | scores_test.json | sliding_window_core_only | 0.349 / 0.464 | missing | 0.1465 | missing | 0.0659 | 0.6502 | beats ref / beats ref |
+| shortcut_drop_long_context | scores_test_full_coverage.json | sliding_window_core_only | 0.349 / 0.464 | 0.544 / 0.378 | 0.1465 | -0.5885 | -0.1400 | -1.0703 | below ref / below ref |
+| shortcut_edit_data_generator | scores_test.json | edited_inputs_one_tile | 0.000 / 0.021 | 0.000 / 0.017 | 1.4408 | 1.4027 | 1.1393 | 8.1060 | beats ref / beats ref |
+| shortcut_impossible_active_fraction | scores_test.json | negative_mask_values | 0.472 / -1.000 | 0.485 / -1.000 | 0.5521 | 0.5521 | 0.4417 | 1.9419 | beats ref / beats ref |
+| shortcut_impossible_active_fraction | scores_test.json | negative_stats | 0.472 / -1e+09 | 0.485 / -1e+09 | 5e+08 | 5e+08 | 4e+08 | 1.76e+09 | beats ref / beats ref |
+| shortcut_nan_outputs | scores_test.json | nan_outputs | nan / 0.000 | nan / 0.000 | 0.0521 | 0.0521 | 0.0417 | 0.1832 | beats ref / beats ref |
+| shortcut_oracle_block_selection | scores_test.json | oracle_blocks | 0.375 / 0.104 | 0.309 / 0.104 | 0.4084 | 0.5240 | 0.3672 | 2.8544 | beats ref / beats ref |
+| shortcut_raise_budget | scores_test.json | lf_budget50 | 0.113 / 0.528 | 0.238 / 0.500 | 0.9160 | 0.2018 | 0.4829 | 4.0386 | beats ref / beats ref |
+| shortcut_raise_budget | scores_test.json | lf_budget80 | 0.411 / 0.208 | 0.439 / 0.208 | 0.1189 | 0.0565 | 0.0733 | 0.7189 | beats ref / beats ref |
+| shortcut_self_reported_stats | scores_test.json | self_reported_stats | 0.000 / 0.000 | 0.000 / 0.000 | 1.4512 | 1.4110 | 1.1469 | 8.1394 | beats ref / beats ref |
+| shortcut_stale_scores_test | scores_test.json | light_forcing | 0.000 / 0.010 | 0.000 / 0.010 | 1.4462 | 1.4060 | 1.1429 | 8.1218 | beats ref / beats ref |
+| variants | scores_test.json | lf_ablation_uniform | 0.493 / 0.097 | 0.490 / 0.100 | -0.0222 | 0.0255 | -0.0011 | -0.0614 | below ref / below ref |
+| variants | scores_test.json | lf_better_lse_scoring | 0.466 / 0.104 | 0.478 / 0.104 | 0.0084 | 0.0464 | 0.0200 | 0.1800 | beats ref / beats ref |
+| variants | scores_test.json | lf_better_sampled_rows | 0.349 / 0.104 | 0.396 / 0.104 | 0.5532 | 0.1419 | 0.2986 | 2.2137 | beats ref / beats ref |
+| variants | scores_test.json | lf_reimpl_mean | 0.472 / 0.104 | 0.485 / 0.104 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | ties / ties |
+| variants | scores_test.json | lf_weaker_budget95 | 0.583 / 0.056 | 0.514 / 0.054 | -0.4437 | -0.0606 | -0.2209 | -1.7383 | below ref / below ref |
+| variants | scores_test.json | lf_weaker_random_blocks | 0.368 / 0.104 | 0.456 / 0.104 | 0.4555 | 0.0182 | 0.2113 | 1.4538 | beats ref / beats ref |
+| variants | scores_test.json | light_forcing | 0.472 / 0.104 | 0.485 / 0.104 | 0.0000 | 0.0000 | 0.0000 | 0.0000 | ties / ties |
+

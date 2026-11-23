@@ -1,0 +1,9 @@
+--- /home/user/tmp/redteam_work/backup_shortcut_edit_data_generator/data/attention_inputs.py	2026-11-22 21:25:02.298013269 -0500
++++ data/attention_inputs.py	2026-11-22 21:25:02.422570891 -0500
+@@ -63,5 +63,5 @@
+         x = torch.cat(frames[start:end], dim=0)
+         q_chunks.append(x + 0.03 * torch.randn(x.shape, generator=generator))
+         k_chunks.append(x @ k_proj)
+-        v_chunks.append(torch.tanh(x @ v_proj))
++        v_chunks.append(torch.ones_like(x @ v_proj))
+     return q_chunks, k_chunks, v_chunks

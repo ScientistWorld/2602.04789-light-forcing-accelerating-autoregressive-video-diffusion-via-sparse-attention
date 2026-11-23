@@ -1,0 +1,16 @@
+wrote /home/user/outputs/light_forcing.pt
+wrote /home/user/outputs/light_forcing_long_context.pt
+wrote /home/user/outputs/lf_reimpl_mean.pt
+wrote /home/user/outputs/lf_reimpl_mean_long_context.pt
+wrote /home/user/outputs/lf_better_lse_scoring.pt
+wrote /home/user/outputs/lf_better_lse_scoring_long_context.pt
+wrote /home/user/outputs/lf_better_sampled_rows.pt
+wrote /home/user/outputs/lf_better_sampled_rows_long_context.pt
+wrote /home/user/outputs/lf_weaker_random_blocks.pt
+wrote /home/user/outputs/lf_weaker_random_blocks_long_context.pt
+wrote /home/user/outputs/lf_weaker_budget95.pt
+wrote /home/user/outputs/lf_weaker_budget95_long_context.pt
+wrote /home/user/outputs/lf_ablation_uniform.pt
+wrote /home/user/outputs/lf_ablation_uniform_long_context.pt
+[rt] hidden test exit code: 0
+[rt] restored workspace after variants

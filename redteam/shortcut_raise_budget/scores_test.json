@@ -1,0 +1,64 @@
+{
+  "_meta": {
+    "slice": "test"
+  },
+  "experiments": {
+    "scaled_attention_core": {
+      "chunk_indices": [
+        1,
+        3,
+        5
+      ],
+      "results": {
+        "lf_budget50": {
+          "active_block_fraction": 0.5277777777777778,
+          "dense_equivalent_fraction": 1.0,
+          "last_chunk_relative_l2_error": 0.11506153534282663,
+          "max_relative_l2_error": 0.13524438104177283,
+          "mean_cosine_similarity": 0.9936618407567342,
+          "mean_relative_l2_error": 0.11285900753119406,
+          "min_cosine_similarity": 0.9913753271102905
+        },
+        "lf_budget80": {
+          "active_block_fraction": 0.20833333333333334,
+          "dense_equivalent_fraction": 1.0,
+          "last_chunk_relative_l2_error": 0.5983415917744306,
+          "max_relative_l2_error": 0.5983415917744306,
+          "mean_cosine_similarity": 0.9142325719197592,
+          "mean_relative_l2_error": 0.4105441480534662,
+          "min_cosine_similarity": 0.8380886316299438
+        }
+      },
+      "slice": "test"
+    },
+    "scaled_attention_long_context": {
+      "chunk_indices": [
+        1,
+        3,
+        5,
+        7
+      ],
+      "results": {
+        "lf_budget50": {
+          "active_block_fraction": 0.5,
+          "dense_equivalent_fraction": 1.0,
+          "last_chunk_relative_l2_error": 0.5449569758408079,
+          "max_relative_l2_error": 0.5449569758408079,
+          "mean_cosine_similarity": 0.9567188173532486,
+          "mean_relative_l2_error": 0.2375167938738011,
+          "min_cosine_similarity": 0.868308424949646
+        },
+        "lf_budget80": {
+          "active_block_fraction": 0.20833333333333334,
+          "dense_equivalent_fraction": 1.0,
+          "last_chunk_relative_l2_error": 0.5805981192369875,
+          "max_relative_l2_error": 0.5958448201200225,
+          "mean_cosine_similarity": 0.9029572904109955,
+          "mean_relative_l2_error": 0.43874858200743494,
+          "min_cosine_similarity": 0.8409777879714966
+        }
+      },
+      "slice": "test"
+    }
+  }
+}

@@ -1,0 +1,5 @@
+wrote outputs/sliding_window_core_only.pt
+wrote outputs/sliding_window_core_only_long_context.pt
+[rt] hidden test_full_coverage exit code: 0
+[rt] hidden test exit code: 0
+[rt] restored workspace after shortcut_drop_long_context

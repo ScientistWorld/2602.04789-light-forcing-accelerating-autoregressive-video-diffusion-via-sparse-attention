@@ -1,0 +1,154 @@
+{
+  "_meta": {
+    "slice": "test"
+  },
+  "experiments": {
+    "scaled_attention_core": {
+      "chunk_indices": [
+        1,
+        3,
+        5
+      ],
+      "results": {
+        "lf_ablation_uniform": {
+          "active_block_fraction": 0.09722222222222222,
+          "dense_equivalent_fraction": 1.0,
+          "last_chunk_relative_l2_error": 0.6683509563144385,
+          "max_relative_l2_error": 0.6683509563144385,
+          "mean_cosine_similarity": 0.8822308580080668,
+          "mean_relative_l2_error": 0.4933836183279308,
+          "min_cosine_similarity": 0.7986962199211121
+        },
+        "lf_better_lse_scoring": {
+          "active_block_fraction": 0.10416666666666667,
+          "dense_equivalent_fraction": 1.0,
+          "last_chunk_relative_l2_error": 0.667927490194019,
+          "max_relative_l2_error": 0.667927490194019,
+          "mean_cosine_similarity": 0.8931946357091268,
+          "mean_relative_l2_error": 0.46612323201097555,
+          "min_cosine_similarity": 0.8009095191955566
+        },
+        "lf_better_sampled_rows": {
+          "active_block_fraction": 0.10416666666666667,
+          "dense_equivalent_fraction": 1.0,
+          "last_chunk_relative_l2_error": 0.35140741834634515,
+          "max_relative_l2_error": 0.38656306053617556,
+          "mean_cosine_similarity": 0.9455796480178833,
+          "mean_relative_l2_error": 0.3493646113753,
+          "min_cosine_similarity": 0.9342761039733887
+        },
+        "lf_reimpl_mean": {
+          "active_block_fraction": 0.10416666666666667,
+          "dense_equivalent_fraction": 1.0,
+          "last_chunk_relative_l2_error": 0.6683509563144385,
+          "max_relative_l2_error": 0.6683509563144385,
+          "mean_cosine_similarity": 0.8901940186818441,
+          "mean_relative_l2_error": 0.4717114111477558,
+          "min_cosine_similarity": 0.7986962199211121
+        },
+        "lf_weaker_budget95": {
+          "active_block_fraction": 0.05555555555555555,
+          "dense_equivalent_fraction": 1.0,
+          "last_chunk_relative_l2_error": 0.896197287161722,
+          "max_relative_l2_error": 0.896197287161722,
+          "mean_cosine_similarity": 0.8277525901794434,
+          "mean_relative_l2_error": 0.5832163955469857,
+          "min_cosine_similarity": 0.6505757570266724
+        },
+        "lf_weaker_random_blocks": {
+          "active_block_fraction": 0.10416666666666667,
+          "dense_equivalent_fraction": 1.0,
+          "last_chunk_relative_l2_error": 0.42554015867438244,
+          "max_relative_l2_error": 0.42554015867438244,
+          "mean_cosine_similarity": 0.9328983028729757,
+          "mean_relative_l2_error": 0.3679107538516127,
+          "min_cosine_similarity": 0.9101563692092896
+        },
+        "light_forcing": {
+          "active_block_fraction": 0.10416666666666667,
+          "dense_equivalent_fraction": 1.0,
+          "last_chunk_relative_l2_error": 0.6683509563144385,
+          "max_relative_l2_error": 0.6683509563144385,
+          "mean_cosine_similarity": 0.8901940186818441,
+          "mean_relative_l2_error": 0.4717114111477558,
+          "min_cosine_similarity": 0.7986962199211121
+        }
+      },
+      "slice": "test"
+    },
+    "scaled_attention_long_context": {
+      "chunk_indices": [
+        1,
+        3,
+        5,
+        7
+      ],
+      "results": {
+        "lf_ablation_uniform": {
+          "active_block_fraction": 0.1,
+          "dense_equivalent_fraction": 1.0,
+          "last_chunk_relative_l2_error": 0.6106114506356551,
+          "max_relative_l2_error": 0.6106114506356551,
+          "mean_cosine_similarity": 0.8866090476512909,
+          "mean_relative_l2_error": 0.48988628767345677,
+          "min_cosine_similarity": 0.8393521308898926
+        },
+        "lf_better_lse_scoring": {
+          "active_block_fraction": 0.10416666666666667,
+          "dense_equivalent_fraction": 1.0,
+          "last_chunk_relative_l2_error": 0.6088673956958376,
+          "max_relative_l2_error": 0.6088673956958376,
+          "mean_cosine_similarity": 0.896209716796875,
+          "mean_relative_l2_error": 0.4775973622059775,
+          "min_cosine_similarity": 0.8502123355865479
+        },
+        "lf_better_sampled_rows": {
+          "active_block_fraction": 0.10416666666666667,
+          "dense_equivalent_fraction": 1.0,
+          "last_chunk_relative_l2_error": 0.6088673956958376,
+          "max_relative_l2_error": 0.6088673956958376,
+          "mean_cosine_similarity": 0.9240561127662659,
+          "mean_relative_l2_error": 0.3959975275651701,
+          "min_cosine_similarity": 0.8502123355865479
+        },
+        "lf_reimpl_mean": {
+          "active_block_fraction": 0.10416666666666667,
+          "dense_equivalent_fraction": 1.0,
+          "last_chunk_relative_l2_error": 0.6337951450510436,
+          "max_relative_l2_error": 0.6337951450510436,
+          "mean_cosine_similarity": 0.8885804116725922,
+          "mean_relative_l2_error": 0.4853748212259752,
+          "min_cosine_similarity": 0.8362898826599121
+        },
+        "lf_weaker_budget95": {
+          "active_block_fraction": 0.05416666666666667,
+          "dense_equivalent_fraction": 1.0,
+          "last_chunk_relative_l2_error": 0.6735322033406813,
+          "max_relative_l2_error": 0.6735322033406813,
+          "mean_cosine_similarity": 0.8787501156330109,
+          "mean_relative_l2_error": 0.5137290885874017,
+          "min_cosine_similarity": 0.8228863477706909
+        },
+        "lf_weaker_random_blocks": {
+          "active_block_fraction": 0.10416666666666667,
+          "dense_equivalent_fraction": 1.0,
+          "last_chunk_relative_l2_error": 0.6350690257138812,
+          "max_relative_l2_error": 0.6350690257138812,
+          "mean_cosine_similarity": 0.890436977148056,
+          "mean_relative_l2_error": 0.4556916998388689,
+          "min_cosine_similarity": 0.8050563335418701
+        },
+        "light_forcing": {
+          "active_block_fraction": 0.10416666666666667,
+          "dense_equivalent_fraction": 1.0,
+          "last_chunk_relative_l2_error": 0.6337951450510436,
+          "max_relative_l2_error": 0.6337951450510436,
+          "mean_cosine_similarity": 0.8885804116725922,
+          "mean_relative_l2_error": 0.4853748212259752,
+          "min_cosine_similarity": 0.8362898826599121
+        }
+      },
+      "slice": "test"
+    }
+  }
+}

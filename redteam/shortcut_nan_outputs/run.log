@@ -1,0 +1,4 @@
+wrote /home/user/outputs/nan_outputs.pt
+wrote /home/user/outputs/nan_outputs_long_context.pt
+[rt] hidden test exit code: 0
+[rt] restored workspace after shortcut_nan_outputs

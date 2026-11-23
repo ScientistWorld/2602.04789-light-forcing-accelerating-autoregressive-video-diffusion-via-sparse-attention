@@ -1,0 +1,46 @@
+{
+  "_meta": {
+    "slice": "test"
+  },
+  "experiments": {
+    "scaled_attention_core": {
+      "slice": "test",
+      "chunk_indices": [
+        1,
+        3,
+        5
+      ],
+      "results": {
+        "light_forcing": {
+          "mean_relative_l2_error": 0.0,
+          "mean_cosine_similarity": 1.0,
+          "max_relative_l2_error": 0.0,
+          "min_cosine_similarity": 1.0,
+          "last_chunk_relative_l2_error": 0.0,
+          "active_block_fraction": 0.01,
+          "dense_equivalent_fraction": 1.0
+        }
+      }
+    },
+    "scaled_attention_long_context": {
+      "slice": "test",
+      "chunk_indices": [
+        1,
+        3,
+        5,
+        7
+      ],
+      "results": {
+        "light_forcing": {
+          "mean_relative_l2_error": 0.0,
+          "mean_cosine_similarity": 1.0,
+          "max_relative_l2_error": 0.0,
+          "min_cosine_similarity": 1.0,
+          "last_chunk_relative_l2_error": 0.0,
+          "active_block_fraction": 0.01,
+          "dense_equivalent_fraction": 1.0
+        }
+      }
+    }
+  }
+}

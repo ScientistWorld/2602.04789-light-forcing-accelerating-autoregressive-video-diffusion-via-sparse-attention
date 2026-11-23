@@ -1,0 +1,46 @@
+{
+  "_meta": {
+    "slice": "test"
+  },
+  "experiments": {
+    "scaled_attention_core": {
+      "chunk_indices": [
+        1,
+        3,
+        5
+      ],
+      "results": {
+        "sliding_window_core_only": {
+          "active_block_fraction": 0.4642857142857143,
+          "dense_equivalent_fraction": 1.0,
+          "last_chunk_relative_l2_error": 0.5129810663827347,
+          "max_relative_l2_error": 0.5347657699717397,
+          "mean_cosine_similarity": 0.91001029809316,
+          "mean_relative_l2_error": 0.3492489454514915,
+          "min_cosine_similarity": 0.8644624948501587
+        }
+      },
+      "slice": "test"
+    },
+    "scaled_attention_long_context": {
+      "chunk_indices": [
+        1,
+        3,
+        5,
+        7
+      ],
+      "results": {
+        "sliding_window_core_only": {
+          "active_block_fraction": 0.37777777777777777,
+          "dense_equivalent_fraction": 1.0,
+          "last_chunk_relative_l2_error": 0.7414025549668933,
+          "max_relative_l2_error": 0.9098559810667046,
+          "mean_cosine_similarity": 0.7976996302604675,
+          "mean_relative_l2_error": 0.5440818602782597,
+          "min_cosine_similarity": 0.5492866039276123
+        }
+      },
+      "slice": "test"
+    }
+  }
+}
