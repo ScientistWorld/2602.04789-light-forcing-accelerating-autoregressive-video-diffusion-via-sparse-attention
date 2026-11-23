@@ -1,36 +1,13 @@
 #!/bin/bash
-# Held-out test-slice evaluation entry point.
+# Hidden test-slice evaluation. Takes no arguments.
 #
-# No-argument mode reads scoring/scores_train.json, scores the same
-# experiment/method entries on eval/test/, and writes scoring/scores_test.json.
-# Explicit mode mirrors scripts/evaluate.sh:
-#   ./evaluate_test.sh <method_and_run_name> <artifact.pt> <experiment> [benchmark args]
-
+# Runs every method registered under outputs/methods/<name>.json through the
+# held-out rollouts of eval/test/ and writes scoring/scores_test.json. Any
+# previous scoring/scores_test.json is deleted first, so a failed or partial
+# run can never leave an older file behind.
 set -e
-
 cd /home/user
-
 mkdir -p scoring
-
-if [ "$#" -eq 0 ]; then
-  python -m eval.test.evaluate \
-    --train-scores scoring/scores_train.json \
-    --scores scoring/scores_test.json
-else
-  if [ "$#" -lt 3 ]; then
-    echo "usage: $0 <method_and_run_name> <artifact.pt> <experiment> [benchmark args]" >&2
-    echo "or:    $0" >&2
-    exit 2
-  fi
-  METHOD_NAME="$1"
-  ARTIFACT="$2"
-  EXPERIMENT="$3"
-  shift 3
-
-  python -m eval.test.evaluate \
-    --method-name "$METHOD_NAME" \
-    --artifact "$ARTIFACT" \
-    --experiment "$EXPERIMENT" \
-    --scores scoring/scores_test.json \
-    "$@"
-fi
+chmod -R u+rwX eval/test 2>/dev/null || true
+rm -f scoring/scores_test.json scoring/scores_test.json.tmp
+python -B -m eval.test.evaluate --methods-dir outputs/methods --scores scoring/scores_test.json

@@ -226,6 +226,7 @@ def main() -> None:
             "budget_tile_fraction": budget / dense,
             "results": {},
             "chunk_error_profiles": {},
+            "per_instance": {},
         }
     dense_runs: dict[str, list[dict]] = {}
     for name, registration in methods:
@@ -243,13 +244,18 @@ def main() -> None:
                 if not valid(metrics):
                     failure = f"impossible metric values in {exp}: {metrics}"
                     break
-                per_exp[exp] = (metrics, np.mean([m["chunk_errors"] for m in inst], axis=0).tolist())
+                per_exp[exp] = (
+                    metrics,
+                    np.mean([m["chunk_errors"] for m in inst], axis=0).tolist(),
+                    [{k: m[k] for k in METRICS} for m in inst],
+                )
         for exp in exps:
             exp_data = data["experiments"][exp]
             if failure is None:
-                metrics, profile = per_exp[exp]
+                metrics, profile, instances = per_exp[exp]
                 exp_data["results"][name] = metrics
                 exp_data["chunk_error_profiles"][name] = profile
+                exp_data["per_instance"][name] = instances
             else:
                 exp_data["results"][name] = dict(WORST)
         if failure is not None:

@@ -2,4 +2,4 @@ action: submit
 gpus: 0
 test: false
 milestone: secondary_claims
-notes: "Calibration of the redesigned closed-loop AR sparse-attention benchmark: protocol smoke test + world presets x selectors (reference, ablations, baselines, variants, oracle)."
+notes: "Hardened gym, full run: reference + ablations + baselines through train and hidden test (official scores), then better/weaker variants and 12 shortcut selectors through both evaluators; stale-file check; analysis."
