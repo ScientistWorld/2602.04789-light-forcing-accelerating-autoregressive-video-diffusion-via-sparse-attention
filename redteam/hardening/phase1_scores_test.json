@@ -1,0 +1,1230 @@
+{
+  "_meta": {
+    "failures": {},
+    "skipped_registrations": [],
+    "slice": "test"
+  },
+  "experiments": {
+    "ar_rollout_core": {
+      "budget_tile_fraction": 0.13214285714285715,
+      "chunk_error_profiles": {
+        "light_forcing": [
+          0.0,
+          0.14751987922987375,
+          0.21128270785320327,
+          0.27192879115406426,
+          0.29705576926072397,
+          0.2844082501466225,
+          0.2763082721482546
+        ],
+        "light_forcing_cag_only": [
+          0.0,
+          0.14751987922987375,
+          0.21128270785320327,
+          0.2728466455970699,
+          0.30285300104914736,
+          0.28597951140792066,
+          0.28005693096660694
+        ],
+        "light_forcing_uniform": [
+          0.0,
+          0.207475547673572,
+          0.2628891856030174,
+          0.32010619241743676,
+          0.3412945305557046,
+          0.3136623150277885,
+          0.2938524548073189
+        ],
+        "local_window": [
+          0.0,
+          0.8949252870760946,
+          1.1066316639207365,
+          1.176396804273095,
+          1.2106545936112296,
+          1.220608809761212,
+          1.2533598027987107
+        ],
+        "one_d_sparse": [
+          0.0,
+          0.207475547673572,
+          0.2628891856030174,
+          0.32079153533787536,
+          0.347026310881234,
+          0.3169498210552421,
+          0.29795753355362253
+        ],
+        "random_tiles": [
+          0.0,
+          0.6268357807704397,
+          0.5815369909220689,
+          0.4881435640773838,
+          0.39407355027987856,
+          0.34043043859056676,
+          0.2764711169914151
+        ]
+      },
+      "chunks": 7,
+      "instances": 8,
+      "per_instance": {
+        "light_forcing": [
+          {
+            "final_chunk_rel_error": 0.3121199087322444,
+            "mean_attention_cosine": 0.992494705653972,
+            "mean_generation_rel_error": 0.24997552912094584,
+            "revisit_rel_error": 0.3372423714418544,
+            "tile_cost_fraction": 0.13020833333333334
+          },
+          {
+            "final_chunk_rel_error": 0.21115673419654185,
+            "mean_attention_cosine": 0.9940283421311358,
+            "mean_generation_rel_error": 0.1767239467632116,
+            "revisit_rel_error": 0.1977064580516077,
+            "tile_cost_fraction": 0.13020833333333334
+          },
+          {
+            "final_chunk_rel_error": 0.4216549391691478,
+            "mean_attention_cosine": 0.9857814597851519,
+            "mean_generation_rel_error": 0.2647579513506485,
+            "revisit_rel_error": 0.48823274285316726,
+            "tile_cost_fraction": 0.13020833333333334
+          },
+          {
+            "final_chunk_rel_error": 0.3183069761716363,
+            "mean_attention_cosine": 0.9899369780931672,
+            "mean_generation_rel_error": 0.23197328923514643,
+            "revisit_rel_error": 0.3289559812389074,
+            "tile_cost_fraction": 0.13020833333333334
+          },
+          {
+            "final_chunk_rel_error": 0.25487998283765967,
+            "mean_attention_cosine": 0.99564196704985,
+            "mean_generation_rel_error": 0.18974910103734594,
+            "revisit_rel_error": 0.27983438569930613,
+            "tile_cost_fraction": 0.13020833333333334
+          },
+          {
+            "final_chunk_rel_error": 0.2574799160700778,
+            "mean_attention_cosine": 0.9932216511849697,
+            "mean_generation_rel_error": 0.2086584338708628,
+            "revisit_rel_error": 0.2488429811999424,
+            "tile_cost_fraction": 0.13020833333333334
+          },
+          {
+            "final_chunk_rel_error": 0.2044116373529933,
+            "mean_attention_cosine": 0.99607276481017,
+            "mean_generation_rel_error": 0.18556937170203872,
+            "revisit_rel_error": 0.21894326026328229,
+            "tile_cost_fraction": 0.13020833333333334
+          },
+          {
+            "final_chunk_rel_error": 0.23045608265573544,
+            "mean_attention_cosine": 0.9935944760638095,
+            "mean_generation_rel_error": 0.19373942811150568,
+            "revisit_rel_error": 0.3475422771087281,
+            "tile_cost_fraction": 0.13020833333333334
+          }
+        ],
+        "light_forcing_cag_only": [
+          {
+            "final_chunk_rel_error": 0.3368684924568719,
+            "mean_attention_cosine": 0.9925306067041026,
+            "mean_generation_rel_error": 0.25674245544527075,
+            "revisit_rel_error": 0.3040077414125274,
+            "tile_cost_fraction": 0.13020833333333334
+          },
+          {
+            "final_chunk_rel_error": 0.24769702136158003,
+            "mean_attention_cosine": 0.9942301519535758,
+            "mean_generation_rel_error": 0.18609988401454003,
+            "revisit_rel_error": 0.2011761772922755,
+            "tile_cost_fraction": 0.13020833333333334
+          },
+          {
+            "final_chunk_rel_error": 0.3210106896794848,
+            "mean_attention_cosine": 0.9891538679168662,
+            "mean_generation_rel_error": 0.25396651534822595,
+            "revisit_rel_error": 0.32216065951613754,
+            "tile_cost_fraction": 0.13020833333333334
+          },
+          {
+            "final_chunk_rel_error": 0.37751904433114375,
+            "mean_attention_cosine": 0.9901048124456314,
+            "mean_generation_rel_error": 0.24383557885582988,
+            "revisit_rel_error": 0.3291069415173887,
+            "tile_cost_fraction": 0.13020833333333334
+          },
+          {
+            "final_chunk_rel_error": 0.3084288521514389,
+            "mean_attention_cosine": 0.9956588167353785,
+            "mean_generation_rel_error": 0.20359599881384255,
+            "revisit_rel_error": 0.26955171013679224,
+            "tile_cost_fraction": 0.13020833333333334
+          },
+          {
+            "final_chunk_rel_error": 0.24591297613536806,
+            "mean_attention_cosine": 0.9936203375751831,
+            "mean_generation_rel_error": 0.2055451948312515,
+            "revisit_rel_error": 0.23873268119176366,
+            "tile_cost_fraction": 0.13020833333333334
+          },
+          {
+            "final_chunk_rel_error": 0.21158750714084604,
+            "mean_attention_cosine": 0.9961491894168227,
+            "mean_generation_rel_error": 0.18685702120413933,
+            "revisit_rel_error": 0.20334612867329416,
+            "tile_cost_fraction": 0.13020833333333334
+          },
+          {
+            "final_chunk_rel_error": 0.19143086447612204,
+            "mean_attention_cosine": 0.9950932147435626,
+            "mean_generation_rel_error": 0.17825869560555355,
+            "revisit_rel_error": 0.17307084883565022,
+            "tile_cost_fraction": 0.13020833333333334
+          }
+        ],
+        "light_forcing_uniform": [
+          {
+            "final_chunk_rel_error": 0.3239826931035255,
+            "mean_attention_cosine": 0.9898176857495177,
+            "mean_generation_rel_error": 0.29201672391459477,
+            "revisit_rel_error": 0.3485629701134759,
+            "tile_cost_fraction": 0.13020833333333334
+          },
+          {
+            "final_chunk_rel_error": 0.2235304606352459,
+            "mean_attention_cosine": 0.99287029433714,
+            "mean_generation_rel_error": 0.20456597451305716,
+            "revisit_rel_error": 0.2127023211306498,
+            "tile_cost_fraction": 0.13020833333333334
+          },
+          {
+            "final_chunk_rel_error": 0.4543412824090257,
+            "mean_attention_cosine": 0.9841282555490872,
+            "mean_generation_rel_error": 0.310476487230248,
+            "revisit_rel_error": 0.5223052837820847,
+            "tile_cost_fraction": 0.13020833333333334
+          },
+          {
+            "final_chunk_rel_error": 0.323953910220241,
+            "mean_attention_cosine": 0.9878143626249489,
+            "mean_generation_rel_error": 0.26203939420179206,
+            "revisit_rel_error": 0.3372180563227172,
+            "tile_cost_fraction": 0.13020833333333334
+          },
+          {
+            "final_chunk_rel_error": 0.26405780861153766,
+            "mean_attention_cosine": 0.9943289656521744,
+            "mean_generation_rel_error": 0.22027689645522394,
+            "revisit_rel_error": 0.284645978072606,
+            "tile_cost_fraction": 0.13020833333333334
+          },
+          {
+            "final_chunk_rel_error": 0.30202893573463846,
+            "mean_attention_cosine": 0.9924526379775556,
+            "mean_generation_rel_error": 0.25752963194327066,
+            "revisit_rel_error": 0.3047652378462095,
+            "tile_cost_fraction": 0.13020833333333334
+          },
+          {
+            "final_chunk_rel_error": 0.21053432878298506,
+            "mean_attention_cosine": 0.9951596650293676,
+            "mean_generation_rel_error": 0.20932908228246686,
+            "revisit_rel_error": 0.23000548707699828,
+            "tile_cost_fraction": 0.13020833333333334
+          },
+          {
+            "final_chunk_rel_error": 0.24839021896135194,
+            "mean_attention_cosine": 0.9915381694481004,
+            "mean_generation_rel_error": 0.23151463927059016,
+            "revisit_rel_error": 0.3604987248360191,
+            "tile_cost_fraction": 0.13020833333333334
+          }
+        ],
+        "local_window": [
+          {
+            "final_chunk_rel_error": 1.2070762678069877,
+            "mean_attention_cosine": 0.8816761715055208,
+            "mean_generation_rel_error": 0.9664541731685876,
+            "revisit_rel_error": 1.1090634074083245,
+            "tile_cost_fraction": 0.13020833333333334
+          },
+          {
+            "final_chunk_rel_error": 1.2810819021043471,
+            "mean_attention_cosine": 0.8614524991336959,
+            "mean_generation_rel_error": 0.9963817385298694,
+            "revisit_rel_error": 1.084641990449222,
+            "tile_cost_fraction": 0.13020833333333334
+          },
+          {
+            "final_chunk_rel_error": 1.1246659954358396,
+            "mean_attention_cosine": 0.875725526906798,
+            "mean_generation_rel_error": 0.9250567925320514,
+            "revisit_rel_error": 1.1258211793665398,
+            "tile_cost_fraction": 0.13020833333333334
+          },
+          {
+            "final_chunk_rel_error": 1.1730179928356794,
+            "mean_attention_cosine": 0.8889780203683565,
+            "mean_generation_rel_error": 0.9086710994159863,
+            "revisit_rel_error": 0.9879352935868818,
+            "tile_cost_fraction": 0.13020833333333334
+          },
+          {
+            "final_chunk_rel_error": 1.1620874899103548,
+            "mean_attention_cosine": 0.8565711486711985,
+            "mean_generation_rel_error": 0.9633650854545938,
+            "revisit_rel_error": 1.1329595537597197,
+            "tile_cost_fraction": 0.13020833333333334
+          },
+          {
+            "final_chunk_rel_error": 1.3206263826629956,
+            "mean_attention_cosine": 0.8595358479661215,
+            "mean_generation_rel_error": 0.9855527521183054,
+            "revisit_rel_error": 1.1885332280037728,
+            "tile_cost_fraction": 0.13020833333333334
+          },
+          {
+            "final_chunk_rel_error": 1.609553644684336,
+            "mean_attention_cosine": 0.8676950366504862,
+            "mean_generation_rel_error": 1.172865445174684,
+            "revisit_rel_error": 1.433312763050409,
+            "tile_cost_fraction": 0.13020833333333334
+          },
+          {
+            "final_chunk_rel_error": 1.1487687469491465,
+            "mean_attention_cosine": 0.8350189243269981,
+            "mean_generation_rel_error": 0.9245980123957267,
+            "revisit_rel_error": 1.1271649104790349,
+            "tile_cost_fraction": 0.13020833333333334
+          }
+        ],
+        "one_d_sparse": [
+          {
+            "final_chunk_rel_error": 0.34870816982032987,
+            "mean_attention_cosine": 0.9898448514618826,
+            "mean_generation_rel_error": 0.29892719387077665,
+            "revisit_rel_error": 0.31614184871445805,
+            "tile_cost_fraction": 0.13020833333333334
+          },
+          {
+            "final_chunk_rel_error": 0.2650570638613712,
+            "mean_attention_cosine": 0.9931199556317744,
+            "mean_generation_rel_error": 0.21539326479345072,
+            "revisit_rel_error": 0.2192212410113857,
+            "tile_cost_fraction": 0.13020833333333334
+          },
+          {
+            "final_chunk_rel_error": 0.3513950180826316,
+            "mean_attention_cosine": 0.9877884820338186,
+            "mean_generation_rel_error": 0.29939493770847575,
+            "revisit_rel_error": 0.35372901065571377,
+            "tile_cost_fraction": 0.13020833333333334
+          },
+          {
+            "final_chunk_rel_error": 0.38002311228255936,
+            "mean_attention_cosine": 0.9880356681685293,
+            "mean_generation_rel_error": 0.2731541368469638,
+            "revisit_rel_error": 0.33310579987472755,
+            "tile_cost_fraction": 0.13020833333333334
+          },
+          {
+            "final_chunk_rel_error": 0.3185447796088284,
+            "mean_attention_cosine": 0.9944056015650631,
+            "mean_generation_rel_error": 0.23410406952590787,
+            "revisit_rel_error": 0.27990912977000204,
+            "tile_cost_fraction": 0.13020833333333334
+          },
+          {
+            "final_chunk_rel_error": 0.2891296168665896,
+            "mean_attention_cosine": 0.9928948338865605,
+            "mean_generation_rel_error": 0.2542575272861663,
+            "revisit_rel_error": 0.2953304029505133,
+            "tile_cost_fraction": 0.13020833333333334
+          },
+          {
+            "final_chunk_rel_error": 0.21851047455110426,
+            "mean_attention_cosine": 0.9952510391432984,
+            "mean_generation_rel_error": 0.21082447177358038,
+            "revisit_rel_error": 0.21536624348798258,
+            "tile_cost_fraction": 0.13020833333333334
+          },
+          {
+            "final_chunk_rel_error": 0.21229203335556582,
+            "mean_attention_cosine": 0.9930655524227475,
+            "mean_generation_rel_error": 0.21747575145703668,
+            "revisit_rel_error": 0.19216963469600626,
+            "tile_cost_fraction": 0.13020833333333334
+          }
+        ],
+        "random_tiles": [
+          {
+            "final_chunk_rel_error": 0.1945077895461886,
+            "mean_attention_cosine": 0.9341062702545136,
+            "mean_generation_rel_error": 0.34607894051003896,
+            "revisit_rel_error": 0.3262917987313518,
+            "tile_cost_fraction": 0.13020833333333334
+          },
+          {
+            "final_chunk_rel_error": 0.2894835874152976,
+            "mean_attention_cosine": 0.9348141183965888,
+            "mean_generation_rel_error": 0.3683658939346365,
+            "revisit_rel_error": 0.4393864628943125,
+            "tile_cost_fraction": 0.13020833333333334
+          },
+          {
+            "final_chunk_rel_error": 0.2840080878674979,
+            "mean_attention_cosine": 0.9356924300945384,
+            "mean_generation_rel_error": 0.35036445029064184,
+            "revisit_rel_error": 0.29051505887863316,
+            "tile_cost_fraction": 0.13020833333333334
+          },
+          {
+            "final_chunk_rel_error": 0.3324628608660747,
+            "mean_attention_cosine": 0.9084825669119205,
+            "mean_generation_rel_error": 0.44211147333861095,
+            "revisit_rel_error": 0.5033281160785956,
+            "tile_cost_fraction": 0.13020833333333334
+          },
+          {
+            "final_chunk_rel_error": 0.278646030879601,
+            "mean_attention_cosine": 0.9331720557864475,
+            "mean_generation_rel_error": 0.3833538785549413,
+            "revisit_rel_error": 0.3778140882323504,
+            "tile_cost_fraction": 0.13020833333333334
+          },
+          {
+            "final_chunk_rel_error": 0.4357785924910251,
+            "mean_attention_cosine": 0.9072393678842312,
+            "mean_generation_rel_error": 0.5577964261321242,
+            "revisit_rel_error": 0.5529964419219814,
+            "tile_cost_fraction": 0.13020833333333334
+          },
+          {
+            "final_chunk_rel_error": 0.1825151917327842,
+            "mean_attention_cosine": 0.9470926458720106,
+            "mean_generation_rel_error": 0.28826012755442043,
+            "revisit_rel_error": 0.3206757093755835,
+            "tile_cost_fraction": 0.13020833333333334
+          },
+          {
+            "final_chunk_rel_error": 0.21436679513285165,
+            "mean_attention_cosine": 0.9295085946344575,
+            "mean_generation_rel_error": 0.3579447429780173,
+            "revisit_rel_error": 0.2889790025789496,
+            "tile_cost_fraction": 0.13020833333333334
+          }
+        ]
+      },
+      "results": {
+        "light_forcing": {
+          "final_chunk_rel_error": 0.2763082721482546,
+          "mean_attention_cosine": 0.9925965430965282,
+          "mean_generation_rel_error": 0.2126433813989632,
+          "revisit_rel_error": 0.3059125572320995,
+          "tile_cost_fraction": 0.13020833333333334
+        },
+        "light_forcing_cag_only": {
+          "final_chunk_rel_error": 0.28005693096660694,
+          "mean_attention_cosine": 0.9933176246863904,
+          "mean_generation_rel_error": 0.2143626680148317,
+          "revisit_rel_error": 0.25514411107197865,
+          "tile_cost_fraction": 0.13020833333333334
+        },
+        "light_forcing_uniform": {
+          "final_chunk_rel_error": 0.2938524548073189,
+          "mean_attention_cosine": 0.9910137545459865,
+          "mean_generation_rel_error": 0.24846860372640547,
+          "revisit_rel_error": 0.3250880073975951,
+          "tile_cost_fraction": 0.13020833333333334
+        },
+        "local_window": {
+          "final_chunk_rel_error": 1.253359802798711,
+          "mean_attention_cosine": 0.8658316469411469,
+          "mean_generation_rel_error": 0.9803681373487256,
+          "revisit_rel_error": 1.148679040762988,
+          "tile_cost_fraction": 0.13020833333333334
+        },
+        "one_d_sparse": {
+          "final_chunk_rel_error": 0.29795753355362253,
+          "mean_attention_cosine": 0.9918007480392093,
+          "mean_generation_rel_error": 0.2504414191577948,
+          "revisit_rel_error": 0.2756216638950987,
+          "tile_cost_fraction": 0.13020833333333334
+        },
+        "random_tiles": {
+          "final_chunk_rel_error": 0.2764711169914151,
+          "mean_attention_cosine": 0.9287635062293385,
+          "mean_generation_rel_error": 0.38678449166167894,
+          "revisit_rel_error": 0.3874983348364697,
+          "tile_cost_fraction": 0.13020833333333334
+        }
+      },
+      "slice": "test",
+      "target_sparsity": 0.9
+    },
+    "ar_rollout_high_sparsity": {
+      "budget_tile_fraction": 0.08392857142857146,
+      "chunk_error_profiles": {
+        "light_forcing": [
+          0.0,
+          0.2783449826797286,
+          0.3697797240089883,
+          0.435563591158475,
+          0.4680566991528359,
+          0.45640196945230094,
+          0.4313998506758269
+        ],
+        "light_forcing_cag_only": [
+          0.0,
+          0.2783449826797286,
+          0.3697797240089883,
+          0.43586490200993466,
+          0.46853742264238996,
+          0.4467183161108948,
+          0.4306071890916791
+        ],
+        "light_forcing_uniform": [
+          0.0,
+          0.3568009658612756,
+          0.4170136208402452,
+          0.4769408588579924,
+          0.49956374831596323,
+          0.4785190673732898,
+          0.44233371456522136
+        ],
+        "local_window": [
+          0.0,
+          1.0813447797996842,
+          1.1701929842954935,
+          1.2330973259821705,
+          1.2643721294655261,
+          1.2460449969533565,
+          1.2646278311999366
+        ],
+        "one_d_sparse": [
+          0.0,
+          0.3568009658612756,
+          0.4170136208402452,
+          0.4760873578036732,
+          0.5003651282884509,
+          0.47019838885419296,
+          0.4437200744868045
+        ],
+        "random_tiles": [
+          0.0,
+          0.7946678103723035,
+          0.7279590639012099,
+          0.620034857609214,
+          0.5006208000943703,
+          0.43306209322957084,
+          0.3938355714299203
+        ]
+      },
+      "chunks": 7,
+      "instances": 8,
+      "per_instance": {
+        "light_forcing": [
+          {
+            "final_chunk_rel_error": 0.3880696374227081,
+            "mean_attention_cosine": 0.9888125380738204,
+            "mean_generation_rel_error": 0.2943980638326261,
+            "revisit_rel_error": 0.3377328102192179,
+            "tile_cost_fraction": 0.0818452380952381
+          },
+          {
+            "final_chunk_rel_error": 0.43799450671185575,
+            "mean_attention_cosine": 0.9811006549445046,
+            "mean_generation_rel_error": 0.3458063216534683,
+            "revisit_rel_error": 0.4448953285353063,
+            "tile_cost_fraction": 0.0818452380952381
+          },
+          {
+            "final_chunk_rel_error": 0.3569270861719742,
+            "mean_attention_cosine": 0.9793306156610243,
+            "mean_generation_rel_error": 0.3439606936726726,
+            "revisit_rel_error": 0.35937054268018565,
+            "tile_cost_fraction": 0.0818452380952381
+          },
+          {
+            "final_chunk_rel_error": 0.4649886947194162,
+            "mean_attention_cosine": 0.9837572182127934,
+            "mean_generation_rel_error": 0.35936138923838506,
+            "revisit_rel_error": 0.43360153725396194,
+            "tile_cost_fraction": 0.0818452380952381
+          },
+          {
+            "final_chunk_rel_error": 0.4094618571138031,
+            "mean_attention_cosine": 0.9876051500343532,
+            "mean_generation_rel_error": 0.34835222211079386,
+            "revisit_rel_error": 0.44905668910412194,
+            "tile_cost_fraction": 0.0818452380952381
+          },
+          {
+            "final_chunk_rel_error": 0.5135242581105764,
+            "mean_attention_cosine": 0.9860876629272514,
+            "mean_generation_rel_error": 0.3703531985479183,
+            "revisit_rel_error": 0.46395170311470585,
+            "tile_cost_fraction": 0.0818452380952381
+          },
+          {
+            "final_chunk_rel_error": 0.48593156781480595,
+            "mean_attention_cosine": 0.9779291715284069,
+            "mean_generation_rel_error": 0.3929161325116032,
+            "revisit_rel_error": 0.5085375127453888,
+            "tile_cost_fraction": 0.0818452380952381
+          },
+          {
+            "final_chunk_rel_error": 0.39430119734147573,
+            "mean_attention_cosine": 0.9763002835020235,
+            "mean_generation_rel_error": 0.3329054837218531,
+            "revisit_rel_error": 0.5621361132255218,
+            "tile_cost_fraction": 0.0818452380952381
+          }
+        ],
+        "light_forcing_cag_only": [
+          {
+            "final_chunk_rel_error": 0.3928684187700805,
+            "mean_attention_cosine": 0.9888045169185803,
+            "mean_generation_rel_error": 0.2954863357781127,
+            "revisit_rel_error": 0.3197071498757255,
+            "tile_cost_fraction": 0.0818452380952381
+          },
+          {
+            "final_chunk_rel_error": 0.48502755993325275,
+            "mean_attention_cosine": 0.9791437776619877,
+            "mean_generation_rel_error": 0.3605415699862096,
+            "revisit_rel_error": 0.46765289009703537,
+            "tile_cost_fraction": 0.0818452380952381
+          },
+          {
+            "final_chunk_rel_error": 0.36669744261179854,
+            "mean_attention_cosine": 0.9779603455909927,
+            "mean_generation_rel_error": 0.34504701787257636,
+            "revisit_rel_error": 0.28514304110919725,
+            "tile_cost_fraction": 0.0818452380952381
+          },
+          {
+            "final_chunk_rel_error": 0.44709695629066754,
+            "mean_attention_cosine": 0.9835070161852651,
+            "mean_generation_rel_error": 0.3610106680547969,
+            "revisit_rel_error": 0.3755201869523658,
+            "tile_cost_fraction": 0.0818452380952381
+          },
+          {
+            "final_chunk_rel_error": 0.3829665726467168,
+            "mean_attention_cosine": 0.9889666808365264,
+            "mean_generation_rel_error": 0.33692442928106425,
+            "revisit_rel_error": 0.36297820869050196,
+            "tile_cost_fraction": 0.0818452380952381
+          },
+          {
+            "final_chunk_rel_error": 0.5338189513408167,
+            "mean_attention_cosine": 0.9856516390261872,
+            "mean_generation_rel_error": 0.3751249344277746,
+            "revisit_rel_error": 0.4578124961949409,
+            "tile_cost_fraction": 0.0818452380952381
+          },
+          {
+            "final_chunk_rel_error": 0.4536130399493158,
+            "mean_attention_cosine": 0.9789555872980429,
+            "mean_generation_rel_error": 0.3876956380828072,
+            "revisit_rel_error": 0.37786232044607354,
+            "tile_cost_fraction": 0.0818452380952381
+          },
+          {
+            "final_chunk_rel_error": 0.3827685711907846,
+            "mean_attention_cosine": 0.9783408966397689,
+            "mean_generation_rel_error": 0.31514373399507606,
+            "revisit_rel_error": 0.4242956072678591,
+            "tile_cost_fraction": 0.0818452380952381
+          }
+        ],
+        "light_forcing_uniform": [
+          {
+            "final_chunk_rel_error": 0.39689626613189355,
+            "mean_attention_cosine": 0.9862113090843667,
+            "mean_generation_rel_error": 0.3235603554529242,
+            "revisit_rel_error": 0.3324142188458366,
+            "tile_cost_fraction": 0.0818452380952381
+          },
+          {
+            "final_chunk_rel_error": 0.44163888531702167,
+            "mean_attention_cosine": 0.9781807105062003,
+            "mean_generation_rel_error": 0.37142729305754035,
+            "revisit_rel_error": 0.4515743183471586,
+            "tile_cost_fraction": 0.0818452380952381
+          },
+          {
+            "final_chunk_rel_error": 0.35970280122019777,
+            "mean_attention_cosine": 0.9755810558924771,
+            "mean_generation_rel_error": 0.37216391539014826,
+            "revisit_rel_error": 0.3655515080827078,
+            "tile_cost_fraction": 0.0818452380952381
+          },
+          {
+            "final_chunk_rel_error": 0.5089661368490641,
+            "mean_attention_cosine": 0.979947684168098,
+            "mean_generation_rel_error": 0.4145574321080065,
+            "revisit_rel_error": 0.46047475290921375,
+            "tile_cost_fraction": 0.0818452380952381
+          },
+          {
+            "final_chunk_rel_error": 0.42357473474667956,
+            "mean_attention_cosine": 0.9833067457356321,
+            "mean_generation_rel_error": 0.3846552061209949,
+            "revisit_rel_error": 0.46437457806708926,
+            "tile_cost_fraction": 0.0818452380952381
+          },
+          {
+            "final_chunk_rel_error": 0.5115528703431055,
+            "mean_attention_cosine": 0.9829330136231486,
+            "mean_generation_rel_error": 0.39048440681169294,
+            "revisit_rel_error": 0.4724991395908507,
+            "tile_cost_fraction": 0.0818452380952381
+          },
+          {
+            "final_chunk_rel_error": 0.49884900034484275,
+            "mean_attention_cosine": 0.9726023617111933,
+            "mean_generation_rel_error": 0.4319188723747303,
+            "revisit_rel_error": 0.5115252086622795,
+            "tile_cost_fraction": 0.0818452380952381
+          },
+          {
+            "final_chunk_rel_error": 0.39748902156896604,
+            "mean_attention_cosine": 0.9715010950280277,
+            "mean_generation_rel_error": 0.36400049104280546,
+            "revisit_rel_error": 0.5600272810591702,
+            "tile_cost_fraction": 0.0818452380952381
+          }
+        ],
+        "local_window": [
+          {
+            "final_chunk_rel_error": 1.3158590242309778,
+            "mean_attention_cosine": 0.701214856837044,
+            "mean_generation_rel_error": 1.0807088912000693,
+            "revisit_rel_error": 1.0777240153091823,
+            "tile_cost_fraction": 0.0818452380952381
+          },
+          {
+            "final_chunk_rel_error": 1.2883839034840514,
+            "mean_attention_cosine": 0.7862308063463697,
+            "mean_generation_rel_error": 1.0782913334831354,
+            "revisit_rel_error": 1.1064581442067303,
+            "tile_cost_fraction": 0.0818452380952381
+          },
+          {
+            "final_chunk_rel_error": 1.2978514263718655,
+            "mean_attention_cosine": 0.7121521425319409,
+            "mean_generation_rel_error": 1.060731994902534,
+            "revisit_rel_error": 1.1405661835083505,
+            "tile_cost_fraction": 0.0818452380952381
+          },
+          {
+            "final_chunk_rel_error": 1.1934433070634671,
+            "mean_attention_cosine": 0.8390677637532548,
+            "mean_generation_rel_error": 1.0012249769764572,
+            "revisit_rel_error": 1.124042509561891,
+            "tile_cost_fraction": 0.0818452380952381
+          },
+          {
+            "final_chunk_rel_error": 1.3147251285013168,
+            "mean_attention_cosine": 0.7420382116219963,
+            "mean_generation_rel_error": 1.0543226772496226,
+            "revisit_rel_error": 1.1393323724625724,
+            "tile_cost_fraction": 0.0818452380952381
+          },
+          {
+            "final_chunk_rel_error": 1.246455691158898,
+            "mean_attention_cosine": 0.7488838219248282,
+            "mean_generation_rel_error": 1.0461007550793775,
+            "revisit_rel_error": 1.1596782380892137,
+            "tile_cost_fraction": 0.0818452380952381
+          },
+          {
+            "final_chunk_rel_error": 1.215060687162742,
+            "mean_attention_cosine": 0.7800504188689688,
+            "mean_generation_rel_error": 1.003225264133367,
+            "revisit_rel_error": 1.1400333487126857,
+            "tile_cost_fraction": 0.0818452380952381
+          },
+          {
+            "final_chunk_rel_error": 1.245243481626174,
+            "mean_attention_cosine": 0.8160279522830802,
+            "mean_generation_rel_error": 0.9721713043424859,
+            "revisit_rel_error": 0.8818416398649932,
+            "tile_cost_fraction": 0.0818452380952381
+          }
+        ],
+        "one_d_sparse": [
+          {
+            "final_chunk_rel_error": 0.4020074806918797,
+            "mean_attention_cosine": 0.9861953755214022,
+            "mean_generation_rel_error": 0.32484965442673647,
+            "revisit_rel_error": 0.30656780390504584,
+            "tile_cost_fraction": 0.0818452380952381
+          },
+          {
+            "final_chunk_rel_error": 0.4958414066132813,
+            "mean_attention_cosine": 0.9761032717437034,
+            "mean_generation_rel_error": 0.3876318138591741,
+            "revisit_rel_error": 0.47955178623539874,
+            "tile_cost_fraction": 0.0818452380952381
+          },
+          {
+            "final_chunk_rel_error": 0.37194833326207866,
+            "mean_attention_cosine": 0.9741879049775484,
+            "mean_generation_rel_error": 0.37318796446478497,
+            "revisit_rel_error": 0.2919922502369746,
+            "tile_cost_fraction": 0.0818452380952381
+          },
+          {
+            "final_chunk_rel_error": 0.49231802005177966,
+            "mean_attention_cosine": 0.9795692485271298,
+            "mean_generation_rel_error": 0.4167176313795724,
+            "revisit_rel_error": 0.40159398126035056,
+            "tile_cost_fraction": 0.0818452380952381
+          },
+          {
+            "final_chunk_rel_error": 0.3969098823868317,
+            "mean_attention_cosine": 0.9847147628269023,
+            "mean_generation_rel_error": 0.37349101275568897,
+            "revisit_rel_error": 0.3809625311359224,
+            "tile_cost_fraction": 0.0818452380952381
+          },
+          {
+            "final_chunk_rel_error": 0.529828759340986,
+            "mean_attention_cosine": 0.9825005569426521,
+            "mean_generation_rel_error": 0.3937135622195122,
+            "revisit_rel_error": 0.46178855042143985,
+            "tile_cost_fraction": 0.0818452380952381
+          },
+          {
+            "final_chunk_rel_error": 0.4683116013819725,
+            "mean_attention_cosine": 0.9735961546043926,
+            "mean_generation_rel_error": 0.4265634641013741,
+            "revisit_rel_error": 0.3811067186155452,
+            "tile_cost_fraction": 0.0818452380952381
+          },
+          {
+            "final_chunk_rel_error": 0.39259511216562637,
+            "mean_attention_cosine": 0.9734964740050216,
+            "mean_generation_rel_error": 0.3486283666613194,
+            "revisit_rel_error": 0.4382879501543483,
+            "tile_cost_fraction": 0.0818452380952381
+          }
+        ],
+        "random_tiles": [
+          {
+            "final_chunk_rel_error": 0.3655036464943279,
+            "mean_attention_cosine": 0.9124893706775499,
+            "mean_generation_rel_error": 0.47547973838247337,
+            "revisit_rel_error": 0.43543819024544467,
+            "tile_cost_fraction": 0.0818452380952381
+          },
+          {
+            "final_chunk_rel_error": 0.34292149154797014,
+            "mean_attention_cosine": 0.9165661566729254,
+            "mean_generation_rel_error": 0.4548282838452073,
+            "revisit_rel_error": 0.5534726236473299,
+            "tile_cost_fraction": 0.0818452380952381
+          },
+          {
+            "final_chunk_rel_error": 0.45922803567754267,
+            "mean_attention_cosine": 0.8911760933077587,
+            "mean_generation_rel_error": 0.5622508265604135,
+            "revisit_rel_error": 0.5565338540825658,
+            "tile_cost_fraction": 0.0818452380952381
+          },
+          {
+            "final_chunk_rel_error": 0.4287631789783874,
+            "mean_attention_cosine": 0.9009230498146306,
+            "mean_generation_rel_error": 0.46787050313273404,
+            "revisit_rel_error": 0.4999048370366756,
+            "tile_cost_fraction": 0.0818452380952381
+          },
+          {
+            "final_chunk_rel_error": 0.33846303499093755,
+            "mean_attention_cosine": 0.9072582776013155,
+            "mean_generation_rel_error": 0.4641387611568493,
+            "revisit_rel_error": 0.4126652324660157,
+            "tile_cost_fraction": 0.0818452380952381
+          },
+          {
+            "final_chunk_rel_error": 0.30817109094688033,
+            "mean_attention_cosine": 0.9110148312436885,
+            "mean_generation_rel_error": 0.46109563414275634,
+            "revisit_rel_error": 0.4694279940746887,
+            "tile_cost_fraction": 0.0818452380952381
+          },
+          {
+            "final_chunk_rel_error": 0.3108367196176941,
+            "mean_attention_cosine": 0.904864177281771,
+            "mean_generation_rel_error": 0.4358570575115972,
+            "revisit_rel_error": 0.36461418118584576,
+            "tile_cost_fraction": 0.0818452380952381
+          },
+          {
+            "final_chunk_rel_error": 0.5967973731856222,
+            "mean_attention_cosine": 0.8835186936074729,
+            "mean_generation_rel_error": 0.644399419995499,
+            "revisit_rel_error": 0.8490048544176446,
+            "tile_cost_fraction": 0.0818452380952381
+          }
+        ]
+      },
+      "results": {
+        "light_forcing": {
+          "final_chunk_rel_error": 0.431399850675827,
+          "mean_attention_cosine": 0.9826154118605221,
+          "mean_generation_rel_error": 0.34850668816116503,
+          "revisit_rel_error": 0.4449102796098013,
+          "tile_cost_fraction": 0.0818452380952381
+        },
+        "light_forcing_cag_only": {
+          "final_chunk_rel_error": 0.43060718909167917,
+          "mean_attention_cosine": 0.9826663075196689,
+          "mean_generation_rel_error": 0.3471217909348022,
+          "revisit_rel_error": 0.3838714875792124,
+          "tile_cost_fraction": 0.0818452380952381
+        },
+        "light_forcing_uniform": {
+          "final_chunk_rel_error": 0.44233371456522136,
+          "mean_attention_cosine": 0.978782996968643,
+          "mean_generation_rel_error": 0.3815959965448554,
+          "revisit_rel_error": 0.4523051256955383,
+          "tile_cost_fraction": 0.0818452380952381
+        },
+        "local_window": {
+          "final_chunk_rel_error": 1.2646278311999366,
+          "mean_attention_cosine": 0.7657082467709353,
+          "mean_generation_rel_error": 1.0370971496708812,
+          "revisit_rel_error": 1.0962095564644523,
+          "tile_cost_fraction": 0.0818452380952381
+        },
+        "one_d_sparse": {
+          "final_chunk_rel_error": 0.4437200744868045,
+          "mean_attention_cosine": 0.978795468643594,
+          "mean_generation_rel_error": 0.38059793373352035,
+          "revisit_rel_error": 0.3927314464956282,
+          "tile_cost_fraction": 0.0818452380952381
+        },
+        "random_tiles": {
+          "final_chunk_rel_error": 0.3938355714299203,
+          "mean_attention_cosine": 0.9034763312758891,
+          "mean_generation_rel_error": 0.4957400280909412,
+          "revisit_rel_error": 0.5176327208945264,
+          "tile_cost_fraction": 0.0818452380952381
+        }
+      },
+      "slice": "test",
+      "target_sparsity": 0.95
+    },
+    "ar_rollout_long_context": {
+      "budget_tile_fraction": 0.11636363636363634,
+      "chunk_error_profiles": {
+        "light_forcing": [
+          0.0,
+          0.10995451378299896,
+          0.15767951199853109,
+          0.20294079731640316,
+          0.23298082181860097,
+          0.24638929093743678,
+          0.2402249795738769,
+          0.2276541937274832,
+          0.21582791883957086,
+          0.22856022745025184
+        ],
+        "light_forcing_cag_only": [
+          0.0,
+          0.10995451378299896,
+          0.15767951199853109,
+          0.20419912200270637,
+          0.2355702924976808,
+          0.24967509416043487,
+          0.22680481042333722,
+          0.22412431562860075,
+          0.21433470282149814,
+          0.2019286551156443
+        ],
+        "light_forcing_uniform": [
+          0.0,
+          0.19639141093902143,
+          0.2334088751230155,
+          0.2735549813248064,
+          0.3006423253373667,
+          0.30970853395363135,
+          0.29038555780711434,
+          0.2769702100092965,
+          0.2629527292513727,
+          0.26738608679268955
+        ],
+        "local_window": [
+          0.0,
+          0.9168545253622756,
+          1.1159403502744292,
+          1.1394199923625186,
+          1.1571499557452447,
+          1.1597397252154513,
+          1.1637124288595795,
+          1.1883533743893644,
+          1.1660900058054833,
+          1.1650859363961865
+        ],
+        "one_d_sparse": [
+          0.0,
+          0.19639141093902143,
+          0.2334088751230155,
+          0.27467615675987334,
+          0.30244628885871344,
+          0.3142541017557516,
+          0.28126049077308013,
+          0.27673472793572784,
+          0.264895172867564,
+          0.24768226191899786
+        ],
+        "random_tiles": [
+          0.0,
+          0.6438798916046262,
+          0.6148883210683065,
+          0.5540864856458064,
+          0.47465609365490263,
+          0.4166075653167427,
+          0.3708068666263045,
+          0.3268725718189418,
+          0.3169745302818212,
+          0.3050680651290007
+        ]
+      },
+      "chunks": 10,
+      "instances": 4,
+      "per_instance": {
+        "light_forcing": [
+          {
+            "final_chunk_rel_error": 0.2100364328365871,
+            "mean_attention_cosine": 0.9940773692680557,
+            "mean_generation_rel_error": 0.197435195728951,
+            "revisit_rel_error": 0.29472563174218813,
+            "tile_cost_fraction": 0.11477272727272728
+          },
+          {
+            "final_chunk_rel_error": 0.2778669116823497,
+            "mean_attention_cosine": 0.9964485772463124,
+            "mean_generation_rel_error": 0.1864570718546602,
+            "revisit_rel_error": 0.4217026047781768,
+            "tile_cost_fraction": 0.11477272727272728
+          },
+          {
+            "final_chunk_rel_error": 0.21204753114403885,
+            "mean_attention_cosine": 0.9960686617078955,
+            "mean_generation_rel_error": 0.1673504957870704,
+            "revisit_rel_error": 0.20316819507845427,
+            "tile_cost_fraction": 0.11477272727272728
+          },
+          {
+            "final_chunk_rel_error": 0.2142900341380317,
+            "mean_attention_cosine": 0.9938058261524564,
+            "mean_generation_rel_error": 0.19364213880737996,
+            "revisit_rel_error": 0.30582842328015275,
+            "tile_cost_fraction": 0.11477272727272728
+          }
+        ],
+        "light_forcing_cag_only": [
+          {
+            "final_chunk_rel_error": 0.16345629570675263,
+            "mean_attention_cosine": 0.9952289856793328,
+            "mean_generation_rel_error": 0.17263211433154782,
+            "revisit_rel_error": 0.1850676439814853,
+            "tile_cost_fraction": 0.11477272727272728
+          },
+          {
+            "final_chunk_rel_error": 0.17570470368312266,
+            "mean_attention_cosine": 0.997315229307917,
+            "mean_generation_rel_error": 0.1773324040901758,
+            "revisit_rel_error": 0.1429596424389372,
+            "tile_cost_fraction": 0.11477272727272728
+          },
+          {
+            "final_chunk_rel_error": 0.18455240251882243,
+            "mean_attention_cosine": 0.9965119032108334,
+            "mean_generation_rel_error": 0.16625360254260305,
+            "revisit_rel_error": 0.17387082445341226,
+            "tile_cost_fraction": 0.11477272727272728
+          },
+          {
+            "final_chunk_rel_error": 0.2840012185538795,
+            "mean_attention_cosine": 0.9941714178869215,
+            "mean_generation_rel_error": 0.2134902864082464,
+            "revisit_rel_error": 0.2372725185848222,
+            "tile_cost_fraction": 0.11477272727272728
+          }
+        ],
+        "light_forcing_uniform": [
+          {
+            "final_chunk_rel_error": 0.2536670633730755,
+            "mean_attention_cosine": 0.9924818022694367,
+            "mean_generation_rel_error": 0.2541671576037733,
+            "revisit_rel_error": 0.33108500102830424,
+            "tile_cost_fraction": 0.11515151515151516
+          },
+          {
+            "final_chunk_rel_error": 0.3420644447541113,
+            "mean_attention_cosine": 0.9949968328595803,
+            "mean_generation_rel_error": 0.25566463527913086,
+            "revisit_rel_error": 0.4681846651137676,
+            "tile_cost_fraction": 0.11515151515151516
+          },
+          {
+            "final_chunk_rel_error": 0.23198010737927283,
+            "mean_attention_cosine": 0.994768795597446,
+            "mean_generation_rel_error": 0.20839713961260795,
+            "revisit_rel_error": 0.21996759652186684,
+            "tile_cost_fraction": 0.11515151515151516
+          },
+          {
+            "final_chunk_rel_error": 0.24183273166429856,
+            "mean_attention_cosine": 0.9912683623341947,
+            "mean_generation_rel_error": 0.24633135171981352,
+            "revisit_rel_error": 0.31508591486104054,
+            "tile_cost_fraction": 0.11515151515151516
+          }
+        ],
+        "local_window": [
+          {
+            "final_chunk_rel_error": 1.4443254714911111,
+            "mean_attention_cosine": 0.9009742942970123,
+            "mean_generation_rel_error": 1.1363049451532716,
+            "revisit_rel_error": 1.3381811373884889,
+            "tile_cost_fraction": 0.11515151515151516
+          },
+          {
+            "final_chunk_rel_error": 0.9745425091398882,
+            "mean_attention_cosine": 0.9087600522986357,
+            "mean_generation_rel_error": 0.9450546666396068,
+            "revisit_rel_error": 0.9859899898757649,
+            "tile_cost_fraction": 0.11515151515151516
+          },
+          {
+            "final_chunk_rel_error": 1.0539165314660608,
+            "mean_attention_cosine": 0.903113647414861,
+            "mean_generation_rel_error": 0.9548963056510866,
+            "revisit_rel_error": 0.9788252744645447,
+            "tile_cost_fraction": 0.11515151515151516
+          },
+          {
+            "final_chunk_rel_error": 1.1875592334876863,
+            "mean_attention_cosine": 0.898694886922733,
+            "mean_generation_rel_error": 1.0326826003202483,
+            "revisit_rel_error": 1.0021976174863592,
+            "tile_cost_fraction": 0.11515151515151516
+          }
+        ],
+        "one_d_sparse": [
+          {
+            "final_chunk_rel_error": 0.20477403903359742,
+            "mean_attention_cosine": 0.9936608170606492,
+            "mean_generation_rel_error": 0.2308288874338349,
+            "revisit_rel_error": 0.23535928403160855,
+            "tile_cost_fraction": 0.11515151515151516
+          },
+          {
+            "final_chunk_rel_error": 0.25343498955139,
+            "mean_attention_cosine": 0.9959213502278879,
+            "mean_generation_rel_error": 0.24845406788065327,
+            "revisit_rel_error": 0.19635630331028134,
+            "tile_cost_fraction": 0.11515151515151516
+          },
+          {
+            "final_chunk_rel_error": 0.207433209424968,
+            "mean_attention_cosine": 0.995189124814174,
+            "mean_generation_rel_error": 0.2074881658893104,
+            "revisit_rel_error": 0.1935913085845848,
+            "tile_cost_fraction": 0.11515151515151516
+          },
+          {
+            "final_chunk_rel_error": 0.3250868096660361,
+            "mean_attention_cosine": 0.9916191626729598,
+            "mean_generation_rel_error": 0.26992867356889955,
+            "revisit_rel_error": 0.26785106976440143,
+            "tile_cost_fraction": 0.11515151515151516
+          }
+        ],
+        "random_tiles": [
+          {
+            "final_chunk_rel_error": 0.27734432167176554,
+            "mean_attention_cosine": 0.9407384394522857,
+            "mean_generation_rel_error": 0.37990430276334436,
+            "revisit_rel_error": 0.4024008613351397,
+            "tile_cost_fraction": 0.11515151515151516
+          },
+          {
+            "final_chunk_rel_error": 0.23946548811944557,
+            "mean_attention_cosine": 0.9492173438119412,
+            "mean_generation_rel_error": 0.2880963551221643,
+            "revisit_rel_error": 0.34354989245139667,
+            "tile_cost_fraction": 0.11515151515151516
+          },
+          {
+            "final_chunk_rel_error": 0.4497006941398676,
+            "mean_attention_cosine": 0.9209982556581533,
+            "mean_generation_rel_error": 0.5391135329397084,
+            "revisit_rel_error": 0.5576565481625783,
+            "tile_cost_fraction": 0.11515151515151516
+          },
+          {
+            "final_chunk_rel_error": 0.2537617565849242,
+            "mean_attention_cosine": 0.9383050377672681,
+            "mean_generation_rel_error": 0.402421965633364,
+            "revisit_rel_error": 0.5077499656092499,
+            "tile_cost_fraction": 0.11515151515151516
+          }
+        ]
+      },
+      "results": {
+        "light_forcing": {
+          "final_chunk_rel_error": 0.22856022745025184,
+          "mean_attention_cosine": 0.99510010859368,
+          "mean_generation_rel_error": 0.18622122554451537,
+          "revisit_rel_error": 0.306356213719743,
+          "tile_cost_fraction": 0.11477272727272728
+        },
+        "light_forcing_cag_only": {
+          "final_chunk_rel_error": 0.2019286551156443,
+          "mean_attention_cosine": 0.9958068840212512,
+          "mean_generation_rel_error": 0.18242710184314326,
+          "revisit_rel_error": 0.18479265736466424,
+          "tile_cost_fraction": 0.11477272727272728
+        },
+        "light_forcing_uniform": {
+          "final_chunk_rel_error": 0.26738608679268955,
+          "mean_attention_cosine": 0.9933789482651645,
+          "mean_generation_rel_error": 0.2411400710538314,
+          "revisit_rel_error": 0.3335807943812448,
+          "tile_cost_fraction": 0.11515151515151516
+        },
+        "local_window": {
+          "final_chunk_rel_error": 1.1650859363961865,
+          "mean_attention_cosine": 0.9028857202333105,
+          "mean_generation_rel_error": 1.0172346294410533,
+          "revisit_rel_error": 1.0762985048037894,
+          "tile_cost_fraction": 0.11515151515151516
+        },
+        "one_d_sparse": {
+          "final_chunk_rel_error": 0.24768226191899786,
+          "mean_attention_cosine": 0.9940976136939177,
+          "mean_generation_rel_error": 0.23917494869317452,
+          "revisit_rel_error": 0.22328949142271903,
+          "tile_cost_fraction": 0.11515151515151516
+        },
+        "random_tiles": {
+          "final_chunk_rel_error": 0.3050680651290007,
+          "mean_attention_cosine": 0.9373147691724121,
+          "mean_generation_rel_error": 0.4023840391146453,
+          "revisit_rel_error": 0.4528393168895911,
+          "tile_cost_fraction": 0.11515151515151516
+        }
+      },
+      "slice": "test",
+      "target_sparsity": 0.9
+    }
+  }
+}

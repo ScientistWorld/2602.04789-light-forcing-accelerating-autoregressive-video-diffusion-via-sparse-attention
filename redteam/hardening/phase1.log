@@ -1,0 +1,380 @@
+registered light_forcing: ['python', '-m', 'method.light_forcing_selector']
+registered light_forcing_uniform: ['python', '-m', 'method.light_forcing_selector', '--allocation', 'uniform']
+registered light_forcing_cag_only: ['python', '-m', 'method.light_forcing_selector', '--selection', 'global']
+registered one_d_sparse: ['python', '-m', 'baseline.sparse_baselines', '--baseline', 'one_d_sparse']
+registered local_window: ['python', '-m', 'baseline.sparse_baselines', '--baseline', 'local_window']
+registered random_tiles: ['python', '-m', 'baseline.sparse_baselines', '--baseline', 'random_tiles']
+[train] light_forcing: ok (88s)
+[train] light_forcing_cag_only: ok (50s)
+[train] light_forcing_uniform: ok (53s)
+[train] local_window: ok (47s)
+[train] one_d_sparse: ok (49s)
+[train] random_tiles: ok (45s)
+{
+  "ar_rollout_core": {
+    "light_forcing": {
+      "final_chunk_rel_error": 0.2827023306028905,
+      "mean_attention_cosine": 0.9926879089552739,
+      "mean_generation_rel_error": 0.22198436620361073,
+      "revisit_rel_error": 0.30494781078262523,
+      "tile_cost_fraction": 0.13020833333333334
+    },
+    "light_forcing_cag_only": {
+      "final_chunk_rel_error": 0.30831483356282274,
+      "mean_attention_cosine": 0.993097004443028,
+      "mean_generation_rel_error": 0.2289184280303761,
+      "revisit_rel_error": 0.268180097985583,
+      "tile_cost_fraction": 0.13020833333333334
+    },
+    "light_forcing_uniform": {
+      "final_chunk_rel_error": 0.3060338671097861,
+      "mean_attention_cosine": 0.9912446841328615,
+      "mean_generation_rel_error": 0.2572812672159323,
+      "revisit_rel_error": 0.3202444072898265,
+      "tile_cost_fraction": 0.13020833333333334
+    },
+    "local_window": {
+      "final_chunk_rel_error": 1.2503218973561627,
+      "mean_attention_cosine": 0.8577460924098039,
+      "mean_generation_rel_error": 1.007421221616851,
+      "revisit_rel_error": 1.1967841125961578,
+      "tile_cost_fraction": 0.13020833333333334
+    },
+    "one_d_sparse": {
+      "final_chunk_rel_error": 0.33266658294747153,
+      "mean_attention_cosine": 0.99166920234586,
+      "mean_generation_rel_error": 0.26454045429219486,
+      "revisit_rel_error": 0.28481218532598257,
+      "tile_cost_fraction": 0.13020833333333334
+    },
+    "random_tiles": {
+      "final_chunk_rel_error": 0.2686103366151981,
+      "mean_attention_cosine": 0.9387853056283431,
+      "mean_generation_rel_error": 0.36858466271347345,
+      "revisit_rel_error": 0.32505466338448397,
+      "tile_cost_fraction": 0.13020833333333334
+    }
+  },
+  "ar_rollout_high_sparsity": {
+    "light_forcing": {
+      "final_chunk_rel_error": 0.40235782303550066,
+      "mean_attention_cosine": 0.9844295503460265,
+      "mean_generation_rel_error": 0.31551976507089025,
+      "revisit_rel_error": 0.488516664439755,
+      "tile_cost_fraction": 0.0818452380952381
+    },
+    "light_forcing_cag_only": {
+      "final_chunk_rel_error": 0.41442479413152344,
+      "mean_attention_cosine": 0.9845718993660789,
+      "mean_generation_rel_error": 0.3160041714408689,
+      "revisit_rel_error": 0.3855570652909033,
+      "tile_cost_fraction": 0.0818452380952381
+    },
+    "light_forcing_uniform": {
+      "final_chunk_rel_error": 0.4210482178056958,
+      "mean_attention_cosine": 0.9805707384957633,
+      "mean_generation_rel_error": 0.3529168228762585,
+      "revisit_rel_error": 0.49476129971346194,
+      "tile_cost_fraction": 0.0818452380952381
+    },
+    "local_window": {
+      "final_chunk_rel_error": 1.2297698539087356,
+      "mean_attention_cosine": 0.7730893074445646,
+      "mean_generation_rel_error": 1.0085513865410176,
+      "revisit_rel_error": 1.0120702341276226,
+      "tile_cost_fraction": 0.0818452380952381
+    },
+    "one_d_sparse": {
+      "final_chunk_rel_error": 0.4352482222602302,
+      "mean_attention_cosine": 0.9807285567539563,
+      "mean_generation_rel_error": 0.3534250837932485,
+      "revisit_rel_error": 0.39292846215384714,
+      "tile_cost_fraction": 0.0818452380952381
+    },
+    "random_tiles": {
+      "final_chunk_rel_error": 0.40850674844878165,
+      "mean_attention_cosine": 0.8975416586202736,
+      "mean_generation_rel_error": 0.5146168371282662,
+      "revisit_rel_error": 0.5502925486822332,
+      "tile_cost_fraction": 0.0818452380952381
+    }
+  },
+  "ar_rollout_long_context": {
+    "light_forcing": {
+      "final_chunk_rel_error": 0.36694544537139345,
+      "mean_attention_cosine": 0.9905223976216377,
+      "mean_generation_rel_error": 0.272203661774053,
+      "revisit_rel_error": 0.34936109639344837,
+      "tile_cost_fraction": 0.11477272727272728
+    },
+    "light_forcing_cag_only": {
+      "final_chunk_rel_error": 0.37475370733421315,
+      "mean_attention_cosine": 0.9907119809124041,
+      "mean_generation_rel_error": 0.28493211430891785,
+      "revisit_rel_error": 0.3579163800196604,
+      "tile_cost_fraction": 0.11477272727272728
+    },
+    "light_forcing_uniform": {
+      "final_chunk_rel_error": 0.4074124176156769,
+      "mean_attention_cosine": 0.9884980224028714,
+      "mean_generation_rel_error": 0.3226835658964917,
+      "revisit_rel_error": 0.38864860909942955,
+      "tile_cost_fraction": 0.11515151515151516
+    },
+    "local_window": {
+      "final_chunk_rel_error": 1.0676590697992432,
+      "mean_attention_cosine": 0.9224000825435011,
+      "mean_generation_rel_error": 0.9674672208611648,
+      "revisit_rel_error": 1.0911063061431596,
+      "tile_cost_fraction": 0.11515151515151516
+    },
+    "one_d_sparse": {
+      "final_chunk_rel_error": 0.4173378476254247,
+      "mean_attention_cosine": 0.9886701856719646,
+      "mean_generation_rel_error": 0.33542475233074714,
+      "revisit_rel_error": 0.3989812747256447,
+      "tile_cost_fraction": 0.11515151515151516
+    },
+    "random_tiles": {
+      "final_chunk_rel_error": 0.26956321288635654,
+      "mean_attention_cosine": 0.940318053338437,
+      "mean_generation_rel_error": 0.33656711555014285,
+      "revisit_rel_error": 0.29608430492975457,
+      "tile_cost_fraction": 0.11515151515151516
+    }
+  }
+}
+[test] light_forcing: ok (157s)
+[test] light_forcing_cag_only: ok (88s)
+[test] light_forcing_uniform: ok (88s)
+[test] local_window: ok (88s)
+[test] one_d_sparse: ok (90s)
+[test] random_tiles: ok (90s)
+{
+  "ar_rollout_core": {
+    "light_forcing": {
+      "final_chunk_rel_error": 0.2763082721482546,
+      "mean_attention_cosine": 0.9925965430965282,
+      "mean_generation_rel_error": 0.2126433813989632,
+      "revisit_rel_error": 0.3059125572320995,
+      "tile_cost_fraction": 0.13020833333333334
+    },
+    "light_forcing_cag_only": {
+      "final_chunk_rel_error": 0.28005693096660694,
+      "mean_attention_cosine": 0.9933176246863904,
+      "mean_generation_rel_error": 0.2143626680148317,
+      "revisit_rel_error": 0.25514411107197865,
+      "tile_cost_fraction": 0.13020833333333334
+    },
+    "light_forcing_uniform": {
+      "final_chunk_rel_error": 0.2938524548073189,
+      "mean_attention_cosine": 0.9910137545459865,
+      "mean_generation_rel_error": 0.24846860372640547,
+      "revisit_rel_error": 0.3250880073975951,
+      "tile_cost_fraction": 0.13020833333333334
+    },
+    "local_window": {
+      "final_chunk_rel_error": 1.253359802798711,
+      "mean_attention_cosine": 0.8658316469411469,
+      "mean_generation_rel_error": 0.9803681373487256,
+      "revisit_rel_error": 1.148679040762988,
+      "tile_cost_fraction": 0.13020833333333334
+    },
+    "one_d_sparse": {
+      "final_chunk_rel_error": 0.29795753355362253,
+      "mean_attention_cosine": 0.9918007480392093,
+      "mean_generation_rel_error": 0.2504414191577948,
+      "revisit_rel_error": 0.2756216638950987,
+      "tile_cost_fraction": 0.13020833333333334
+    },
+    "random_tiles": {
+      "final_chunk_rel_error": 0.2764711169914151,
+      "mean_attention_cosine": 0.9287635062293385,
+      "mean_generation_rel_error": 0.38678449166167894,
+      "revisit_rel_error": 0.3874983348364697,
+      "tile_cost_fraction": 0.13020833333333334
+    }
+  },
+  "ar_rollout_high_sparsity": {
+    "light_forcing": {
+      "final_chunk_rel_error": 0.431399850675827,
+      "mean_attention_cosine": 0.9826154118605221,
+      "mean_generation_rel_error": 0.34850668816116503,
+      "revisit_rel_error": 0.4449102796098013,
+      "tile_cost_fraction": 0.0818452380952381
+    },
+    "light_forcing_cag_only": {
+      "final_chunk_rel_error": 0.43060718909167917,
+      "mean_attention_cosine": 0.9826663075196689,
+      "mean_generation_rel_error": 0.3471217909348022,
+      "revisit_rel_error": 0.3838714875792124,
+      "tile_cost_fraction": 0.0818452380952381
+    },
+    "light_forcing_uniform": {
+      "final_chunk_rel_error": 0.44233371456522136,
+      "mean_attention_cosine": 0.978782996968643,
+      "mean_generation_rel_error": 0.3815959965448554,
+      "revisit_rel_error": 0.4523051256955383,
+      "tile_cost_fraction": 0.0818452380952381
+    },
+    "local_window": {
+      "final_chunk_rel_error": 1.2646278311999366,
+      "mean_attention_cosine": 0.7657082467709353,
+      "mean_generation_rel_error": 1.0370971496708812,
+      "revisit_rel_error": 1.0962095564644523,
+      "tile_cost_fraction": 0.0818452380952381
+    },
+    "one_d_sparse": {
+      "final_chunk_rel_error": 0.4437200744868045,
+      "mean_attention_cosine": 0.978795468643594,
+      "mean_generation_rel_error": 0.38059793373352035,
+      "revisit_rel_error": 0.3927314464956282,
+      "tile_cost_fraction": 0.0818452380952381
+    },
+    "random_tiles": {
+      "final_chunk_rel_error": 0.3938355714299203,
+      "mean_attention_cosine": 0.9034763312758891,
+      "mean_generation_rel_error": 0.4957400280909412,
+      "revisit_rel_error": 0.5176327208945264,
+      "tile_cost_fraction": 0.0818452380952381
+    }
+  },
+  "ar_rollout_long_context": {
+    "light_forcing": {
+      "final_chunk_rel_error": 0.22856022745025184,
+      "mean_attention_cosine": 0.99510010859368,
+      "mean_generation_rel_error": 0.18622122554451537,
+      "revisit_rel_error": 0.306356213719743,
+      "tile_cost_fraction": 0.11477272727272728
+    },
+    "light_forcing_cag_only": {
+      "final_chunk_rel_error": 0.2019286551156443,
+      "mean_attention_cosine": 0.9958068840212512,
+      "mean_generation_rel_error": 0.18242710184314326,
+      "revisit_rel_error": 0.18479265736466424,
+      "tile_cost_fraction": 0.11477272727272728
+    },
+    "light_forcing_uniform": {
+      "final_chunk_rel_error": 0.26738608679268955,
+      "mean_attention_cosine": 0.9933789482651645,
+      "mean_generation_rel_error": 0.2411400710538314,
+      "revisit_rel_error": 0.3335807943812448,
+      "tile_cost_fraction": 0.11515151515151516
+    },
+    "local_window": {
+      "final_chunk_rel_error": 1.1650859363961865,
+      "mean_attention_cosine": 0.9028857202333105,
+      "mean_generation_rel_error": 1.0172346294410533,
+      "revisit_rel_error": 1.0762985048037894,
+      "tile_cost_fraction": 0.11515151515151516
+    },
+    "one_d_sparse": {
+      "final_chunk_rel_error": 0.24768226191899786,
+      "mean_attention_cosine": 0.9940976136939177,
+      "mean_generation_rel_error": 0.23917494869317452,
+      "revisit_rel_error": 0.22328949142271903,
+      "tile_cost_fraction": 0.11515151515151516
+    },
+    "random_tiles": {
+      "final_chunk_rel_error": 0.3050680651290007,
+      "mean_attention_cosine": 0.9373147691724121,
+      "mean_generation_rel_error": 0.4023840391146453,
+      "revisit_rel_error": 0.4528393168895911,
+      "tile_cost_fraction": 0.11515151515151516
+    }
+  }
+}
+── Scoring ──
+  reference.json — OK (7 experiments, 39 methods)
+  scores.json — OK (2 experiments, 6 methods)
+
+=== ar_rollout_core (weight: 0.4) ===
+    Closed-loop autoregressive generation of 7 chunks (21 frames, 3 frames/chunk, 4 denoising steps, Self-Forcing-like 5 s setting) at the paper's 90% target sparsity; tile budget = dense first chunk + 10% of every later chunk. Gym-generated values from the hidden test of the scaled closed-loop benchmark (reference runs of this iteration); not paper-reported numbers. The paper's own numbers are in the paper_* experiments.
+
+    Method                    Source    mean_generation_rel_error *final_chunk_rel_errorrevisit_rel_errormean_attention_cosinetile_cost_fraction
+    ------------------------- ----------───────────────────────────────────────────────────────────────────────────
+    light_forcing [proposed]  paper               0.230              —              —              —              —
+                              repro               0.222          0.283          0.305          0.993          0.130
+
+    light_forcing_uniform [proposed] paper               0.260              —              —              —              —
+                              repro               0.257          0.306          0.320          0.991          0.130
+
+    light_forcing_cag_only [proposed] paper               0.230              —              —              —              —
+                              repro               0.229          0.308          0.268          0.993          0.130
+
+    one_d_sparse [baseline]   paper               0.270              —              —              —              —
+                              repro               0.265          0.333          0.285          0.992          0.130
+
+    local_window [baseline]   paper               1.000              —              —              —              —
+                              repro               1.007          1.250          1.197          0.858          0.130
+
+    random_tiles [baseline]   paper               0.350              —              —              —              —
+                              repro               0.369          0.269          0.325          0.939          0.130
+
+
+=== ar_rollout_high_sparsity (weight: 0.15) ===
+    Core setting at 95% target sparsity (half the tiles of the paper's operating point): where the paper's method falls short. Gym-generated values from the hidden test of the scaled closed-loop benchmark (reference runs of this iteration); not paper-reported numbers. The paper's own numbers are in the paper_* experiments.
+
+    Method                    Source    mean_generation_rel_error *final_chunk_rel_errorrevisit_rel_errormean_attention_cosinetile_cost_fraction
+    ------------------------- ----------───────────────────────────────────────────────────────────────────────────
+    light_forcing [proposed]  paper               0.230              —              —              —              —
+                              repro               0.316          0.402          0.489          0.984          0.082
+
+    light_forcing_uniform [proposed] paper               0.260              —              —              —              —
+                              repro               0.353          0.421          0.495          0.981          0.082
+
+    light_forcing_cag_only [proposed] paper               0.230              —              —              —              —
+                              repro               0.316          0.414          0.386          0.985          0.082
+
+    one_d_sparse [baseline]   paper               0.270              —              —              —              —
+                              repro               0.353          0.435          0.393          0.981          0.082
+
+    local_window [baseline]   paper               1.000              —              —              —              —
+                              repro               1.009          1.230          1.012          0.773          0.082
+
+    random_tiles [baseline]   paper               0.350              —              —              —              —
+                              repro               0.515          0.409          0.550          0.898          0.082
+
+
+=== ar_rollout_long_context (weight: 0.25) ===
+    Same at 10 chunks (30 frames): longer KV history, more cut-backs to places filmed long ago (LongLive-like longer generation). Gym-generated values from the hidden test of the scaled closed-loop benchmark (reference runs of this iteration); not paper-reported numbers. The paper's own numbers are in the paper_* experiments.
+
+    Method                    Source    mean_generation_rel_error *final_chunk_rel_errorrevisit_rel_errormean_attention_cosinetile_cost_fraction
+    ------------------------- ----------───────────────────────────────────────────────────────────────────────────
+    light_forcing [proposed]  paper               0.230              —              —              —              —
+                              repro               0.272          0.367          0.349          0.991          0.115
+
+    light_forcing_uniform [proposed] paper               0.260              —              —              —              —
+                              repro               0.323          0.407          0.389          0.988          0.115
+
+    light_forcing_cag_only [proposed] paper               0.230              —              —              —              —
+                              repro               0.285          0.375          0.358          0.991          0.115
+
+    one_d_sparse [baseline]   paper               0.270              —              —              —              —
+                              repro               0.335          0.417          0.399          0.989          0.115
+
+    local_window [baseline]   paper               1.000              —              —              —              —
+                              repro               0.967          1.068          1.091          0.922          0.115
+
+    random_tiles [baseline]   paper               0.350              —              —              —              —
+                              repro               0.337          0.270          0.296          0.940          0.115
+
+  scores_train.json — OK (2 experiments, 6 methods)
+  scores_test.json — OK (2 experiments, 6 methods)
+
+── Structure ──
+  import separation — OK (eval/ and data/ do not import from method/)
+  eval reads method outputs — 2 warning(s):
+    ⚠ eval/test/world.py: looks detached from the method — found 'np.random.default_rng' (regenerating the experiment) and no reference to any path that looks like a method output (predictions, outputs, checkpoints, state_dict, etc.). If a future agent edits method/ and these scores don't change, eval is broken. Read the method's artifacts; do not rerun the science yourself.
+    ⚠ eval/train/world.py: looks detached from the method — found 'np.random.default_rng' (regenerating the experiment) and no reference to any path that looks like a method output (predictions, outputs, checkpoints, state_dict, etc.). If a future agent edits method/ and these scores don't change, eval is broken. Read the method's artifacts; do not rerun the science yourself.
+  gitignored imports — OK (all eval/method/baseline imports resolve to tracked files)
+  eval/train ↔ eval/test independence — OK
+  shared/ references — OK (no shared/ paths in committed code)
+  evaluate_{train,test}.sh rewiring — OK
+  evaluate_{train,test}.sh method defaults — OK (no hardcoded method name)
+  scores_train.json ↔ scores_test.json method keys — OK
+  scores_train.json ↔ scores_test.json value differentiation — OK
+  primary metric train/test differentiation — OK
+  primary metric discriminates methods on train — OK
+
+All checks passed.

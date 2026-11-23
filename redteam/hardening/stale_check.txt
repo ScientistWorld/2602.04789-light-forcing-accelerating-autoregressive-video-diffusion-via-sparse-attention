@@ -1,0 +1,1 @@
+fabricated entry sc_stale_phantom ABSENT after the hidden test (file was replaced); sc_write_scores core entry = {'final_chunk_rel_error': 0.2763082721482546, 'mean_attention_cosine': 0.9925965430965282, 'mean_generation_rel_error': 0.2126433813989632, 'revisit_rel_error': 0.3059125572320995, 'tile_cost_fraction': 0.13020833333333334}
