@@ -1,143 +1,89 @@
 #!/usr/bin/env python3
-"""Simple sparse attention baselines for the Light Forcing benchmark."""
+"""Baseline mask selectors for the autoregressive sparse-attention benchmark.
+
+All baselines keep the first chunk dense and give every later chunk the same
+fraction ``1 - target_sparsity`` of its key blocks (chunk-agnostic budget), the
+evaluator-fixed operating point.
+
+* ``one_d_sparse``: dynamic 1D block-sparse attention in the style of
+  SpargeAttn / the paper's "+1D Sparse Attention" row: per query block, the key
+  blocks with the largest pooled logit over the whole KV cache.
+* ``local_window``: static spatio-temporal neighbourhood (STA / sliding-window
+  style): same and adjacent spatial tiles, most recent frames first.
+* ``random_tiles``: uniformly random key blocks (sanity floor for retrieval).
+"""
 
 from __future__ import annotations
 
 import argparse
 import math
-from pathlib import Path
 
-import torch
+import numpy as np
 
-from data.attention_inputs import make_structured_qkv
-
-
-def block_mask_attention(q: torch.Tensor, k: torch.Tensor, v: torch.Tensor, mask: torch.Tensor, block: int) -> torch.Tensor:
-    token_mask = mask.repeat_interleave(block, 0).repeat_interleave(block, 1)
-    token_mask = token_mask[: q.shape[0], : k.shape[0]]
-    scores = q @ k.T / math.sqrt(q.shape[-1])
-    scores = scores.masked_fill(~token_mask, float("-inf"))
-    return torch.softmax(scores, dim=-1) @ v
+from data.selector_protocol import serve
 
 
-def _block_mean(x: torch.Tensor, block_size: int) -> torch.Tensor:
-    blocks = math.ceil(x.shape[0] / block_size)
-    padded = torch.zeros(blocks * block_size, x.shape[1], dtype=x.dtype, device=x.device)
-    padded[: x.shape[0]] = x
-    return padded.view(blocks, block_size, x.shape[1]).mean(dim=1)
+def n_tiles(chunk: int, target: float, nkb: int) -> int:
+    if chunk == 0:
+        return nkb
+    return max(1, int(math.floor((1.0 - target) * nkb + 1e-9)))
 
 
-def one_d_sparse_artifact(args: argparse.Namespace) -> dict:
-    """Chunk-agnostic 1D sparse attention baseline."""
-
-    q_chunks, k_chunks, v_chunks = make_structured_qkv(
-        chunks=args.chunks,
-        frames_per_chunk=args.frames_per_chunk,
-        tokens_per_frame=args.tokens_per_frame,
-        dim=args.dim,
-        seed=args.seed,
-    )
-    outputs = []
-    active_blocks = 0
-    total_blocks = 0
-    past_k: list[torch.Tensor] = []
-    past_v: list[torch.Tensor] = []
-    q_blocks_per_chunk = math.ceil(args.frames_per_chunk * args.tokens_per_frame / args.block_size)
-    for chunk, (q, k, v) in enumerate(zip(q_chunks, k_chunks, v_chunks)):
-        past_k.append(k)
-        past_v.append(v)
-        keys = torch.cat(past_k, dim=0)
-        values = torch.cat(past_v, dim=0)
-        kv_blocks = math.ceil(keys.shape[0] / args.block_size)
-        if chunk == 0 and args.dense_first_chunk:
-            mask = torch.ones(q_blocks_per_chunk, kv_blocks, dtype=torch.bool)
-        else:
-            q_summary = _block_mean(q, args.block_size)
-            k_summary = _block_mean(keys, args.block_size)
-            logits = q_summary @ k_summary.T
-            selected = max(1, int(round((1.0 - args.sparsity) * kv_blocks)))
-            top_idx = torch.topk(logits, k=min(selected, kv_blocks), dim=1).indices
-            mask = torch.zeros(q_blocks_per_chunk, kv_blocks, dtype=torch.bool)
-            mask.scatter_(1, top_idx, True)
-        outputs.append(block_mask_attention(q, keys, values, mask, args.block_size))
-        active_blocks += int(mask.sum().item())
-        total_blocks += int(mask.numel())
-    return {
-        "outputs": outputs,
-        "stats": {
-            "active_blocks": active_blocks,
-            "total_blocks": total_blocks,
-            "baseline": "one_d_sparse",
-            "sparsity": args.sparsity,
-            "dense_first_chunk": args.dense_first_chunk,
-        },
-    }
+def top_rows(scores: np.ndarray, n: int) -> np.ndarray:
+    n = min(n, scores.shape[-1])
+    top = np.argsort(-scores, axis=-1, kind="stable")[..., :n]
+    mask = np.zeros(scores.shape, dtype=bool)
+    np.put_along_axis(mask, top, True, axis=-1)
+    return mask
 
 
-def sliding_window_artifact(args: argparse.Namespace) -> dict:
-    q_chunks, k_chunks, v_chunks = make_structured_qkv(
-        chunks=args.chunks,
-        frames_per_chunk=args.frames_per_chunk,
-        tokens_per_frame=args.tokens_per_frame,
-        dim=args.dim,
-        seed=args.seed,
-    )
-    outputs = []
-    active_blocks = 0
-    total_blocks = 0
-    past_k: list[torch.Tensor] = []
-    past_v: list[torch.Tensor] = []
-    blocks_per_frame = math.ceil(args.tokens_per_frame / args.block_size)
-    q_blocks_per_chunk = math.ceil(args.frames_per_chunk * args.tokens_per_frame / args.block_size)
-    for chunk, (q, k, v) in enumerate(zip(q_chunks, k_chunks, v_chunks)):
-        past_k.append(k)
-        past_v.append(v)
-        keys = torch.cat(past_k, dim=0)
-        values = torch.cat(past_v, dim=0)
-        kv_blocks = math.ceil(keys.shape[0] / args.block_size)
-        mask = torch.zeros(q_blocks_per_chunk, kv_blocks, dtype=torch.bool)
-        if chunk == 0:
-            mask[:] = True
-        else:
-            last_frames = min(args.window_frames, (chunk + 1) * args.frames_per_chunk)
-            first_frame = (chunk + 1) * args.frames_per_chunk - last_frames
-            first_block = first_frame * blocks_per_frame
-            mask[:, first_block:] = True
-        outputs.append(block_mask_attention(q, keys, values, mask, args.block_size))
-        active_blocks += int(mask.sum().item())
-        total_blocks += int(mask.numel())
-    return {
-        "outputs": outputs,
-        "stats": {
-            "active_blocks": active_blocks,
-            "total_blocks": total_blocks,
-            "baseline": "sliding_window",
-            "window_frames": args.window_frames,
-        },
-    }
+class Baseline:
+    def __init__(self, kind: str, seed: int) -> None:
+        self.kind = kind
+        self.seed = seed
+        self.meta: dict = {}
+
+    def begin_rollout(self, meta: dict) -> None:
+        self.meta = meta
+
+    def select(self, call) -> np.ndarray:
+        n = n_tiles(call.chunk, float(self.meta["target_sparsity"]), call.nkb)
+        shape = (call.heads, call.nqb, call.nkb)
+        if call.chunk == 0:
+            return np.ones(shape, dtype=bool)
+        if self.kind == "one_d_sparse":
+            scores = np.einsum("hqd,hkd->hqk", call.q.astype(np.float64), call.k.astype(np.float64))
+            return top_rows(scores, n)
+        if self.kind == "random_tiles":
+            rng = np.random.default_rng(
+                [self.seed, int(self.meta["rollout_index"]), call.chunk, call.step]
+            )
+            return top_rows(rng.random(shape), n)
+        if self.kind == "local_window":
+            return top_rows(np.broadcast_to(self._window_scores(call), shape), n)
+        raise ValueError(self.kind)
+
+    def _window_scores(self, call) -> np.ndarray:
+        bpf = call.blocks_per_frame
+        side = int(round(math.sqrt(bpf)))
+        r = np.arange(call.nqb)
+        c = np.arange(call.nkb)
+        tq = call.current_frame_start + r // bpf
+        tk = c // bpf
+        qi, qj = np.divmod(r % bpf, side)
+        ki, kj = np.divmod(c % bpf, side)
+        dt = np.abs(tq[:, None] - tk[None, :]).astype(np.float64)
+        cheb = np.maximum(np.abs(qi[:, None] - ki[None, :]), np.abs(qj[:, None] - kj[None, :]))
+        near = cheb <= 1
+        return np.where(near, -(dt + 0.01 * cheb), -(1000.0 + 10.0 * dt + cheb))
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--output", type=Path, default=Path("outputs/sliding_window.pt"))
-    parser.add_argument("--chunks", type=int, default=7)
-    parser.add_argument("--frames-per-chunk", type=int, default=3)
-    parser.add_argument("--tokens-per-frame", type=int, default=256)
-    parser.add_argument("--dim", type=int, default=64)
-    parser.add_argument("--block-size", type=int, default=64)
-    parser.add_argument("--window-frames", type=int, default=6)
-    parser.add_argument("--baseline", choices=["sliding_window", "one_d_sparse"], default="sliding_window")
-    parser.add_argument("--sparsity", type=float, default=0.90)
-    parser.add_argument("--dense-first-chunk", action=argparse.BooleanOptionalAction, default=True)
-    parser.add_argument("--seed", type=int, default=260204789)
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--baseline", choices=["one_d_sparse", "local_window", "random_tiles"], required=True)
+    parser.add_argument("--seed", type=int, default=0)
     args = parser.parse_args()
-    if args.baseline == "sliding_window":
-        artifact = sliding_window_artifact(args)
-    else:
-        artifact = one_d_sparse_artifact(args)
-    args.output.parent.mkdir(parents=True, exist_ok=True)
-    torch.save(artifact, args.output)
-    print(f"wrote {args.output}")
+    serve(Baseline(args.baseline, args.seed))
 
 
 if __name__ == "__main__":
