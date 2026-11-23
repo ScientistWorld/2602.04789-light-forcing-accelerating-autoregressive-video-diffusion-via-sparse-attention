@@ -1,8 +1,5 @@
-# Once you set action to 'submit' or 'done', STOP immediately.
-# Do NOT sleep, poll, or wait for jobs. The system reads this file
-# only after your turn ends.
-action: pending
+action: submit
 gpus: 0
 test: false
 milestone: secondary_claims
-notes: ""
+notes: "Calibration of the redesigned closed-loop AR sparse-attention benchmark: protocol smoke test + world presets x selectors (reference, ablations, baselines, variants, oracle)."
