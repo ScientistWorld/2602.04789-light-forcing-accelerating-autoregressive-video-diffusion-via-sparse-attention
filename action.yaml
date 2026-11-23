@@ -1,6 +1,8 @@
 # Once you set action to 'submit' or 'done', STOP immediately.
 # Do NOT sleep, poll, or wait for jobs. The system reads this file
 # only after your turn ends.
-action: done
+action: pending
+gpus: 0
+test: false
 milestone: secondary_claims
-notes: "Red-team audit done (REDTEAM.md): random tiles (retrieval removed) and plain dense attention both outrank the reference; evaluator trusts outputs vs masks, self-reported/negative tile counts, agent-editable data/ generator, and agent-chosen method/experiment lists; CAG/HSA contribute ~0 on the synthetic data."
+notes: ""
