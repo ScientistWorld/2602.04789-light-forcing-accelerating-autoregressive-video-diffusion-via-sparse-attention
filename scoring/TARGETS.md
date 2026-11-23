@@ -2,48 +2,57 @@
 
 ## Paper-Reported Reference Targets
 
-`scoring/reference.json` includes paper-reported VBench results from Table 1 for Self-Forcing and LongLive, plus paper ablation tables for context. These document the original target claims: preserve or improve video-generation quality while reducing attention cost.
+`scoring/reference.json` keeps the paper's VBench tables unchanged:
 
-The packaged runnable reproduction does not regenerate 1.3B videos or run VBench. It evaluates the same sparse-attention computation on deterministic scaled attention artifacts through the targets below.
+- Table 1: Self-Forcing and LongLive main comparison;
+- Table 2: component ablation;
+- Table 3: top-k sensitivity.
 
-## Primary: scaled_attention_core
+They document the original claim: preserve or improve video quality at about 90% attention sparsity with a 1.2–1.3× speedup. The runnable gym does not regenerate 1.3B videos or run VBench. It scores the same question on a closed-loop toy AR attention world (see `briefing/evaluation.md`).
 
-Tests whether a sparse autoregressive attention method preserves the dense-attention output on a deterministic chunked sequence benchmark.
+All runnable targets are measured by `bash scripts/evaluate_test.sh` (hidden test; train analogue `bash scripts/evaluate_train.sh`). They are written to `scoring/scores_test.json`.
 
-- **Metric**: `mean_relative_l2_error` (lower is better)
-- **Metric**: `mean_cosine_similarity` (higher is better)
-- **Run**: `bash scripts/evaluate.sh <method_name> <artifact.pt>`
+## Primary: ar_rollout_core
 
-## Constraint: scaled_attention_core
+Generation quality at the paper's operating point (target sparsity 0.9).
 
-Tests whether output preservation is achieved with fewer active blockwise attention tiles rather than by falling back to dense attention.
+- **Metric**: `mean_generation_rel_error` (lower is better; primary)
+- **Metric**: `final_chunk_rel_error` (lower is better)
+- **Metric**: `revisit_rel_error` (lower is better)
+- **Metric**: `mean_attention_cosine` (higher is better)
 
-- **Metric**: `active_block_fraction` (lower is better)
-- **Metric**: `dense_equivalent_fraction` (lower is better)
-- **Run**: `bash scripts/evaluate.sh <method_name> <artifact.pt>`
+## Constraint: tile budget (all ar_rollout_* experiments)
 
-## Baseline: scaled_attention_core
+Quality must be reached within the evaluator-fixed tile budget:
 
-Compares against a high-cost local-context baseline and a chunk-agnostic sparse-attention baseline so improvements cannot come only from using more tiles.
+- the dense first chunk, plus (1 − target sparsity) of every later chunk's tiles;
+- probes cost 0.5 tile each.
 
-- **Metric**: `mean_relative_l2_error` (lower is better)
-- **Metric**: `active_block_fraction` (lower is better)
-- **Run**: `bash scripts/reproduce.sh`
+Exceeding the budget in any rollout, or sending an invalid mask, fails the run. A failed run receives the worst value of every metric in every experiment.
 
-## Robustness: scaled_attention_long_context
+- **Metric**: `tile_cost_fraction` (reported; enforced as a hard constraint, not scored)
 
-Checks the same output-preservation and active-tile constraints when autoregressive history is longer.
+## Baselines: ar_rollout_core / long_context / high_sparsity
 
-- **Metric**: `mean_relative_l2_error` (lower is better)
-- **Metric**: `mean_cosine_similarity` (higher is better)
-- **Metric**: `active_block_fraction` (lower is better)
-- **Run**: `bash scripts/reproduce.sh`
+At the same budget, these baselines anchor the scale:
 
-## Ablation: fixed-budget variants
+- chunk-agnostic 1D block-sparse attention (`one_d_sparse`);
+- a static spatio-temporal local window (`local_window`);
+- uniformly random tiles (`random_tiles`).
 
-Tests whether sparse methods benefit from changing their attention budget across autoregressive chunks instead of using one fixed budget after the initial chunk.
+Dense attention is the zero-error reference, but it violates the budget.
 
-- **Metric**: `mean_relative_l2_error` (lower is better)
-- **Metric**: `mean_cosine_similarity` (higher is better)
-- **Metric**: `active_block_fraction` (lower is better)
-- **Run**: `bash scripts/reproduce.sh`
+## Robustness: ar_rollout_long_context
+
+The same metrics with 10 chunks: longer history and more long-range revisits.
+
+## Headroom: ar_rollout_high_sparsity
+
+The same metrics at target sparsity 0.95, where the paper's method degrades most.
+
+## Ablations (reference runs)
+
+- `light_forcing_uniform`: the chunk-adaptive budget is removed.
+- `light_forcing_cag_only`: the frame-level retrieval stage is removed.
+
+Both are scored on all three experiments with the metrics above.

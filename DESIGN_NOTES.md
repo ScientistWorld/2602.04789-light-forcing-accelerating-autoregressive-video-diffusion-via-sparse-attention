@@ -1,3 +1,5 @@
+> **Superseded (iteration 11):** this file describes the old artifact-scoring design, which was replaced by the closed-loop selector benchmark. See `HARDENING.md` for the current design and evidence.
+
 # Design Notes
 
 ## Checked

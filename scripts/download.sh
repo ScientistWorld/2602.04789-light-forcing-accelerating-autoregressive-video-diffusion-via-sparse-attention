@@ -12,12 +12,14 @@
 # Estimated total download size: 0 GB
 # Estimated disk usage after extraction: 0 GB
 #
-# This reproduction uses only deterministic tracked benchmark inputs, so there
-# are no remote datasets or model weights to fetch.
+# The benchmark world (camera paths, attention features, noise) is generated
+# at evaluation time from tracked code in eval/, so there are no remote
+# datasets or model weights to fetch. Python packages (torch, numpy) are
+# installed by environment/setup.sh.
 
 set -e
 
 cd /home/user
 
 mkdir -p data/downloads
-echo "No external downloads are required; benchmark inputs are generated deterministically from tracked code."
+echo "Nothing to download: benchmark instances are generated from tracked code at evaluation time."

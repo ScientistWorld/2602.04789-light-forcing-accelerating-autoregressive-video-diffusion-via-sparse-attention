@@ -4,6 +4,14 @@
 
 ## Progress Log
 
+### [2026-11-23] - secondary_claims (hardening)
+- Rebuilt the gym as a closed-loop AR sparse-attention benchmark with sandboxed mask selectors, an enforced tile budget, and hidden test seeds.
+- Reproduced:
+  - the core claim (Light Forcing beats 1D sparse, local window and random tiles at matched budget on 20/20 paired instances);
+  - CAG's benefit.
+- Not reproduced: HSA's frame-retrieval benefit over CAG + 1D selection.
+- See HARDENING.md.
+
 ### [2026-06-05 04:18] - secondary_claims
 - Completed final verification of folder structure, method-agnostic documentation, reusable scoring, train/test split artifacts, and download portability.
 - Removed generated Python cache directories from source folders.

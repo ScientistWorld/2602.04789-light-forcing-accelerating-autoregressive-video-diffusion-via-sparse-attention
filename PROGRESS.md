@@ -48,3 +48,23 @@
 - Paper setup: Self Forcing and LongLive 1.3B autoregressive video diffusion models evaluated with VBench on generated videos.
 - Reproduction setup: deterministic scaled AR-style attention tensors evaluated against dense attention outputs.
 - Reason: this preserves the paper's actual CAG + HSA sparse attention computation while avoiding unavailable full video-model weights and expensive VBench generation in the initial reproduction.
+
+## Iteration 11 (hardening, 2026-11-23)
+
+- Replaced the open-loop artifact benchmark with a closed-loop AR video-diffusion attention world. Methods are sandboxed mask selectors; the evaluator computes everything and enforces the tile budget.
+- Reference: CAG + HSA, using the Appendix-A reading of block selection. Reruns are bit-identical.
+- Reproduced:
+  - the core claim: beats 1D sparse attention, static local windows and random tiles at a matched budget, 0/20 paired instances against;
+  - CAG helps: 0/20 instances better without it;
+  - top-k = 6 vs 12 is robust.
+- Not reproduced: HSA's frame stage gives no gain over CAG + 1D selection; it is worse on revisits.
+- All 12 red-team shortcuts and the new ones are closed. A genuinely better variant (stronger CAG growth) wins on 20/20 instances.
+- Details: `HARDENING.md`.
+
+## Deviations from Paper (current)
+
+- A closed-loop toy attention world (one 4-head layer, 4-step denoising, camera with revisits) instead of 1.3B models.
+- Fidelity to the dense-attention rollout instead of VBench.
+- A tile budget instead of latency.
+- No fine-tuning.
+- 16 blocks per frame.

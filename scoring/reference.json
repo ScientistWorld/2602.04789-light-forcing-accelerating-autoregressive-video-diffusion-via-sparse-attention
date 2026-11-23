@@ -322,27 +322,51 @@
       "results": {
         "light_forcing": {
           "type": "proposed",
-          "mean_generation_rel_error": 0.23
+          "final_chunk_rel_error": 0.276308,
+          "mean_attention_cosine": 0.992597,
+          "mean_generation_rel_error": 0.212643,
+          "revisit_rel_error": 0.305913,
+          "tile_cost_fraction": 0.130208
         },
         "light_forcing_uniform": {
           "type": "proposed",
-          "mean_generation_rel_error": 0.26
+          "final_chunk_rel_error": 0.293852,
+          "mean_attention_cosine": 0.991014,
+          "mean_generation_rel_error": 0.248469,
+          "revisit_rel_error": 0.325088,
+          "tile_cost_fraction": 0.130208
         },
         "light_forcing_cag_only": {
           "type": "proposed",
-          "mean_generation_rel_error": 0.23
+          "final_chunk_rel_error": 0.280057,
+          "mean_attention_cosine": 0.993318,
+          "mean_generation_rel_error": 0.214363,
+          "revisit_rel_error": 0.255144,
+          "tile_cost_fraction": 0.130208
         },
         "one_d_sparse": {
           "type": "baseline",
-          "mean_generation_rel_error": 0.27
+          "final_chunk_rel_error": 0.297958,
+          "mean_attention_cosine": 0.991801,
+          "mean_generation_rel_error": 0.250441,
+          "revisit_rel_error": 0.275622,
+          "tile_cost_fraction": 0.130208
         },
         "local_window": {
           "type": "baseline",
-          "mean_generation_rel_error": 1.0
+          "final_chunk_rel_error": 1.25336,
+          "mean_attention_cosine": 0.865832,
+          "mean_generation_rel_error": 0.980368,
+          "revisit_rel_error": 1.148679,
+          "tile_cost_fraction": 0.130208
         },
         "random_tiles": {
           "type": "baseline",
-          "mean_generation_rel_error": 0.35
+          "final_chunk_rel_error": 0.276471,
+          "mean_attention_cosine": 0.928764,
+          "mean_generation_rel_error": 0.386784,
+          "revisit_rel_error": 0.387498,
+          "tile_cost_fraction": 0.130208
         }
       }
     },
@@ -380,27 +404,51 @@
       "results": {
         "light_forcing": {
           "type": "proposed",
-          "mean_generation_rel_error": 0.23
+          "final_chunk_rel_error": 0.22856,
+          "mean_attention_cosine": 0.9951,
+          "mean_generation_rel_error": 0.186221,
+          "revisit_rel_error": 0.306356,
+          "tile_cost_fraction": 0.114773
         },
         "light_forcing_uniform": {
           "type": "proposed",
-          "mean_generation_rel_error": 0.26
+          "final_chunk_rel_error": 0.267386,
+          "mean_attention_cosine": 0.993379,
+          "mean_generation_rel_error": 0.24114,
+          "revisit_rel_error": 0.333581,
+          "tile_cost_fraction": 0.115152
         },
         "light_forcing_cag_only": {
           "type": "proposed",
-          "mean_generation_rel_error": 0.23
+          "final_chunk_rel_error": 0.201929,
+          "mean_attention_cosine": 0.995807,
+          "mean_generation_rel_error": 0.182427,
+          "revisit_rel_error": 0.184793,
+          "tile_cost_fraction": 0.114773
         },
         "one_d_sparse": {
           "type": "baseline",
-          "mean_generation_rel_error": 0.27
+          "final_chunk_rel_error": 0.247682,
+          "mean_attention_cosine": 0.994098,
+          "mean_generation_rel_error": 0.239175,
+          "revisit_rel_error": 0.223289,
+          "tile_cost_fraction": 0.115152
         },
         "local_window": {
           "type": "baseline",
-          "mean_generation_rel_error": 1.0
+          "final_chunk_rel_error": 1.165086,
+          "mean_attention_cosine": 0.902886,
+          "mean_generation_rel_error": 1.017235,
+          "revisit_rel_error": 1.076299,
+          "tile_cost_fraction": 0.115152
         },
         "random_tiles": {
           "type": "baseline",
-          "mean_generation_rel_error": 0.35
+          "final_chunk_rel_error": 0.305068,
+          "mean_attention_cosine": 0.937315,
+          "mean_generation_rel_error": 0.402384,
+          "revisit_rel_error": 0.452839,
+          "tile_cost_fraction": 0.115152
         }
       }
     },
@@ -438,27 +486,51 @@
       "results": {
         "light_forcing": {
           "type": "proposed",
-          "mean_generation_rel_error": 0.23
+          "final_chunk_rel_error": 0.4314,
+          "mean_attention_cosine": 0.982615,
+          "mean_generation_rel_error": 0.348507,
+          "revisit_rel_error": 0.44491,
+          "tile_cost_fraction": 0.081845
         },
         "light_forcing_uniform": {
           "type": "proposed",
-          "mean_generation_rel_error": 0.26
+          "final_chunk_rel_error": 0.442334,
+          "mean_attention_cosine": 0.978783,
+          "mean_generation_rel_error": 0.381596,
+          "revisit_rel_error": 0.452305,
+          "tile_cost_fraction": 0.081845
         },
         "light_forcing_cag_only": {
           "type": "proposed",
-          "mean_generation_rel_error": 0.23
+          "final_chunk_rel_error": 0.430607,
+          "mean_attention_cosine": 0.982666,
+          "mean_generation_rel_error": 0.347122,
+          "revisit_rel_error": 0.383871,
+          "tile_cost_fraction": 0.081845
         },
         "one_d_sparse": {
           "type": "baseline",
-          "mean_generation_rel_error": 0.27
+          "final_chunk_rel_error": 0.44372,
+          "mean_attention_cosine": 0.978795,
+          "mean_generation_rel_error": 0.380598,
+          "revisit_rel_error": 0.392731,
+          "tile_cost_fraction": 0.081845
         },
         "local_window": {
           "type": "baseline",
-          "mean_generation_rel_error": 1.0
+          "final_chunk_rel_error": 1.264628,
+          "mean_attention_cosine": 0.765708,
+          "mean_generation_rel_error": 1.037097,
+          "revisit_rel_error": 1.09621,
+          "tile_cost_fraction": 0.081845
         },
         "random_tiles": {
           "type": "baseline",
-          "mean_generation_rel_error": 0.35
+          "final_chunk_rel_error": 0.393836,
+          "mean_attention_cosine": 0.903476,
+          "mean_generation_rel_error": 0.49574,
+          "revisit_rel_error": 0.517633,
+          "tile_cost_fraction": 0.081845
         }
       }
     }

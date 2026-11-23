@@ -1,3 +1,5 @@
+> **Superseded (iteration 11):** this file describes the old artifact-scoring gym, which was replaced by the closed-loop selector benchmark. See `HARDENING.md` for the current design and evidence.
+
 # Verification Report
 
 ## Initial Assessment
